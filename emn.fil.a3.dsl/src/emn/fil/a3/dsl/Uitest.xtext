@@ -1,0 +1,58 @@
+grammar org.emn.UiTest with org.eclipse.xtext.common.Terminals
+
+generate uiTest "http://www.emn.org/UiTest"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+UiTest:
+	functions+=Function*
+	commands+=Command*
+;
+
+Function:
+		'function' name=FunctionName '('parameters+=VariableDefinition*')'
+		'{'
+			statements+= (Command | FunctionCall)+
+		'}'
+;
+FunctionCall:
+	name=[FunctionName] '('parameters+=STRING*')' 
+;
+FunctionName:
+	name=ID
+;
+
+Command:
+	((Open | GoOn | Fill | Click | Verify | Store) | FunctionCall) ';'
+;
+Open:
+	name='open' program=STRING 
+;
+GoOn:
+	name='goOn' address=STRING  
+;
+Store:
+	'store' selector=Selector  key=VariableDefinition 
+;
+
+Fill:
+	'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
+;
+
+Click:
+	name='click' selector=Selector
+;
+
+Verify:
+	name='verify' selector=Selector STRING
+;
+
+Selector:
+	'['attributeName=STRING'='attributeValue=STRING ']'
+;
+
+VariableDefinition:
+	name=KEY
+;
+
+ KEY:
+	ID
+;

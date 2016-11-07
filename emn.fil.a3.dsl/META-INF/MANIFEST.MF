@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: emn.fil.a3.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: emn.fil.a3.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.emn.uiTest,
+ org.emn.uiTest.impl,
+ org.emn.services,
+ org.emn,
+ org.emn.serializer,
+ org.emn.uiTest.util,
+ org.emn.generator,
+ org.emn.validation,
+ org.emn.parser.antlr.internal,
+ org.emn.scoping,
+ org.emn.parser.antlr
+Import-Package: org.apache.log4j
