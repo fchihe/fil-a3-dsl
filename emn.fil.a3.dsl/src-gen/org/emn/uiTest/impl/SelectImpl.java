@@ -11,26 +11,26 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.emn.uiTest.Select;
 import org.emn.uiTest.Selector;
-import org.emn.uiTest.Store;
 import org.emn.uiTest.UiTestPackage;
-import org.emn.uiTest.VariableDefinition;
+import org.emn.uiTest.Value;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Store</b></em>'.
+ * An implementation of the model object '<em><b>Select</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.emn.uiTest.impl.StoreImpl#getSelector <em>Selector</em>}</li>
- *   <li>{@link org.emn.uiTest.impl.StoreImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link org.emn.uiTest.impl.SelectImpl#getSelector <em>Selector</em>}</li>
+ *   <li>{@link org.emn.uiTest.impl.SelectImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StoreImpl extends CommandImpl implements Store
+public class SelectImpl extends CommandImpl implements Select
 {
   /**
    * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
@@ -43,21 +43,21 @@ public class StoreImpl extends CommandImpl implements Store
   protected Selector selector;
 
   /**
-   * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKey()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected VariableDefinition key;
+  protected Value value;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StoreImpl()
+  protected SelectImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class StoreImpl extends CommandImpl implements Store
   @Override
   protected EClass eStaticClass()
   {
-    return UiTestPackage.Literals.STORE;
+    return UiTestPackage.Literals.SELECT;
   }
 
   /**
@@ -94,7 +94,7 @@ public class StoreImpl extends CommandImpl implements Store
     selector = newSelector;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.STORE__SELECTOR, oldSelector, newSelector);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__SELECTOR, oldSelector, newSelector);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -111,14 +111,14 @@ public class StoreImpl extends CommandImpl implements Store
     {
       NotificationChain msgs = null;
       if (selector != null)
-        msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.STORE__SELECTOR, null, msgs);
+        msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__SELECTOR, null, msgs);
       if (newSelector != null)
-        msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.STORE__SELECTOR, null, msgs);
+        msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__SELECTOR, null, msgs);
       msgs = basicSetSelector(newSelector, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.STORE__SELECTOR, newSelector, newSelector));
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__SELECTOR, newSelector, newSelector));
   }
 
   /**
@@ -126,9 +126,9 @@ public class StoreImpl extends CommandImpl implements Store
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDefinition getKey()
+  public Value getValue()
   {
-    return key;
+    return value;
   }
 
   /**
@@ -136,13 +136,13 @@ public class StoreImpl extends CommandImpl implements Store
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetKey(VariableDefinition newKey, NotificationChain msgs)
+  public NotificationChain basicSetValue(Value newValue, NotificationChain msgs)
   {
-    VariableDefinition oldKey = key;
-    key = newKey;
+    Value oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.STORE__KEY, oldKey, newKey);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class StoreImpl extends CommandImpl implements Store
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKey(VariableDefinition newKey)
+  public void setValue(Value newValue)
   {
-    if (newKey != key)
+    if (newValue != value)
     {
       NotificationChain msgs = null;
-      if (key != null)
-        msgs = ((InternalEObject)key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.STORE__KEY, null, msgs);
-      if (newKey != null)
-        msgs = ((InternalEObject)newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.STORE__KEY, null, msgs);
-      msgs = basicSetKey(newKey, msgs);
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.STORE__KEY, newKey, newKey));
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__VALUE, newValue, newValue));
   }
 
   /**
@@ -179,10 +179,10 @@ public class StoreImpl extends CommandImpl implements Store
   {
     switch (featureID)
     {
-      case UiTestPackage.STORE__SELECTOR:
+      case UiTestPackage.SELECT__SELECTOR:
         return basicSetSelector(null, msgs);
-      case UiTestPackage.STORE__KEY:
-        return basicSetKey(null, msgs);
+      case UiTestPackage.SELECT__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +197,10 @@ public class StoreImpl extends CommandImpl implements Store
   {
     switch (featureID)
     {
-      case UiTestPackage.STORE__SELECTOR:
+      case UiTestPackage.SELECT__SELECTOR:
         return getSelector();
-      case UiTestPackage.STORE__KEY:
-        return getKey();
+      case UiTestPackage.SELECT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +215,11 @@ public class StoreImpl extends CommandImpl implements Store
   {
     switch (featureID)
     {
-      case UiTestPackage.STORE__SELECTOR:
+      case UiTestPackage.SELECT__SELECTOR:
         setSelector((Selector)newValue);
         return;
-      case UiTestPackage.STORE__KEY:
-        setKey((VariableDefinition)newValue);
+      case UiTestPackage.SELECT__VALUE:
+        setValue((Value)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +235,11 @@ public class StoreImpl extends CommandImpl implements Store
   {
     switch (featureID)
     {
-      case UiTestPackage.STORE__SELECTOR:
+      case UiTestPackage.SELECT__SELECTOR:
         setSelector((Selector)null);
         return;
-      case UiTestPackage.STORE__KEY:
-        setKey((VariableDefinition)null);
+      case UiTestPackage.SELECT__VALUE:
+        setValue((Value)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,12 +255,12 @@ public class StoreImpl extends CommandImpl implements Store
   {
     switch (featureID)
     {
-      case UiTestPackage.STORE__SELECTOR:
+      case UiTestPackage.SELECT__SELECTOR:
         return selector != null;
-      case UiTestPackage.STORE__KEY:
-        return key != null;
+      case UiTestPackage.SELECT__VALUE:
+        return value != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //StoreImpl
+} //SelectImpl

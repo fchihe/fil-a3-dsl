@@ -23,333 +23,391 @@ import org.emn.uiTest.*;
 public class UiTestAdapterFactory extends AdapterFactoryImpl
 {
   /**
-	 * The cached model package.
-	 * <!-- begin-user-doc -->
+   * The cached model package.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected static UiTestPackage modelPackage;
 
   /**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc -->
+   * Creates an instance of the adapter factory.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public UiTestAdapterFactory()
   {
-		if (modelPackage == null) {
-			modelPackage = UiTestPackage.eINSTANCE;
-		}
-	}
+    if (modelPackage == null)
+    {
+      modelPackage = UiTestPackage.eINSTANCE;
+    }
+  }
 
   /**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc -->
+   * Returns whether this factory is applicable for the type of the object.
+   * <!-- begin-user-doc -->
    * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
    * <!-- end-user-doc -->
-	 * @return whether this factory is applicable for the type of the object.
-	 * @generated
-	 */
+   * @return whether this factory is applicable for the type of the object.
+   * @generated
+   */
   @Override
   public boolean isFactoryForType(Object object)
   {
-		if (object == modelPackage) {
-			return true;
-		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
-		}
-		return false;
-	}
+    if (object == modelPackage)
+    {
+      return true;
+    }
+    if (object instanceof EObject)
+    {
+      return ((EObject)object).eClass().getEPackage() == modelPackage;
+    }
+    return false;
+  }
 
   /**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc -->
+   * The switch that delegates to the <code>createXXX</code> methods.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected UiTestSwitch<Adapter> modelSwitch =
-    new UiTestSwitch<Adapter>() {
-			@Override
-			public Adapter caseUiTest(UiTest object) {
-				return createUiTestAdapter();
-			}
-			@Override
-			public Adapter caseFunction(Function object) {
-				return createFunctionAdapter();
-			}
-			@Override
-			public Adapter caseFunctionCall(FunctionCall object) {
-				return createFunctionCallAdapter();
-			}
-			@Override
-			public Adapter caseFunctionName(FunctionName object) {
-				return createFunctionNameAdapter();
-			}
-			@Override
-			public Adapter caseCommand(Command object) {
-				return createCommandAdapter();
-			}
-			@Override
-			public Adapter caseOpen(Open object) {
-				return createOpenAdapter();
-			}
-			@Override
-			public Adapter caseGoOn(GoOn object) {
-				return createGoOnAdapter();
-			}
-			@Override
-			public Adapter caseStore(Store object) {
-				return createStoreAdapter();
-			}
-			@Override
-			public Adapter caseFill(Fill object) {
-				return createFillAdapter();
-			}
-			@Override
-			public Adapter caseClick(Click object) {
-				return createClickAdapter();
-			}
-			@Override
-			public Adapter caseVerify(Verify object) {
-				return createVerifyAdapter();
-			}
-			@Override
-			public Adapter caseSelector(Selector object) {
-				return createSelectorAdapter();
-			}
-			@Override
-			public Adapter caseVariableDefinition(VariableDefinition object) {
-				return createVariableDefinitionAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+    new UiTestSwitch<Adapter>()
+    {
+      @Override
+      public Adapter caseUiTest(UiTest object)
+      {
+        return createUiTestAdapter();
+      }
+      @Override
+      public Adapter caseFunction(Function object)
+      {
+        return createFunctionAdapter();
+      }
+      @Override
+      public Adapter caseFunctionCall(FunctionCall object)
+      {
+        return createFunctionCallAdapter();
+      }
+      @Override
+      public Adapter caseFunctionName(FunctionName object)
+      {
+        return createFunctionNameAdapter();
+      }
+      @Override
+      public Adapter caseCommand(Command object)
+      {
+        return createCommandAdapter();
+      }
+      @Override
+      public Adapter caseOpen(Open object)
+      {
+        return createOpenAdapter();
+      }
+      @Override
+      public Adapter caseGoOn(GoOn object)
+      {
+        return createGoOnAdapter();
+      }
+      @Override
+      public Adapter caseStore(Store object)
+      {
+        return createStoreAdapter();
+      }
+      @Override
+      public Adapter caseFill(Fill object)
+      {
+        return createFillAdapter();
+      }
+      @Override
+      public Adapter caseClick(Click object)
+      {
+        return createClickAdapter();
+      }
+      @Override
+      public Adapter caseVerify(Verify object)
+      {
+        return createVerifyAdapter();
+      }
+      @Override
+      public Adapter caseSelect(Select object)
+      {
+        return createSelectAdapter();
+      }
+      @Override
+      public Adapter caseSelector(Selector object)
+      {
+        return createSelectorAdapter();
+      }
+      @Override
+      public Adapter caseValue(Value object)
+      {
+        return createValueAdapter();
+      }
+      @Override
+      public Adapter caseVariableDefinition(VariableDefinition object)
+      {
+        return createVariableDefinitionAdapter();
+      }
+      @Override
+      public Adapter defaultCase(EObject object)
+      {
+        return createEObjectAdapter();
+      }
+    };
 
   /**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc -->
+   * Creates an adapter for the <code>target</code>.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param target the object to adapt.
-	 * @return the adapter for the <code>target</code>.
-	 * @generated
-	 */
+   * @param target the object to adapt.
+   * @return the adapter for the <code>target</code>.
+   * @generated
+   */
   @Override
   public Adapter createAdapter(Notifier target)
   {
-		return modelSwitch.doSwitch((EObject)target);
-	}
+    return modelSwitch.doSwitch((EObject)target);
+  }
 
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.UiTest <em>Ui Test</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.UiTest <em>Ui Test</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.UiTest
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.UiTest
+   * @generated
+   */
   public Adapter createUiTestAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Function <em>Function</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Function
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Function
+   * @generated
+   */
   public Adapter createFunctionAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.FunctionCall <em>Function Call</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.FunctionCall <em>Function Call</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.FunctionCall
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.FunctionCall
+   * @generated
+   */
   public Adapter createFunctionCallAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.FunctionName <em>Function Name</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.FunctionName <em>Function Name</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.FunctionName
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.FunctionName
+   * @generated
+   */
   public Adapter createFunctionNameAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Command <em>Command</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Command <em>Command</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Command
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Command
+   * @generated
+   */
   public Adapter createCommandAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Open <em>Open</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Open <em>Open</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Open
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Open
+   * @generated
+   */
   public Adapter createOpenAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.GoOn <em>Go On</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.GoOn <em>Go On</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.GoOn
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.GoOn
+   * @generated
+   */
   public Adapter createGoOnAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Store <em>Store</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Store <em>Store</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Store
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Store
+   * @generated
+   */
   public Adapter createStoreAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Fill <em>Fill</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Fill <em>Fill</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Fill
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Fill
+   * @generated
+   */
   public Adapter createFillAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Click <em>Click</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Click <em>Click</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Click
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Click
+   * @generated
+   */
   public Adapter createClickAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Verify <em>Verify</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Verify <em>Verify</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Verify
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Verify
+   * @generated
+   */
   public Adapter createVerifyAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.Selector <em>Selector</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Select <em>Select</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.Selector
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.emn.uiTest.Select
+   * @generated
+   */
+  public Adapter createSelectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Selector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emn.uiTest.Selector
+   * @generated
+   */
   public Adapter createSelectorAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for an object of class '{@link org.emn.uiTest.VariableDefinition <em>Variable Definition</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.Value <em>Value</em>}'.
+   * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.emn.uiTest.VariableDefinition
-	 * @generated
-	 */
-  public Adapter createVariableDefinitionAdapter()
+   * @return the new adapter.
+   * @see org.emn.uiTest.Value
+   * @generated
+   */
+  public Adapter createValueAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
   /**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.emn.uiTest.VariableDefinition <em>Variable Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emn.uiTest.VariableDefinition
+   * @generated
+   */
+  public Adapter createVariableDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for the default case.
+   * <!-- begin-user-doc -->
    * This default implementation returns null.
    * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @generated
+   */
   public Adapter createEObjectAdapter()
   {
-		return null;
-	}
+    return null;
+  }
 
 } //UiTestAdapterFactory

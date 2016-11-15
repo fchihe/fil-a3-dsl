@@ -3,6 +3,7 @@
  */
 package org.emn.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import java.io.File;
 import org.eclipse.emf.common.util.EList;
@@ -18,8 +19,12 @@ import org.emn.uiTest.Command;
 import org.emn.uiTest.Fill;
 import org.emn.uiTest.GoOn;
 import org.emn.uiTest.Open;
+import org.emn.uiTest.Select;
+import org.emn.uiTest.Selector;
 import org.emn.uiTest.Store;
 import org.emn.uiTest.UiTest;
+import org.emn.uiTest.Value;
+import org.emn.uiTest.VariableDefinition;
 import org.emn.uiTest.Verify;
 
 /**
@@ -41,6 +46,21 @@ public class UiTestGenerator extends AbstractGenerator {
   public CharSequence generateUiTest(final UiTest uiTest) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package browserAutomation;");
+    _builder.newLine();
+    _builder.append("import java.io.File;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.By;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.Keys;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.WebDriver;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.chrome.ChromeDriver;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.firefox.FirefoxDriver;");
+    _builder.newLine();
+    _builder.append("import org.openqa.selenium.support.ui.Select;");
     _builder.newLine();
     _builder.append("class Main {");
     _builder.newLine();
@@ -103,36 +123,116 @@ public class UiTestGenerator extends AbstractGenerator {
         _switchResult = this.generateStore(((Store)c));
       }
     }
+    if (!_matched) {
+      if (c instanceof Select) {
+        _matched=true;
+        _switchResult = this.generateSelect(((Select)c));
+      }
+    }
     _builder.append(_switchResult, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateSelect(final Select s) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Select(driver.findElement(By.xpath(\"");
+    Selector _selector = s.getSelector();
+    CharSequence _generateSelector = this.generateSelector(_selector);
+    _builder.append(_generateSelector, "");
+    _builder.append("\"))).selectByVisibleText(\"");
+    Value _value = s.getValue();
+    CharSequence _generateValue = this.generateValue(_value);
+    _builder.append(_generateValue, "");
+    _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence generateClick(final Click c) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("click;");
-    _builder.newLine();
+    _builder.append("driver.findElement(By.xpath(\"");
+    Selector _selector = c.getSelector();
+    CharSequence _generateSelector = this.generateSelector(_selector);
+    _builder.append(_generateSelector, "");
+    _builder.append("\")).click();");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateSelector(final Selector s) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _attributeName = s.getAttributeName();
+      boolean _equals = _attributeName.equals("text");
+      if (_equals) {
+        _builder.append("//*[contains(text(), \'");
+        String _attributeValue = s.getAttributeValue();
+        _builder.append(_attributeValue, "");
+        _builder.append("\')]");
+      } else {
+        _builder.append("//*[@");
+        String _attributeName_1 = s.getAttributeName();
+        _builder.append(_attributeName_1, "");
+        _builder.append("=\\\"");
+        String _attributeValue_1 = s.getAttributeValue();
+        _builder.append(_attributeValue_1, "");
+        _builder.append("\\\"]");
+      }
+    }
     return _builder;
   }
   
   public CharSequence generateOpen(final Open o) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("open;");
+    _builder.append("File file = new File(\"C:\\\\Users\\\\Xavier\\\\Downloads\\\\chromedriver.exe\");");
+    _builder.newLine();
+    _builder.append("System.setProperty(\"webdriver.chrome.driver\", file.getAbsolutePath() );");
+    _builder.newLine();
+    _builder.append("WebDriver driver = new ChromeDriver();");
     _builder.newLine();
     return _builder;
   }
   
   public CharSequence generateGoOn(final GoOn g) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("goOn;");
-    _builder.newLine();
+    _builder.append("driver.get(\"");
+    String _address = g.getAddress();
+    _builder.append(_address, "");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence generateFill(final Fill f) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("fill;");
-    _builder.newLine();
+    _builder.append("driver.findElement(By.xpath(\"");
+    Selector _selector = f.getSelector();
+    CharSequence _generateSelector = this.generateSelector(_selector);
+    _builder.append(_generateSelector, "");
+    _builder.append("\")).sendKeys(\"");
+    Value _value = f.getValue();
+    CharSequence _generateValue = this.generateValue(_value);
+    _builder.append(_generateValue, "");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateValue(final Value v) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _stringValue = v.getStringValue();
+      boolean _notEquals = (!Objects.equal(_stringValue, null));
+      if (_notEquals) {
+        String _stringValue_1 = v.getStringValue();
+        _builder.append(_stringValue_1, "");
+      } else {
+        VariableDefinition _keyValue = v.getKeyValue();
+        String _name = _keyValue.getName();
+        _builder.append(_name, "");
+      }
+    }
     return _builder;
   }
   

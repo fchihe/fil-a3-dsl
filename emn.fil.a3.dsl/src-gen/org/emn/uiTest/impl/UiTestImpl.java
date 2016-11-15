@@ -39,162 +39,169 @@ import org.emn.uiTest.UiTestPackage;
 public class UiTestImpl extends MinimalEObjectImpl.Container implements UiTest
 {
   /**
-	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFunctions()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFunctions()
+   * @generated
+   * @ordered
+   */
   protected EList<Function> functions;
 
   /**
-	 * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getCommands()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getCommands()
+   * @generated
+   * @ordered
+   */
   protected EList<Command> commands;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected UiTestImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return UiTestPackage.Literals.UI_TEST;
-	}
+    return UiTestPackage.Literals.UI_TEST;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public EList<Function> getFunctions()
   {
-		if (functions == null) {
-			functions = new EObjectContainmentEList<Function>(Function.class, this, UiTestPackage.UI_TEST__FUNCTIONS);
-		}
-		return functions;
-	}
+    if (functions == null)
+    {
+      functions = new EObjectContainmentEList<Function>(Function.class, this, UiTestPackage.UI_TEST__FUNCTIONS);
+    }
+    return functions;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public EList<Command> getCommands()
   {
-		if (commands == null) {
-			commands = new EObjectContainmentEList<Command>(Command.class, this, UiTestPackage.UI_TEST__COMMANDS);
-		}
-		return commands;
-	}
+    if (commands == null)
+    {
+      commands = new EObjectContainmentEList<Command>(Command.class, this, UiTestPackage.UI_TEST__COMMANDS);
+    }
+    return commands;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case UiTestPackage.UI_TEST__FUNCTIONS:
-				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
-			case UiTestPackage.UI_TEST__COMMANDS:
-				return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.UI_TEST__FUNCTIONS:
+        return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
+      case UiTestPackage.UI_TEST__COMMANDS:
+        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case UiTestPackage.UI_TEST__FUNCTIONS:
-				return getFunctions();
-			case UiTestPackage.UI_TEST__COMMANDS:
-				return getCommands();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.UI_TEST__FUNCTIONS:
+        return getFunctions();
+      case UiTestPackage.UI_TEST__COMMANDS:
+        return getCommands();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case UiTestPackage.UI_TEST__FUNCTIONS:
-				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends Function>)newValue);
-				return;
-			case UiTestPackage.UI_TEST__COMMANDS:
-				getCommands().clear();
-				getCommands().addAll((Collection<? extends Command>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.UI_TEST__FUNCTIONS:
+        getFunctions().clear();
+        getFunctions().addAll((Collection<? extends Function>)newValue);
+        return;
+      case UiTestPackage.UI_TEST__COMMANDS:
+        getCommands().clear();
+        getCommands().addAll((Collection<? extends Command>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case UiTestPackage.UI_TEST__FUNCTIONS:
-				getFunctions().clear();
-				return;
-			case UiTestPackage.UI_TEST__COMMANDS:
-				getCommands().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.UI_TEST__FUNCTIONS:
+        getFunctions().clear();
+        return;
+      case UiTestPackage.UI_TEST__COMMANDS:
+        getCommands().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case UiTestPackage.UI_TEST__FUNCTIONS:
-				return functions != null && !functions.isEmpty();
-			case UiTestPackage.UI_TEST__COMMANDS:
-				return commands != null && !commands.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.UI_TEST__FUNCTIONS:
+        return functions != null && !functions.isEmpty();
+      case UiTestPackage.UI_TEST__COMMANDS:
+        return commands != null && !commands.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //UiTestImpl

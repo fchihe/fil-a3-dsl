@@ -27,35 +27,35 @@ import org.eclipse.emf.ecore.EObject;
 public interface UiTest extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.emn.uiTest.Function}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
+   * The list contents are of type {@link org.emn.uiTest.Function}.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Functions</em>' containment reference list.
-	 * @see org.emn.uiTest.UiTestPackage#getUiTest_Functions()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Functions</em>' containment reference list.
+   * @see org.emn.uiTest.UiTestPackage#getUiTest_Functions()
+   * @model containment="true"
+   * @generated
+   */
   EList<Function> getFunctions();
 
   /**
-	 * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
-	 * The list contents are of type {@link org.emn.uiTest.Command}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
+   * The list contents are of type {@link org.emn.uiTest.Command}.
+   * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Commands</em>' containment reference list.
-	 * @see org.emn.uiTest.UiTestPackage#getUiTest_Commands()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Commands</em>' containment reference list.
+   * @see org.emn.uiTest.UiTestPackage#getUiTest_Commands()
+   * @model containment="true"
+   * @generated
+   */
   EList<Command> getCommands();
 
 } // UiTest

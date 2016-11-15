@@ -6,22 +6,22 @@ package org.emn.uiTest;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Fill</b></em>'.
+ * A representation of the model object '<em><b>Select</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.emn.uiTest.Fill#getSelector <em>Selector</em>}</li>
- *   <li>{@link org.emn.uiTest.Fill#getValue <em>Value</em>}</li>
+ *   <li>{@link org.emn.uiTest.Select#getSelector <em>Selector</em>}</li>
+ *   <li>{@link org.emn.uiTest.Select#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.emn.uiTest.UiTestPackage#getFill()
+ * @see org.emn.uiTest.UiTestPackage#getSelect()
  * @model
  * @generated
  */
-public interface Fill extends Command
+public interface Select extends Command
 {
   /**
    * Returns the value of the '<em><b>Selector</b></em>' containment reference.
@@ -33,14 +33,14 @@ public interface Fill extends Command
    * <!-- end-user-doc -->
    * @return the value of the '<em>Selector</em>' containment reference.
    * @see #setSelector(Selector)
-   * @see org.emn.uiTest.UiTestPackage#getFill_Selector()
+   * @see org.emn.uiTest.UiTestPackage#getSelect_Selector()
    * @model containment="true"
    * @generated
    */
   Selector getSelector();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Fill#getSelector <em>Selector</em>}' containment reference.
+   * Sets the value of the '{@link org.emn.uiTest.Select#getSelector <em>Selector</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Selector</em>' containment reference.
@@ -59,14 +59,14 @@ public interface Fill extends Command
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
    * @see #setValue(Value)
-   * @see org.emn.uiTest.UiTestPackage#getFill_Value()
+   * @see org.emn.uiTest.UiTestPackage#getSelect_Value()
    * @model containment="true"
    * @generated
    */
   Value getValue();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Fill#getValue <em>Value</em>}' containment reference.
+   * Sets the value of the '{@link org.emn.uiTest.Select#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' containment reference.
@@ -75,4 +75,4 @@ public interface Fill extends Command
    */
   void setValue(Value value);
 
-} // Fill
+} // Select

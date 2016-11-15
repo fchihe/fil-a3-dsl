@@ -20,24 +20,24 @@ import org.emn.uiTest.UiTestPackage;
 public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected CommandImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return UiTestPackage.Literals.COMMAND;
-	}
+    return UiTestPackage.Literals.COMMAND;
+  }
 
 } //CommandImpl

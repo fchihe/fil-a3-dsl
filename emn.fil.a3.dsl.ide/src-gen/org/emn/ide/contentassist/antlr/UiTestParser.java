@@ -38,7 +38,7 @@ public class UiTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getStatementsAlternatives_6_0(), "rule__Function__StatementsAlternatives_6_0");
 					put(grammarAccess.getCommandAccess().getAlternatives_0(), "rule__Command__Alternatives_0");
 					put(grammarAccess.getCommandAccess().getAlternatives_0_0(), "rule__Command__Alternatives_0_0");
-					put(grammarAccess.getFillAccess().getAlternatives_2(), "rule__Fill__Alternatives_2");
+					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 					put(grammarAccess.getUiTestAccess().getGroup(), "rule__UiTest__Group__0");
 					put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 					put(grammarAccess.getFunctionCallAccess().getGroup(), "rule__FunctionCall__Group__0");
@@ -49,6 +49,7 @@ public class UiTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFillAccess().getGroup(), "rule__Fill__Group__0");
 					put(grammarAccess.getClickAccess().getGroup(), "rule__Click__Group__0");
 					put(grammarAccess.getVerifyAccess().getGroup(), "rule__Verify__Group__0");
+					put(grammarAccess.getSelectAccess().getGroup(), "rule__Select__Group__0");
 					put(grammarAccess.getSelectorAccess().getGroup(), "rule__Selector__Group__0");
 					put(grammarAccess.getUiTestAccess().getFunctionsAssignment_0(), "rule__UiTest__FunctionsAssignment_0");
 					put(grammarAccess.getUiTestAccess().getCommandsAssignment_1(), "rule__UiTest__CommandsAssignment_1");
@@ -65,14 +66,17 @@ public class UiTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStoreAccess().getSelectorAssignment_1(), "rule__Store__SelectorAssignment_1");
 					put(grammarAccess.getStoreAccess().getKeyAssignment_2(), "rule__Store__KeyAssignment_2");
 					put(grammarAccess.getFillAccess().getSelectorAssignment_1(), "rule__Fill__SelectorAssignment_1");
-					put(grammarAccess.getFillAccess().getStringValueAssignment_2_0(), "rule__Fill__StringValueAssignment_2_0");
-					put(grammarAccess.getFillAccess().getKeyValueAssignment_2_1(), "rule__Fill__KeyValueAssignment_2_1");
+					put(grammarAccess.getFillAccess().getValueAssignment_2(), "rule__Fill__ValueAssignment_2");
 					put(grammarAccess.getClickAccess().getNameAssignment_0(), "rule__Click__NameAssignment_0");
 					put(grammarAccess.getClickAccess().getSelectorAssignment_1(), "rule__Click__SelectorAssignment_1");
 					put(grammarAccess.getVerifyAccess().getNameAssignment_0(), "rule__Verify__NameAssignment_0");
 					put(grammarAccess.getVerifyAccess().getSelectorAssignment_1(), "rule__Verify__SelectorAssignment_1");
+					put(grammarAccess.getSelectAccess().getSelectorAssignment_1(), "rule__Select__SelectorAssignment_1");
+					put(grammarAccess.getSelectAccess().getValueAssignment_2(), "rule__Select__ValueAssignment_2");
 					put(grammarAccess.getSelectorAccess().getAttributeNameAssignment_1(), "rule__Selector__AttributeNameAssignment_1");
 					put(grammarAccess.getSelectorAccess().getAttributeValueAssignment_3(), "rule__Selector__AttributeValueAssignment_3");
+					put(grammarAccess.getValueAccess().getStringValueAssignment_0(), "rule__Value__StringValueAssignment_0");
+					put(grammarAccess.getValueAccess().getKeyValueAssignment_1(), "rule__Value__KeyValueAssignment_1");
 					put(grammarAccess.getVariableDefinitionAccess().getNameAssignment(), "rule__VariableDefinition__NameAssignment");
 				}
 			};

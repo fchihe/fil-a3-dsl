@@ -37,8 +37,7 @@
     </genClasses>
     <genClasses ecoreClass="UiTest.ecore#//Fill">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UiTest.ecore#//Fill/selector"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//Fill/stringValue"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UiTest.ecore#//Fill/keyValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UiTest.ecore#//Fill/value"/>
     </genClasses>
     <genClasses ecoreClass="UiTest.ecore#//Click">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//Click/name"/>
@@ -48,9 +47,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//Verify/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UiTest.ecore#//Verify/selector"/>
     </genClasses>
+    <genClasses ecoreClass="UiTest.ecore#//Select">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UiTest.ecore#//Select/selector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UiTest.ecore#//Select/value"/>
+    </genClasses>
     <genClasses ecoreClass="UiTest.ecore#//Selector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//Selector/attributeName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//Selector/attributeValue"/>
+    </genClasses>
+    <genClasses ecoreClass="UiTest.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//Value/stringValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UiTest.ecore#//Value/keyValue"/>
     </genClasses>
     <genClasses ecoreClass="UiTest.ecore#//VariableDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UiTest.ecore#//VariableDefinition/name"/>

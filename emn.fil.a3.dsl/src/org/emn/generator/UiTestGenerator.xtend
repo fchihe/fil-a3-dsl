@@ -13,8 +13,11 @@ import org.emn.uiTest.Command
 import org.emn.uiTest.Fill
 import org.emn.uiTest.GoOn
 import org.emn.uiTest.Open
+import org.emn.uiTest.Select
+import org.emn.uiTest.Selector
 import org.emn.uiTest.Store
 import org.emn.uiTest.UiTest
+import org.emn.uiTest.Value
 import org.emn.uiTest.Verify
 
 /**
@@ -33,6 +36,14 @@ class UiTestGenerator extends AbstractGenerator {
 	
 	def generateUiTest(UiTest uiTest) '''
 		package browserAutomation;
+		import java.io.File;
+		
+		import org.openqa.selenium.By;
+		import org.openqa.selenium.Keys;
+		import org.openqa.selenium.WebDriver;
+		import org.openqa.selenium.chrome.ChromeDriver;
+		import org.openqa.selenium.firefox.FirefoxDriver;
+		import org.openqa.selenium.support.ui.Select;
 		class Main {
 				public static void main(String[] args) {
 					«FOR c : uiTest.commands»
@@ -50,25 +61,35 @@ class UiTestGenerator extends AbstractGenerator {
 			Fill : c.generateFill
 			Verify: c.generateVerify
 			Store: c.generateStore
+			Select: c.generateSelect
 			}»
 	'''
 	
-	def generateClick(Click c) '''
-		click;
+	def generateSelect(Select s) '''
+		new Select(driver.findElement(By.xpath("«s.selector.generateSelector»"))).selectByVisibleText("«s.value.generateValue»");
 	'''
 	
+	def generateClick(Click c) '''
+		driver.findElement(By.xpath("«c.selector.generateSelector»")).click();
+	'''
+	
+	def generateSelector(Selector s) '''«IF s.attributeName.equals("text")»//*[contains(text(), '«s.attributeValue»')]«ELSE»//*[@«s.attributeName»=\"«s.attributeValue»\"]«ENDIF»'''
+	
 	def generateOpen(Open o) '''
-		open;
+		File file = new File("C:\\Users\\Xavier\\Downloads\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath() );
+		WebDriver driver = new ChromeDriver();
 	'''
 	
 	def generateGoOn(GoOn g) '''
-		goOn;
+		driver.get("«g.address»");
 	'''
 	
 	def generateFill(Fill f) '''
-		fill;
+		driver.findElement(By.xpath("«f.selector.generateSelector»")).sendKeys("«f.value.generateValue»");
 	'''
 	
+	def generateValue(Value v) '''«IF v.stringValue != null»«v.stringValue»«ELSE»« v.keyValue.name»«ENDIF»'''
 	def generateVerify(Verify v) '''
 		verifiy;
 	'''

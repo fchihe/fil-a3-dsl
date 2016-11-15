@@ -22,10 +22,12 @@ import org.emn.uiTest.FunctionCall;
 import org.emn.uiTest.FunctionName;
 import org.emn.uiTest.GoOn;
 import org.emn.uiTest.Open;
+import org.emn.uiTest.Select;
 import org.emn.uiTest.Selector;
 import org.emn.uiTest.Store;
 import org.emn.uiTest.UiTest;
 import org.emn.uiTest.UiTestPackage;
+import org.emn.uiTest.Value;
 import org.emn.uiTest.VariableDefinition;
 import org.emn.uiTest.Verify;
 
@@ -64,6 +66,9 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case UiTestPackage.OPEN:
 				sequence_Open(context, (Open) semanticObject); 
 				return; 
+			case UiTestPackage.SELECT:
+				sequence_Select(context, (Select) semanticObject); 
+				return; 
 			case UiTestPackage.SELECTOR:
 				sequence_Selector(context, (Selector) semanticObject); 
 				return; 
@@ -72,6 +77,9 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case UiTestPackage.UI_TEST:
 				sequence_UiTest(context, (UiTest) semanticObject); 
+				return; 
+			case UiTestPackage.VALUE:
+				sequence_Value(context, (Value) semanticObject); 
 				return; 
 			case UiTestPackage.VARIABLE_DEFINITION:
 				sequence_VariableDefinition(context, (VariableDefinition) semanticObject); 
@@ -112,10 +120,19 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Fill returns Fill
 	 *
 	 * Constraint:
-	 *     (selector=Selector (stringValue=STRING | keyValue=[VariableDefinition|ID]))
+	 *     (selector=Selector value=Value)
 	 */
 	protected void sequence_Fill(ISerializationContext context, Fill semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.FILL__SELECTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.FILL__SELECTOR));
+			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.FILL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.FILL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFillAccess().getSelectorSelectorParserRuleCall_1_0(), semanticObject.getSelector());
+		feeder.accept(grammarAccess.getFillAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -208,6 +225,28 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Command returns Select
+	 *     Select returns Select
+	 *
+	 * Constraint:
+	 *     (selector=Selector value=Value)
+	 */
+	protected void sequence_Select(ISerializationContext context, Select semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.SELECT__SELECTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.SELECT__SELECTOR));
+			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.SELECT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.SELECT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSelectAccess().getSelectorSelectorParserRuleCall_1_0(), semanticObject.getSelector());
+		feeder.accept(grammarAccess.getSelectAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Selector returns Selector
 	 *
 	 * Constraint:
@@ -257,6 +296,18 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ((functions+=Function+ commands+=Command+) | commands+=Command+)?
 	 */
 	protected void sequence_UiTest(ISerializationContext context, UiTest semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns Value
+	 *
+	 * Constraint:
+	 *     (stringValue=STRING | keyValue=[VariableDefinition|ID])
+	 */
+	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

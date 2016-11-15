@@ -21,7 +21,7 @@ FunctionName:
 ;
 
 Command:
-	((Open | GoOn | Fill | Click | Verify | Store) | FunctionCall) ';'
+	((Open | GoOn | Fill | Click | Verify | Store | Select) | FunctionCall) ';'
 ;
 Open:
 	name='open' program=STRING 
@@ -34,7 +34,7 @@ Store:
 ;
 
 Fill:
-	'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
+	'fill' selector=Selector value=Value
 ;
 
 Click:
@@ -45,8 +45,16 @@ Verify:
 	name='verify' selector=Selector STRING
 ;
 
+Select:
+    'select' selector=Selector value=Value
+;
+
 Selector:
 	'['attributeName=STRING'='attributeValue=STRING ']'
+;
+
+Value:
+	(stringValue=STRING | keyValue=[VariableDefinition])
 ;
 
 VariableDefinition:

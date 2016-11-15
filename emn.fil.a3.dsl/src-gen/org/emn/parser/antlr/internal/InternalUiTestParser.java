@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalUiTestParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'function'", "'('", "')'", "'{'", "'}'", "';'", "'open'", "'goOn'", "'store'", "'fill'", "'click'", "'verify'", "'['", "'='", "']'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'function'", "'('", "')'", "'{'", "'}'", "';'", "'open'", "'goOn'", "'store'", "'fill'", "'click'", "'verify'", "'select'", "'['", "'='", "']'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -38,6 +38,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__26=26;
     public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
@@ -197,7 +198,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==RULE_ID||(LA2_0>=17 && LA2_0<=22)) ) {
+                if ( (LA2_0==RULE_ID||(LA2_0>=17 && LA2_0<=23)) ) {
                     alt2=1;
                 }
 
@@ -430,7 +431,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==RULE_ID||(LA5_0>=17 && LA5_0<=22)) ) {
+                if ( (LA5_0==RULE_ID||(LA5_0>=17 && LA5_0<=23)) ) {
                     alt5=1;
                 }
 
@@ -824,11 +825,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommand"
-    // InternalUiTest.g:335:1: ruleCommand returns [EObject current=null] : ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore ) | this_FunctionCall_6= ruleFunctionCall ) otherlv_7= ';' ) ;
+    // InternalUiTest.g:335:1: ruleCommand returns [EObject current=null] : ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect ) | this_FunctionCall_7= ruleFunctionCall ) otherlv_8= ';' ) ;
     public final EObject ruleCommand() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_7=null;
+        Token otherlv_8=null;
         EObject this_Open_0 = null;
 
         EObject this_GoOn_1 = null;
@@ -841,24 +842,26 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
         EObject this_Store_5 = null;
 
-        EObject this_FunctionCall_6 = null;
+        EObject this_Select_6 = null;
+
+        EObject this_FunctionCall_7 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalUiTest.g:341:2: ( ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore ) | this_FunctionCall_6= ruleFunctionCall ) otherlv_7= ';' ) )
-            // InternalUiTest.g:342:2: ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore ) | this_FunctionCall_6= ruleFunctionCall ) otherlv_7= ';' )
+            // InternalUiTest.g:341:2: ( ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect ) | this_FunctionCall_7= ruleFunctionCall ) otherlv_8= ';' ) )
+            // InternalUiTest.g:342:2: ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect ) | this_FunctionCall_7= ruleFunctionCall ) otherlv_8= ';' )
             {
-            // InternalUiTest.g:342:2: ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore ) | this_FunctionCall_6= ruleFunctionCall ) otherlv_7= ';' )
-            // InternalUiTest.g:343:3: ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore ) | this_FunctionCall_6= ruleFunctionCall ) otherlv_7= ';'
+            // InternalUiTest.g:342:2: ( ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect ) | this_FunctionCall_7= ruleFunctionCall ) otherlv_8= ';' )
+            // InternalUiTest.g:343:3: ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect ) | this_FunctionCall_7= ruleFunctionCall ) otherlv_8= ';'
             {
-            // InternalUiTest.g:343:3: ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore ) | this_FunctionCall_6= ruleFunctionCall )
+            // InternalUiTest.g:343:3: ( (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect ) | this_FunctionCall_7= ruleFunctionCall )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( ((LA8_0>=17 && LA8_0<=22)) ) {
+            if ( ((LA8_0>=17 && LA8_0<=23)) ) {
                 alt8=1;
             }
             else if ( (LA8_0==RULE_ID) ) {
@@ -872,10 +875,10 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalUiTest.g:344:4: (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore )
+                    // InternalUiTest.g:344:4: (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect )
                     {
-                    // InternalUiTest.g:344:4: (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore )
-                    int alt7=6;
+                    // InternalUiTest.g:344:4: (this_Open_0= ruleOpen | this_GoOn_1= ruleGoOn | this_Fill_2= ruleFill | this_Click_3= ruleClick | this_Verify_4= ruleVerify | this_Store_5= ruleStore | this_Select_6= ruleSelect )
+                    int alt7=7;
                     switch ( input.LA(1) ) {
                     case 17:
                         {
@@ -905,6 +908,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
                     case 19:
                         {
                         alt7=6;
+                        }
+                        break;
+                    case 23:
+                        {
+                        alt7=7;
                         }
                         break;
                     default:
@@ -1023,6 +1031,24 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
                             }
                             break;
+                        case 7 :
+                            // InternalUiTest.g:399:5: this_Select_6= ruleSelect
+                            {
+
+                            					newCompositeNode(grammarAccess.getCommandAccess().getSelectParserRuleCall_0_0_6());
+                            				
+                            pushFollow(FOLLOW_12);
+                            this_Select_6=ruleSelect();
+
+                            state._fsp--;
+
+
+                            					current = this_Select_6;
+                            					afterParserOrEnumRuleCall();
+                            				
+
+                            }
+                            break;
 
                     }
 
@@ -1030,18 +1056,18 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalUiTest.g:400:4: this_FunctionCall_6= ruleFunctionCall
+                    // InternalUiTest.g:409:4: this_FunctionCall_7= ruleFunctionCall
                     {
 
                     				newCompositeNode(grammarAccess.getCommandAccess().getFunctionCallParserRuleCall_0_1());
                     			
                     pushFollow(FOLLOW_12);
-                    this_FunctionCall_6=ruleFunctionCall();
+                    this_FunctionCall_7=ruleFunctionCall();
 
                     state._fsp--;
 
 
-                    				current = this_FunctionCall_6;
+                    				current = this_FunctionCall_7;
                     				afterParserOrEnumRuleCall();
                     			
 
@@ -1050,9 +1076,9 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,16,FOLLOW_2); 
+            otherlv_8=(Token)match(input,16,FOLLOW_2); 
 
-            			newLeafNode(otherlv_7, grammarAccess.getCommandAccess().getSemicolonKeyword_1());
+            			newLeafNode(otherlv_8, grammarAccess.getCommandAccess().getSemicolonKeyword_1());
             		
 
             }
@@ -1077,7 +1103,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOpen"
-    // InternalUiTest.g:417:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
+    // InternalUiTest.g:426:1: entryRuleOpen returns [EObject current=null] : iv_ruleOpen= ruleOpen EOF ;
     public final EObject entryRuleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -1085,8 +1111,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:417:45: (iv_ruleOpen= ruleOpen EOF )
-            // InternalUiTest.g:418:2: iv_ruleOpen= ruleOpen EOF
+            // InternalUiTest.g:426:45: (iv_ruleOpen= ruleOpen EOF )
+            // InternalUiTest.g:427:2: iv_ruleOpen= ruleOpen EOF
             {
              newCompositeNode(grammarAccess.getOpenRule()); 
             pushFollow(FOLLOW_1);
@@ -1113,7 +1139,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOpen"
-    // InternalUiTest.g:424:1: ruleOpen returns [EObject current=null] : ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) ) ;
+    // InternalUiTest.g:433:1: ruleOpen returns [EObject current=null] : ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleOpen() throws RecognitionException {
         EObject current = null;
 
@@ -1124,17 +1150,17 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:430:2: ( ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) ) )
-            // InternalUiTest.g:431:2: ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) )
+            // InternalUiTest.g:439:2: ( ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) ) )
+            // InternalUiTest.g:440:2: ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) )
             {
-            // InternalUiTest.g:431:2: ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) )
-            // InternalUiTest.g:432:3: ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) )
+            // InternalUiTest.g:440:2: ( ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) ) )
+            // InternalUiTest.g:441:3: ( (lv_name_0_0= 'open' ) ) ( (lv_program_1_0= RULE_STRING ) )
             {
-            // InternalUiTest.g:432:3: ( (lv_name_0_0= 'open' ) )
-            // InternalUiTest.g:433:4: (lv_name_0_0= 'open' )
+            // InternalUiTest.g:441:3: ( (lv_name_0_0= 'open' ) )
+            // InternalUiTest.g:442:4: (lv_name_0_0= 'open' )
             {
-            // InternalUiTest.g:433:4: (lv_name_0_0= 'open' )
-            // InternalUiTest.g:434:5: lv_name_0_0= 'open'
+            // InternalUiTest.g:442:4: (lv_name_0_0= 'open' )
+            // InternalUiTest.g:443:5: lv_name_0_0= 'open'
             {
             lv_name_0_0=(Token)match(input,17,FOLLOW_13); 
 
@@ -1152,11 +1178,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUiTest.g:446:3: ( (lv_program_1_0= RULE_STRING ) )
-            // InternalUiTest.g:447:4: (lv_program_1_0= RULE_STRING )
+            // InternalUiTest.g:455:3: ( (lv_program_1_0= RULE_STRING ) )
+            // InternalUiTest.g:456:4: (lv_program_1_0= RULE_STRING )
             {
-            // InternalUiTest.g:447:4: (lv_program_1_0= RULE_STRING )
-            // InternalUiTest.g:448:5: lv_program_1_0= RULE_STRING
+            // InternalUiTest.g:456:4: (lv_program_1_0= RULE_STRING )
+            // InternalUiTest.g:457:5: lv_program_1_0= RULE_STRING
             {
             lv_program_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1201,7 +1227,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGoOn"
-    // InternalUiTest.g:468:1: entryRuleGoOn returns [EObject current=null] : iv_ruleGoOn= ruleGoOn EOF ;
+    // InternalUiTest.g:477:1: entryRuleGoOn returns [EObject current=null] : iv_ruleGoOn= ruleGoOn EOF ;
     public final EObject entryRuleGoOn() throws RecognitionException {
         EObject current = null;
 
@@ -1209,8 +1235,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:468:45: (iv_ruleGoOn= ruleGoOn EOF )
-            // InternalUiTest.g:469:2: iv_ruleGoOn= ruleGoOn EOF
+            // InternalUiTest.g:477:45: (iv_ruleGoOn= ruleGoOn EOF )
+            // InternalUiTest.g:478:2: iv_ruleGoOn= ruleGoOn EOF
             {
              newCompositeNode(grammarAccess.getGoOnRule()); 
             pushFollow(FOLLOW_1);
@@ -1237,7 +1263,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGoOn"
-    // InternalUiTest.g:475:1: ruleGoOn returns [EObject current=null] : ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) ) ;
+    // InternalUiTest.g:484:1: ruleGoOn returns [EObject current=null] : ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleGoOn() throws RecognitionException {
         EObject current = null;
 
@@ -1248,17 +1274,17 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:481:2: ( ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) ) )
-            // InternalUiTest.g:482:2: ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) )
+            // InternalUiTest.g:490:2: ( ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) ) )
+            // InternalUiTest.g:491:2: ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) )
             {
-            // InternalUiTest.g:482:2: ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) )
-            // InternalUiTest.g:483:3: ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) )
+            // InternalUiTest.g:491:2: ( ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) ) )
+            // InternalUiTest.g:492:3: ( (lv_name_0_0= 'goOn' ) ) ( (lv_address_1_0= RULE_STRING ) )
             {
-            // InternalUiTest.g:483:3: ( (lv_name_0_0= 'goOn' ) )
-            // InternalUiTest.g:484:4: (lv_name_0_0= 'goOn' )
+            // InternalUiTest.g:492:3: ( (lv_name_0_0= 'goOn' ) )
+            // InternalUiTest.g:493:4: (lv_name_0_0= 'goOn' )
             {
-            // InternalUiTest.g:484:4: (lv_name_0_0= 'goOn' )
-            // InternalUiTest.g:485:5: lv_name_0_0= 'goOn'
+            // InternalUiTest.g:493:4: (lv_name_0_0= 'goOn' )
+            // InternalUiTest.g:494:5: lv_name_0_0= 'goOn'
             {
             lv_name_0_0=(Token)match(input,18,FOLLOW_13); 
 
@@ -1276,11 +1302,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUiTest.g:497:3: ( (lv_address_1_0= RULE_STRING ) )
-            // InternalUiTest.g:498:4: (lv_address_1_0= RULE_STRING )
+            // InternalUiTest.g:506:3: ( (lv_address_1_0= RULE_STRING ) )
+            // InternalUiTest.g:507:4: (lv_address_1_0= RULE_STRING )
             {
-            // InternalUiTest.g:498:4: (lv_address_1_0= RULE_STRING )
-            // InternalUiTest.g:499:5: lv_address_1_0= RULE_STRING
+            // InternalUiTest.g:507:4: (lv_address_1_0= RULE_STRING )
+            // InternalUiTest.g:508:5: lv_address_1_0= RULE_STRING
             {
             lv_address_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1325,7 +1351,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStore"
-    // InternalUiTest.g:519:1: entryRuleStore returns [EObject current=null] : iv_ruleStore= ruleStore EOF ;
+    // InternalUiTest.g:528:1: entryRuleStore returns [EObject current=null] : iv_ruleStore= ruleStore EOF ;
     public final EObject entryRuleStore() throws RecognitionException {
         EObject current = null;
 
@@ -1333,8 +1359,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:519:46: (iv_ruleStore= ruleStore EOF )
-            // InternalUiTest.g:520:2: iv_ruleStore= ruleStore EOF
+            // InternalUiTest.g:528:46: (iv_ruleStore= ruleStore EOF )
+            // InternalUiTest.g:529:2: iv_ruleStore= ruleStore EOF
             {
              newCompositeNode(grammarAccess.getStoreRule()); 
             pushFollow(FOLLOW_1);
@@ -1361,7 +1387,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStore"
-    // InternalUiTest.g:526:1: ruleStore returns [EObject current=null] : (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) ) ;
+    // InternalUiTest.g:535:1: ruleStore returns [EObject current=null] : (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) ) ;
     public final EObject ruleStore() throws RecognitionException {
         EObject current = null;
 
@@ -1375,21 +1401,21 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:532:2: ( (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) ) )
-            // InternalUiTest.g:533:2: (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) )
+            // InternalUiTest.g:541:2: ( (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) ) )
+            // InternalUiTest.g:542:2: (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) )
             {
-            // InternalUiTest.g:533:2: (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) )
-            // InternalUiTest.g:534:3: otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) )
+            // InternalUiTest.g:542:2: (otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) ) )
+            // InternalUiTest.g:543:3: otherlv_0= 'store' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_key_2_0= ruleVariableDefinition ) )
             {
             otherlv_0=(Token)match(input,19,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getStoreAccess().getStoreKeyword_0());
             		
-            // InternalUiTest.g:538:3: ( (lv_selector_1_0= ruleSelector ) )
-            // InternalUiTest.g:539:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:547:3: ( (lv_selector_1_0= ruleSelector ) )
+            // InternalUiTest.g:548:4: (lv_selector_1_0= ruleSelector )
             {
-            // InternalUiTest.g:539:4: (lv_selector_1_0= ruleSelector )
-            // InternalUiTest.g:540:5: lv_selector_1_0= ruleSelector
+            // InternalUiTest.g:548:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:549:5: lv_selector_1_0= ruleSelector
             {
 
             					newCompositeNode(grammarAccess.getStoreAccess().getSelectorSelectorParserRuleCall_1_0());
@@ -1416,11 +1442,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUiTest.g:557:3: ( (lv_key_2_0= ruleVariableDefinition ) )
-            // InternalUiTest.g:558:4: (lv_key_2_0= ruleVariableDefinition )
+            // InternalUiTest.g:566:3: ( (lv_key_2_0= ruleVariableDefinition ) )
+            // InternalUiTest.g:567:4: (lv_key_2_0= ruleVariableDefinition )
             {
-            // InternalUiTest.g:558:4: (lv_key_2_0= ruleVariableDefinition )
-            // InternalUiTest.g:559:5: lv_key_2_0= ruleVariableDefinition
+            // InternalUiTest.g:567:4: (lv_key_2_0= ruleVariableDefinition )
+            // InternalUiTest.g:568:5: lv_key_2_0= ruleVariableDefinition
             {
 
             					newCompositeNode(grammarAccess.getStoreAccess().getKeyVariableDefinitionParserRuleCall_2_0());
@@ -1470,7 +1496,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFill"
-    // InternalUiTest.g:580:1: entryRuleFill returns [EObject current=null] : iv_ruleFill= ruleFill EOF ;
+    // InternalUiTest.g:589:1: entryRuleFill returns [EObject current=null] : iv_ruleFill= ruleFill EOF ;
     public final EObject entryRuleFill() throws RecognitionException {
         EObject current = null;
 
@@ -1478,8 +1504,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:580:45: (iv_ruleFill= ruleFill EOF )
-            // InternalUiTest.g:581:2: iv_ruleFill= ruleFill EOF
+            // InternalUiTest.g:589:45: (iv_ruleFill= ruleFill EOF )
+            // InternalUiTest.g:590:2: iv_ruleFill= ruleFill EOF
             {
              newCompositeNode(grammarAccess.getFillRule()); 
             pushFollow(FOLLOW_1);
@@ -1506,35 +1532,35 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFill"
-    // InternalUiTest.g:587:1: ruleFill returns [EObject current=null] : (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( ( (lv_stringValue_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) ;
+    // InternalUiTest.g:596:1: ruleFill returns [EObject current=null] : (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) ) ;
     public final EObject ruleFill() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_stringValue_2_0=null;
-        Token otherlv_3=null;
         EObject lv_selector_1_0 = null;
+
+        EObject lv_value_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalUiTest.g:593:2: ( (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( ( (lv_stringValue_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) )
-            // InternalUiTest.g:594:2: (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( ( (lv_stringValue_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) )
+            // InternalUiTest.g:602:2: ( (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) ) )
+            // InternalUiTest.g:603:2: (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) )
             {
-            // InternalUiTest.g:594:2: (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( ( (lv_stringValue_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) )
-            // InternalUiTest.g:595:3: otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( ( (lv_stringValue_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) )
+            // InternalUiTest.g:603:2: (otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) )
+            // InternalUiTest.g:604:3: otherlv_0= 'fill' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) )
             {
             otherlv_0=(Token)match(input,20,FOLLOW_14); 
 
             			newLeafNode(otherlv_0, grammarAccess.getFillAccess().getFillKeyword_0());
             		
-            // InternalUiTest.g:599:3: ( (lv_selector_1_0= ruleSelector ) )
-            // InternalUiTest.g:600:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:608:3: ( (lv_selector_1_0= ruleSelector ) )
+            // InternalUiTest.g:609:4: (lv_selector_1_0= ruleSelector )
             {
-            // InternalUiTest.g:600:4: (lv_selector_1_0= ruleSelector )
-            // InternalUiTest.g:601:5: lv_selector_1_0= ruleSelector
+            // InternalUiTest.g:609:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:610:5: lv_selector_1_0= ruleSelector
             {
 
             					newCompositeNode(grammarAccess.getFillAccess().getSelectorSelectorParserRuleCall_1_0());
@@ -1561,82 +1587,34 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUiTest.g:618:3: ( ( (lv_stringValue_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalUiTest.g:627:3: ( (lv_value_2_0= ruleValue ) )
+            // InternalUiTest.g:628:4: (lv_value_2_0= ruleValue )
+            {
+            // InternalUiTest.g:628:4: (lv_value_2_0= ruleValue )
+            // InternalUiTest.g:629:5: lv_value_2_0= ruleValue
+            {
 
-            if ( (LA9_0==RULE_STRING) ) {
-                alt9=1;
+            					newCompositeNode(grammarAccess.getFillAccess().getValueValueParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_2_0=ruleValue();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getFillRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_2_0,
+            						"org.emn.UiTest.Value");
+            					afterParserOrEnumRuleCall();
+            				
+
             }
-            else if ( (LA9_0==RULE_ID) ) {
-                alt9=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
 
-                throw nvae;
-            }
-            switch (alt9) {
-                case 1 :
-                    // InternalUiTest.g:619:4: ( (lv_stringValue_2_0= RULE_STRING ) )
-                    {
-                    // InternalUiTest.g:619:4: ( (lv_stringValue_2_0= RULE_STRING ) )
-                    // InternalUiTest.g:620:5: (lv_stringValue_2_0= RULE_STRING )
-                    {
-                    // InternalUiTest.g:620:5: (lv_stringValue_2_0= RULE_STRING )
-                    // InternalUiTest.g:621:6: lv_stringValue_2_0= RULE_STRING
-                    {
-                    lv_stringValue_2_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
-
-                    						newLeafNode(lv_stringValue_2_0, grammarAccess.getFillAccess().getStringValueSTRINGTerminalRuleCall_2_0_0());
-                    					
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getFillRule());
-                    						}
-                    						setWithLastConsumed(
-                    							current,
-                    							"stringValue",
-                    							lv_stringValue_2_0,
-                    							"org.eclipse.xtext.common.Terminals.STRING");
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalUiTest.g:638:4: ( (otherlv_3= RULE_ID ) )
-                    {
-                    // InternalUiTest.g:638:4: ( (otherlv_3= RULE_ID ) )
-                    // InternalUiTest.g:639:5: (otherlv_3= RULE_ID )
-                    {
-                    // InternalUiTest.g:639:5: (otherlv_3= RULE_ID )
-                    // InternalUiTest.g:640:6: otherlv_3= RULE_ID
-                    {
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getFillRule());
-                    						}
-                    					
-                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_2); 
-
-                    						newLeafNode(otherlv_3, grammarAccess.getFillAccess().getKeyValueVariableDefinitionCrossReference_2_1_0());
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -1663,7 +1641,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleClick"
-    // InternalUiTest.g:656:1: entryRuleClick returns [EObject current=null] : iv_ruleClick= ruleClick EOF ;
+    // InternalUiTest.g:650:1: entryRuleClick returns [EObject current=null] : iv_ruleClick= ruleClick EOF ;
     public final EObject entryRuleClick() throws RecognitionException {
         EObject current = null;
 
@@ -1671,8 +1649,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:656:46: (iv_ruleClick= ruleClick EOF )
-            // InternalUiTest.g:657:2: iv_ruleClick= ruleClick EOF
+            // InternalUiTest.g:650:46: (iv_ruleClick= ruleClick EOF )
+            // InternalUiTest.g:651:2: iv_ruleClick= ruleClick EOF
             {
              newCompositeNode(grammarAccess.getClickRule()); 
             pushFollow(FOLLOW_1);
@@ -1699,7 +1677,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClick"
-    // InternalUiTest.g:663:1: ruleClick returns [EObject current=null] : ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) ) ;
+    // InternalUiTest.g:657:1: ruleClick returns [EObject current=null] : ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) ) ;
     public final EObject ruleClick() throws RecognitionException {
         EObject current = null;
 
@@ -1711,17 +1689,17 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:669:2: ( ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) ) )
-            // InternalUiTest.g:670:2: ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) )
+            // InternalUiTest.g:663:2: ( ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) ) )
+            // InternalUiTest.g:664:2: ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) )
             {
-            // InternalUiTest.g:670:2: ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) )
-            // InternalUiTest.g:671:3: ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) )
+            // InternalUiTest.g:664:2: ( ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) ) )
+            // InternalUiTest.g:665:3: ( (lv_name_0_0= 'click' ) ) ( (lv_selector_1_0= ruleSelector ) )
             {
-            // InternalUiTest.g:671:3: ( (lv_name_0_0= 'click' ) )
-            // InternalUiTest.g:672:4: (lv_name_0_0= 'click' )
+            // InternalUiTest.g:665:3: ( (lv_name_0_0= 'click' ) )
+            // InternalUiTest.g:666:4: (lv_name_0_0= 'click' )
             {
-            // InternalUiTest.g:672:4: (lv_name_0_0= 'click' )
-            // InternalUiTest.g:673:5: lv_name_0_0= 'click'
+            // InternalUiTest.g:666:4: (lv_name_0_0= 'click' )
+            // InternalUiTest.g:667:5: lv_name_0_0= 'click'
             {
             lv_name_0_0=(Token)match(input,21,FOLLOW_14); 
 
@@ -1739,11 +1717,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUiTest.g:685:3: ( (lv_selector_1_0= ruleSelector ) )
-            // InternalUiTest.g:686:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:679:3: ( (lv_selector_1_0= ruleSelector ) )
+            // InternalUiTest.g:680:4: (lv_selector_1_0= ruleSelector )
             {
-            // InternalUiTest.g:686:4: (lv_selector_1_0= ruleSelector )
-            // InternalUiTest.g:687:5: lv_selector_1_0= ruleSelector
+            // InternalUiTest.g:680:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:681:5: lv_selector_1_0= ruleSelector
             {
 
             					newCompositeNode(grammarAccess.getClickAccess().getSelectorSelectorParserRuleCall_1_0());
@@ -1793,7 +1771,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVerify"
-    // InternalUiTest.g:708:1: entryRuleVerify returns [EObject current=null] : iv_ruleVerify= ruleVerify EOF ;
+    // InternalUiTest.g:702:1: entryRuleVerify returns [EObject current=null] : iv_ruleVerify= ruleVerify EOF ;
     public final EObject entryRuleVerify() throws RecognitionException {
         EObject current = null;
 
@@ -1801,8 +1779,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:708:47: (iv_ruleVerify= ruleVerify EOF )
-            // InternalUiTest.g:709:2: iv_ruleVerify= ruleVerify EOF
+            // InternalUiTest.g:702:47: (iv_ruleVerify= ruleVerify EOF )
+            // InternalUiTest.g:703:2: iv_ruleVerify= ruleVerify EOF
             {
              newCompositeNode(grammarAccess.getVerifyRule()); 
             pushFollow(FOLLOW_1);
@@ -1829,7 +1807,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVerify"
-    // InternalUiTest.g:715:1: ruleVerify returns [EObject current=null] : ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING ) ;
+    // InternalUiTest.g:709:1: ruleVerify returns [EObject current=null] : ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING ) ;
     public final EObject ruleVerify() throws RecognitionException {
         EObject current = null;
 
@@ -1842,17 +1820,17 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:721:2: ( ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING ) )
-            // InternalUiTest.g:722:2: ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING )
+            // InternalUiTest.g:715:2: ( ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING ) )
+            // InternalUiTest.g:716:2: ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING )
             {
-            // InternalUiTest.g:722:2: ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING )
-            // InternalUiTest.g:723:3: ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING
+            // InternalUiTest.g:716:2: ( ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING )
+            // InternalUiTest.g:717:3: ( (lv_name_0_0= 'verify' ) ) ( (lv_selector_1_0= ruleSelector ) ) this_STRING_2= RULE_STRING
             {
-            // InternalUiTest.g:723:3: ( (lv_name_0_0= 'verify' ) )
-            // InternalUiTest.g:724:4: (lv_name_0_0= 'verify' )
+            // InternalUiTest.g:717:3: ( (lv_name_0_0= 'verify' ) )
+            // InternalUiTest.g:718:4: (lv_name_0_0= 'verify' )
             {
-            // InternalUiTest.g:724:4: (lv_name_0_0= 'verify' )
-            // InternalUiTest.g:725:5: lv_name_0_0= 'verify'
+            // InternalUiTest.g:718:4: (lv_name_0_0= 'verify' )
+            // InternalUiTest.g:719:5: lv_name_0_0= 'verify'
             {
             lv_name_0_0=(Token)match(input,22,FOLLOW_14); 
 
@@ -1870,11 +1848,11 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUiTest.g:737:3: ( (lv_selector_1_0= ruleSelector ) )
-            // InternalUiTest.g:738:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:731:3: ( (lv_selector_1_0= ruleSelector ) )
+            // InternalUiTest.g:732:4: (lv_selector_1_0= ruleSelector )
             {
-            // InternalUiTest.g:738:4: (lv_selector_1_0= ruleSelector )
-            // InternalUiTest.g:739:5: lv_selector_1_0= ruleSelector
+            // InternalUiTest.g:732:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:733:5: lv_selector_1_0= ruleSelector
             {
 
             					newCompositeNode(grammarAccess.getVerifyAccess().getSelectorSelectorParserRuleCall_1_0());
@@ -1927,8 +1905,153 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleVerify"
 
 
+    // $ANTLR start "entryRuleSelect"
+    // InternalUiTest.g:758:1: entryRuleSelect returns [EObject current=null] : iv_ruleSelect= ruleSelect EOF ;
+    public final EObject entryRuleSelect() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSelect = null;
+
+
+        try {
+            // InternalUiTest.g:758:47: (iv_ruleSelect= ruleSelect EOF )
+            // InternalUiTest.g:759:2: iv_ruleSelect= ruleSelect EOF
+            {
+             newCompositeNode(grammarAccess.getSelectRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSelect=ruleSelect();
+
+            state._fsp--;
+
+             current =iv_ruleSelect; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSelect"
+
+
+    // $ANTLR start "ruleSelect"
+    // InternalUiTest.g:765:1: ruleSelect returns [EObject current=null] : (otherlv_0= 'select' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) ) ;
+    public final EObject ruleSelect() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        EObject lv_selector_1_0 = null;
+
+        EObject lv_value_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalUiTest.g:771:2: ( (otherlv_0= 'select' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) ) )
+            // InternalUiTest.g:772:2: (otherlv_0= 'select' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) )
+            {
+            // InternalUiTest.g:772:2: (otherlv_0= 'select' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) ) )
+            // InternalUiTest.g:773:3: otherlv_0= 'select' ( (lv_selector_1_0= ruleSelector ) ) ( (lv_value_2_0= ruleValue ) )
+            {
+            otherlv_0=(Token)match(input,23,FOLLOW_14); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getSelectAccess().getSelectKeyword_0());
+            		
+            // InternalUiTest.g:777:3: ( (lv_selector_1_0= ruleSelector ) )
+            // InternalUiTest.g:778:4: (lv_selector_1_0= ruleSelector )
+            {
+            // InternalUiTest.g:778:4: (lv_selector_1_0= ruleSelector )
+            // InternalUiTest.g:779:5: lv_selector_1_0= ruleSelector
+            {
+
+            					newCompositeNode(grammarAccess.getSelectAccess().getSelectorSelectorParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_15);
+            lv_selector_1_0=ruleSelector();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getSelectRule());
+            					}
+            					set(
+            						current,
+            						"selector",
+            						lv_selector_1_0,
+            						"org.emn.UiTest.Selector");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalUiTest.g:796:3: ( (lv_value_2_0= ruleValue ) )
+            // InternalUiTest.g:797:4: (lv_value_2_0= ruleValue )
+            {
+            // InternalUiTest.g:797:4: (lv_value_2_0= ruleValue )
+            // InternalUiTest.g:798:5: lv_value_2_0= ruleValue
+            {
+
+            					newCompositeNode(grammarAccess.getSelectAccess().getValueValueParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_2_0=ruleValue();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getSelectRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_2_0,
+            						"org.emn.UiTest.Value");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSelect"
+
+
     // $ANTLR start "entryRuleSelector"
-    // InternalUiTest.g:764:1: entryRuleSelector returns [EObject current=null] : iv_ruleSelector= ruleSelector EOF ;
+    // InternalUiTest.g:819:1: entryRuleSelector returns [EObject current=null] : iv_ruleSelector= ruleSelector EOF ;
     public final EObject entryRuleSelector() throws RecognitionException {
         EObject current = null;
 
@@ -1936,8 +2059,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:764:49: (iv_ruleSelector= ruleSelector EOF )
-            // InternalUiTest.g:765:2: iv_ruleSelector= ruleSelector EOF
+            // InternalUiTest.g:819:49: (iv_ruleSelector= ruleSelector EOF )
+            // InternalUiTest.g:820:2: iv_ruleSelector= ruleSelector EOF
             {
              newCompositeNode(grammarAccess.getSelectorRule()); 
             pushFollow(FOLLOW_1);
@@ -1964,7 +2087,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSelector"
-    // InternalUiTest.g:771:1: ruleSelector returns [EObject current=null] : (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' ) ;
+    // InternalUiTest.g:826:1: ruleSelector returns [EObject current=null] : (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' ) ;
     public final EObject ruleSelector() throws RecognitionException {
         EObject current = null;
 
@@ -1978,21 +2101,21 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:777:2: ( (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' ) )
-            // InternalUiTest.g:778:2: (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' )
+            // InternalUiTest.g:832:2: ( (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' ) )
+            // InternalUiTest.g:833:2: (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' )
             {
-            // InternalUiTest.g:778:2: (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' )
-            // InternalUiTest.g:779:3: otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']'
+            // InternalUiTest.g:833:2: (otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']' )
+            // InternalUiTest.g:834:3: otherlv_0= '[' ( (lv_attributeName_1_0= RULE_STRING ) ) otherlv_2= '=' ( (lv_attributeValue_3_0= RULE_STRING ) ) otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_13); 
+            otherlv_0=(Token)match(input,24,FOLLOW_13); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSelectorAccess().getLeftSquareBracketKeyword_0());
             		
-            // InternalUiTest.g:783:3: ( (lv_attributeName_1_0= RULE_STRING ) )
-            // InternalUiTest.g:784:4: (lv_attributeName_1_0= RULE_STRING )
+            // InternalUiTest.g:838:3: ( (lv_attributeName_1_0= RULE_STRING ) )
+            // InternalUiTest.g:839:4: (lv_attributeName_1_0= RULE_STRING )
             {
-            // InternalUiTest.g:784:4: (lv_attributeName_1_0= RULE_STRING )
-            // InternalUiTest.g:785:5: lv_attributeName_1_0= RULE_STRING
+            // InternalUiTest.g:839:4: (lv_attributeName_1_0= RULE_STRING )
+            // InternalUiTest.g:840:5: lv_attributeName_1_0= RULE_STRING
             {
             lv_attributeName_1_0=(Token)match(input,RULE_STRING,FOLLOW_16); 
 
@@ -2014,15 +2137,15 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,24,FOLLOW_13); 
+            otherlv_2=(Token)match(input,25,FOLLOW_13); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSelectorAccess().getEqualsSignKeyword_2());
             		
-            // InternalUiTest.g:805:3: ( (lv_attributeValue_3_0= RULE_STRING ) )
-            // InternalUiTest.g:806:4: (lv_attributeValue_3_0= RULE_STRING )
+            // InternalUiTest.g:860:3: ( (lv_attributeValue_3_0= RULE_STRING ) )
+            // InternalUiTest.g:861:4: (lv_attributeValue_3_0= RULE_STRING )
             {
-            // InternalUiTest.g:806:4: (lv_attributeValue_3_0= RULE_STRING )
-            // InternalUiTest.g:807:5: lv_attributeValue_3_0= RULE_STRING
+            // InternalUiTest.g:861:4: (lv_attributeValue_3_0= RULE_STRING )
+            // InternalUiTest.g:862:5: lv_attributeValue_3_0= RULE_STRING
             {
             lv_attributeValue_3_0=(Token)match(input,RULE_STRING,FOLLOW_17); 
 
@@ -2044,7 +2167,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,25,FOLLOW_2); 
+            otherlv_4=(Token)match(input,26,FOLLOW_2); 
 
             			newLeafNode(otherlv_4, grammarAccess.getSelectorAccess().getRightSquareBracketKeyword_4());
             		
@@ -2070,8 +2193,157 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSelector"
 
 
+    // $ANTLR start "entryRuleValue"
+    // InternalUiTest.g:886:1: entryRuleValue returns [EObject current=null] : iv_ruleValue= ruleValue EOF ;
+    public final EObject entryRuleValue() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleValue = null;
+
+
+        try {
+            // InternalUiTest.g:886:46: (iv_ruleValue= ruleValue EOF )
+            // InternalUiTest.g:887:2: iv_ruleValue= ruleValue EOF
+            {
+             newCompositeNode(grammarAccess.getValueRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleValue=ruleValue();
+
+            state._fsp--;
+
+             current =iv_ruleValue; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleValue"
+
+
+    // $ANTLR start "ruleValue"
+    // InternalUiTest.g:893:1: ruleValue returns [EObject current=null] : ( ( (lv_stringValue_0_0= RULE_STRING ) ) | ( (otherlv_1= RULE_ID ) ) ) ;
+    public final EObject ruleValue() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_stringValue_0_0=null;
+        Token otherlv_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalUiTest.g:899:2: ( ( ( (lv_stringValue_0_0= RULE_STRING ) ) | ( (otherlv_1= RULE_ID ) ) ) )
+            // InternalUiTest.g:900:2: ( ( (lv_stringValue_0_0= RULE_STRING ) ) | ( (otherlv_1= RULE_ID ) ) )
+            {
+            // InternalUiTest.g:900:2: ( ( (lv_stringValue_0_0= RULE_STRING ) ) | ( (otherlv_1= RULE_ID ) ) )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==RULE_STRING) ) {
+                alt9=1;
+            }
+            else if ( (LA9_0==RULE_ID) ) {
+                alt9=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 9, 0, input);
+
+                throw nvae;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalUiTest.g:901:3: ( (lv_stringValue_0_0= RULE_STRING ) )
+                    {
+                    // InternalUiTest.g:901:3: ( (lv_stringValue_0_0= RULE_STRING ) )
+                    // InternalUiTest.g:902:4: (lv_stringValue_0_0= RULE_STRING )
+                    {
+                    // InternalUiTest.g:902:4: (lv_stringValue_0_0= RULE_STRING )
+                    // InternalUiTest.g:903:5: lv_stringValue_0_0= RULE_STRING
+                    {
+                    lv_stringValue_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+                    					newLeafNode(lv_stringValue_0_0, grammarAccess.getValueAccess().getStringValueSTRINGTerminalRuleCall_0_0());
+                    				
+
+                    					if (current==null) {
+                    						current = createModelElement(grammarAccess.getValueRule());
+                    					}
+                    					setWithLastConsumed(
+                    						current,
+                    						"stringValue",
+                    						lv_stringValue_0_0,
+                    						"org.eclipse.xtext.common.Terminals.STRING");
+                    				
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalUiTest.g:920:3: ( (otherlv_1= RULE_ID ) )
+                    {
+                    // InternalUiTest.g:920:3: ( (otherlv_1= RULE_ID ) )
+                    // InternalUiTest.g:921:4: (otherlv_1= RULE_ID )
+                    {
+                    // InternalUiTest.g:921:4: (otherlv_1= RULE_ID )
+                    // InternalUiTest.g:922:5: otherlv_1= RULE_ID
+                    {
+
+                    					if (current==null) {
+                    						current = createModelElement(grammarAccess.getValueRule());
+                    					}
+                    				
+                    otherlv_1=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+                    					newLeafNode(otherlv_1, grammarAccess.getValueAccess().getKeyValueVariableDefinitionCrossReference_1_0());
+                    				
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleValue"
+
+
     // $ANTLR start "entryRuleVariableDefinition"
-    // InternalUiTest.g:831:1: entryRuleVariableDefinition returns [EObject current=null] : iv_ruleVariableDefinition= ruleVariableDefinition EOF ;
+    // InternalUiTest.g:937:1: entryRuleVariableDefinition returns [EObject current=null] : iv_ruleVariableDefinition= ruleVariableDefinition EOF ;
     public final EObject entryRuleVariableDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -2079,8 +2351,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:831:59: (iv_ruleVariableDefinition= ruleVariableDefinition EOF )
-            // InternalUiTest.g:832:2: iv_ruleVariableDefinition= ruleVariableDefinition EOF
+            // InternalUiTest.g:937:59: (iv_ruleVariableDefinition= ruleVariableDefinition EOF )
+            // InternalUiTest.g:938:2: iv_ruleVariableDefinition= ruleVariableDefinition EOF
             {
              newCompositeNode(grammarAccess.getVariableDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -2107,7 +2379,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVariableDefinition"
-    // InternalUiTest.g:838:1: ruleVariableDefinition returns [EObject current=null] : ( (lv_name_0_0= ruleKEY ) ) ;
+    // InternalUiTest.g:944:1: ruleVariableDefinition returns [EObject current=null] : ( (lv_name_0_0= ruleKEY ) ) ;
     public final EObject ruleVariableDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -2118,14 +2390,14 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:844:2: ( ( (lv_name_0_0= ruleKEY ) ) )
-            // InternalUiTest.g:845:2: ( (lv_name_0_0= ruleKEY ) )
+            // InternalUiTest.g:950:2: ( ( (lv_name_0_0= ruleKEY ) ) )
+            // InternalUiTest.g:951:2: ( (lv_name_0_0= ruleKEY ) )
             {
-            // InternalUiTest.g:845:2: ( (lv_name_0_0= ruleKEY ) )
-            // InternalUiTest.g:846:3: (lv_name_0_0= ruleKEY )
+            // InternalUiTest.g:951:2: ( (lv_name_0_0= ruleKEY ) )
+            // InternalUiTest.g:952:3: (lv_name_0_0= ruleKEY )
             {
-            // InternalUiTest.g:846:3: (lv_name_0_0= ruleKEY )
-            // InternalUiTest.g:847:4: lv_name_0_0= ruleKEY
+            // InternalUiTest.g:952:3: (lv_name_0_0= ruleKEY )
+            // InternalUiTest.g:953:4: lv_name_0_0= ruleKEY
             {
 
             				newCompositeNode(grammarAccess.getVariableDefinitionAccess().getNameKEYParserRuleCall_0());
@@ -2172,7 +2444,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKEY"
-    // InternalUiTest.g:867:1: entryRuleKEY returns [String current=null] : iv_ruleKEY= ruleKEY EOF ;
+    // InternalUiTest.g:973:1: entryRuleKEY returns [String current=null] : iv_ruleKEY= ruleKEY EOF ;
     public final String entryRuleKEY() throws RecognitionException {
         String current = null;
 
@@ -2180,8 +2452,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUiTest.g:867:43: (iv_ruleKEY= ruleKEY EOF )
-            // InternalUiTest.g:868:2: iv_ruleKEY= ruleKEY EOF
+            // InternalUiTest.g:973:43: (iv_ruleKEY= ruleKEY EOF )
+            // InternalUiTest.g:974:2: iv_ruleKEY= ruleKEY EOF
             {
              newCompositeNode(grammarAccess.getKEYRule()); 
             pushFollow(FOLLOW_1);
@@ -2208,7 +2480,7 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKEY"
-    // InternalUiTest.g:874:1: ruleKEY returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
+    // InternalUiTest.g:980:1: ruleKEY returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
     public final AntlrDatatypeRuleToken ruleKEY() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2218,8 +2490,8 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUiTest.g:880:2: (this_ID_0= RULE_ID )
-            // InternalUiTest.g:881:2: this_ID_0= RULE_ID
+            // InternalUiTest.g:986:2: (this_ID_0= RULE_ID )
+            // InternalUiTest.g:987:2: this_ID_0= RULE_ID
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2252,16 +2524,16 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
     protected DFA4 dfa4 = new DFA4(this);
     static final String dfa_1s = "\7\uffff";
     static final String dfa_2s = "\1\4\1\uffff\1\14\2\5\1\4\1\uffff";
-    static final String dfa_3s = "\1\26\1\uffff\1\14\2\15\1\26\1\uffff";
+    static final String dfa_3s = "\1\27\1\uffff\1\14\2\15\1\27\1\uffff";
     static final String dfa_4s = "\1\uffff\1\1\4\uffff\1\2";
     static final String dfa_5s = "\7\uffff}>";
     static final String[] dfa_6s = {
-            "\1\2\14\uffff\6\1",
+            "\1\2\14\uffff\7\1",
             "",
             "\1\3",
             "\1\4\7\uffff\1\5",
             "\1\4\7\uffff\1\5",
-            "\1\6\12\uffff\1\6\1\1\6\6",
+            "\1\6\12\uffff\1\6\1\1\7\6",
             ""
     };
 
@@ -2293,20 +2565,20 @@ public class InternalUiTestParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000007E0812L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000000007E0012L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000FE0812L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000FE0012L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002010L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000007E0010L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000007E8010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000FE0010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000FE8010L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000002020L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000004000000L});
 
 }
