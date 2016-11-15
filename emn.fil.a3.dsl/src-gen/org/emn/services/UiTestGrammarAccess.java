@@ -32,8 +32,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCommandsCommandParserRuleCall_1_0 = (RuleCall)cCommandsAssignment_1.eContents().get(0);
 		
 		//UiTest:
-		//	functions+=Function*
-		//	commands+=Command*;
+		//	functions+=Function* commands+=Command*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//functions+=Function* commands+=Command*
@@ -69,10 +68,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Function:
-		//	'function' name=FunctionName '(' parameters+=VariableDefinition* ')'
-		//	'{'
-		//	statements+=(Command | FunctionCall)+
-		//	'}';
+		//	'function' name=FunctionName '(' parameters+=VariableDefinition* ')' '{' statements+=(Command | FunctionCall)+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'function' name=FunctionName '(' parameters+=VariableDefinition* ')' '{' statements+=(Command | FunctionCall)+ '}'
@@ -547,8 +543,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//UiTest:
-	//	functions+=Function*
-	//	commands+=Command*;
+	//	functions+=Function* commands+=Command*;
 	public UiTestElements getUiTestAccess() {
 		return pUiTest;
 	}
@@ -558,10 +553,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Function:
-	//	'function' name=FunctionName '(' parameters+=VariableDefinition* ')'
-	//	'{'
-	//	statements+=(Command | FunctionCall)+
-	//	'}';
+	//	'function' name=FunctionName '(' parameters+=VariableDefinition* ')' '{' statements+=(Command | FunctionCall)+ '}';
 	public FunctionElements getFunctionAccess() {
 		return pFunction;
 	}

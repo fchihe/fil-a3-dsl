@@ -3,10 +3,24 @@
  */
 package org.emn.generator;
 
+import com.google.common.collect.Iterables;
+import java.io.File;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.emn.uiTest.Click;
+import org.emn.uiTest.Command;
+import org.emn.uiTest.Fill;
+import org.emn.uiTest.GoOn;
+import org.emn.uiTest.Open;
+import org.emn.uiTest.Store;
+import org.emn.uiTest.UiTest;
+import org.emn.uiTest.Verify;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +31,122 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class UiTestGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EList<EObject> _contents = resource.getContents();
+    Iterable<UiTest> _filter = Iterables.<UiTest>filter(_contents, UiTest.class);
+    UiTest _head = IterableExtensions.<UiTest>head(_filter);
+    CharSequence _generateUiTest = this.generateUiTest(_head);
+    fsa.generateFile((("browserAutomation" + File.separator) + "Main.java"), _generateUiTest);
+  }
+  
+  public CharSequence generateUiTest(final UiTest uiTest) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package browserAutomation;");
+    _builder.newLine();
+    _builder.append("class Main {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public static void main(String[] args) {");
+    _builder.newLine();
+    {
+      EList<Command> _commands = uiTest.getCommands();
+      for(final Command c : _commands) {
+        _builder.append("\t\t\t");
+        CharSequence _generateCommand = this.generateCommand(c);
+        _builder.append(_generateCommand, "\t\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateCommand(final Command c) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _switchResult = null;
+    boolean _matched = false;
+    if (c instanceof Click) {
+      _matched=true;
+      _switchResult = this.generateClick(((Click)c));
+    }
+    if (!_matched) {
+      if (c instanceof Open) {
+        _matched=true;
+        _switchResult = this.generateOpen(((Open)c));
+      }
+    }
+    if (!_matched) {
+      if (c instanceof GoOn) {
+        _matched=true;
+        _switchResult = this.generateGoOn(((GoOn)c));
+      }
+    }
+    if (!_matched) {
+      if (c instanceof Fill) {
+        _matched=true;
+        _switchResult = this.generateFill(((Fill)c));
+      }
+    }
+    if (!_matched) {
+      if (c instanceof Verify) {
+        _matched=true;
+        _switchResult = this.generateVerify(((Verify)c));
+      }
+    }
+    if (!_matched) {
+      if (c instanceof Store) {
+        _matched=true;
+        _switchResult = this.generateStore(((Store)c));
+      }
+    }
+    _builder.append(_switchResult, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateClick(final Click c) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("click;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateOpen(final Open o) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("open;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateGoOn(final GoOn g) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("goOn;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateFill(final Fill f) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("fill;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateVerify(final Verify v) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("verifiy;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateStore(final Store s) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("store;");
+    _builder.newLine();
+    return _builder;
   }
 }

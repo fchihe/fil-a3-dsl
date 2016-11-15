@@ -3,10 +3,19 @@
  */
 package org.emn.generator
 
+import java.io.File
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.emn.uiTest.Click
+import org.emn.uiTest.Command
+import org.emn.uiTest.Fill
+import org.emn.uiTest.GoOn
+import org.emn.uiTest.Open
+import org.emn.uiTest.Store
+import org.emn.uiTest.UiTest
+import org.emn.uiTest.Verify
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +25,55 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class UiTestGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('browserAutomation'+File.separator+'Main.java', 
+			//resource.allContents.toIterable.filter(Calendar).head.generateCalendar
+			resource.contents.filter(UiTest).head.generateUiTest
+		);
 	}
+	
+	def generateUiTest(UiTest uiTest) '''
+		package browserAutomation;
+		class Main {
+				public static void main(String[] args) {
+					«FOR c : uiTest.commands»
+						«c.generateCommand»
+					«ENDFOR»
+				}
+			}
+	'''
+	
+	def generateCommand(Command c) '''
+		«switch c {
+			Click: c.generateClick
+			Open: c.generateOpen
+			GoOn: c.generateGoOn
+			Fill : c.generateFill
+			Verify: c.generateVerify
+			Store: c.generateStore
+			}»
+	'''
+	
+	def generateClick(Click c) '''
+		click;
+	'''
+	
+	def generateOpen(Open o) '''
+		open;
+	'''
+	
+	def generateGoOn(GoOn g) '''
+		goOn;
+	'''
+	
+	def generateFill(Fill f) '''
+		fill;
+	'''
+	
+	def generateVerify(Verify v) '''
+		verifiy;
+	'''
+	
+	def generateStore(Store s) '''
+		store;
+	'''
 }
