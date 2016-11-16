@@ -202,6 +202,11 @@ public class FunctionItemProvider
 			(createChildParameter
 				(UiTestPackage.Literals.FUNCTION__STATEMENTS,
 				 UiTestFactory.eINSTANCE.createVerify()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UiTestPackage.Literals.FUNCTION__STATEMENTS,
+				 UiTestFactory.eINSTANCE.createSelect()));
 	}
 
 	/**

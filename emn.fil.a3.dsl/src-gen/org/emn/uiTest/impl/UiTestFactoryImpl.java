@@ -22,254 +22,238 @@ import org.emn.uiTest.*;
 public class UiTestFactoryImpl extends EFactoryImpl implements UiTestFactory
 {
   /**
-   * Creates the default factory implementation.
-   * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static UiTestFactory init()
   {
-    try
-    {
-      UiTestFactory theUiTestFactory = (UiTestFactory)EPackage.Registry.INSTANCE.getEFactory(UiTestPackage.eNS_URI);
-      if (theUiTestFactory != null)
-      {
-        return theUiTestFactory;
-      }
-    }
-    catch (Exception exception)
-    {
-      EcorePlugin.INSTANCE.log(exception);
-    }
-    return new UiTestFactoryImpl();
-  }
+		try {
+			UiTestFactory theUiTestFactory = (UiTestFactory)EPackage.Registry.INSTANCE.getEFactory(UiTestPackage.eNS_URI);
+			if (theUiTestFactory != null) {
+				return theUiTestFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new UiTestFactoryImpl();
+	}
 
   /**
-   * Creates an instance of the factory.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public UiTestFactoryImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EObject create(EClass eClass)
   {
-    switch (eClass.getClassifierID())
-    {
-      case UiTestPackage.UI_TEST: return createUiTest();
-      case UiTestPackage.FUNCTION: return createFunction();
-      case UiTestPackage.FUNCTION_CALL: return createFunctionCall();
-      case UiTestPackage.FUNCTION_NAME: return createFunctionName();
-      case UiTestPackage.COMMAND: return createCommand();
-      case UiTestPackage.OPEN: return createOpen();
-      case UiTestPackage.GO_ON: return createGoOn();
-      case UiTestPackage.STORE: return createStore();
-      case UiTestPackage.FILL: return createFill();
-      case UiTestPackage.CLICK: return createClick();
-      case UiTestPackage.VERIFY: return createVerify();
-      case UiTestPackage.SELECT: return createSelect();
-      case UiTestPackage.SELECTOR: return createSelector();
-      case UiTestPackage.VALUE: return createValue();
-      case UiTestPackage.VARIABLE_DEFINITION: return createVariableDefinition();
-      default:
-        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eClass.getClassifierID()) {
+			case UiTestPackage.UI_TEST: return createUiTest();
+			case UiTestPackage.FUNCTION: return createFunction();
+			case UiTestPackage.FUNCTION_CALL: return createFunctionCall();
+			case UiTestPackage.FUNCTION_NAME: return createFunctionName();
+			case UiTestPackage.COMMAND: return createCommand();
+			case UiTestPackage.OPEN: return createOpen();
+			case UiTestPackage.GO_ON: return createGoOn();
+			case UiTestPackage.STORE: return createStore();
+			case UiTestPackage.FILL: return createFill();
+			case UiTestPackage.CLICK: return createClick();
+			case UiTestPackage.VERIFY: return createVerify();
+			case UiTestPackage.SELECT: return createSelect();
+			case UiTestPackage.SELECTOR: return createSelector();
+			case UiTestPackage.VARIABLE_DEFINITION: return createVariableDefinition();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public UiTest createUiTest()
   {
-    UiTestImpl uiTest = new UiTestImpl();
-    return uiTest;
-  }
+		UiTestImpl uiTest = new UiTestImpl();
+		return uiTest;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Function createFunction()
   {
-    FunctionImpl function = new FunctionImpl();
-    return function;
-  }
+		FunctionImpl function = new FunctionImpl();
+		return function;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public FunctionCall createFunctionCall()
   {
-    FunctionCallImpl functionCall = new FunctionCallImpl();
-    return functionCall;
-  }
+		FunctionCallImpl functionCall = new FunctionCallImpl();
+		return functionCall;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public FunctionName createFunctionName()
   {
-    FunctionNameImpl functionName = new FunctionNameImpl();
-    return functionName;
-  }
+		FunctionNameImpl functionName = new FunctionNameImpl();
+		return functionName;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Command createCommand()
   {
-    CommandImpl command = new CommandImpl();
-    return command;
-  }
+		CommandImpl command = new CommandImpl();
+		return command;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Open createOpen()
   {
-    OpenImpl open = new OpenImpl();
-    return open;
-  }
+		OpenImpl open = new OpenImpl();
+		return open;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public GoOn createGoOn()
   {
-    GoOnImpl goOn = new GoOnImpl();
-    return goOn;
-  }
+		GoOnImpl goOn = new GoOnImpl();
+		return goOn;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Store createStore()
   {
-    StoreImpl store = new StoreImpl();
-    return store;
-  }
+		StoreImpl store = new StoreImpl();
+		return store;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Fill createFill()
   {
-    FillImpl fill = new FillImpl();
-    return fill;
-  }
+		FillImpl fill = new FillImpl();
+		return fill;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Click createClick()
   {
-    ClickImpl click = new ClickImpl();
-    return click;
-  }
+		ClickImpl click = new ClickImpl();
+		return click;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Verify createVerify()
   {
-    VerifyImpl verify = new VerifyImpl();
-    return verify;
-  }
+		VerifyImpl verify = new VerifyImpl();
+		return verify;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Select createSelect()
   {
-    SelectImpl select = new SelectImpl();
-    return select;
-  }
+		SelectImpl select = new SelectImpl();
+		return select;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public Selector createSelector()
   {
-    SelectorImpl selector = new SelectorImpl();
-    return selector;
-  }
+		SelectorImpl selector = new SelectorImpl();
+		return selector;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Value createValue()
-  {
-    ValueImpl value = new ValueImpl();
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public VariableDefinition createVariableDefinition()
   {
-    VariableDefinitionImpl variableDefinition = new VariableDefinitionImpl();
-    return variableDefinition;
-  }
+		VariableDefinitionImpl variableDefinition = new VariableDefinitionImpl();
+		return variableDefinition;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public UiTestPackage getUiTestPackage()
   {
-    return (UiTestPackage)getEPackage();
-  }
+		return (UiTestPackage)getEPackage();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @deprecated
-   * @generated
-   */
+	 * @deprecated
+	 * @generated
+	 */
   @Deprecated
   public static UiTestPackage getPackage()
   {
-    return UiTestPackage.eINSTANCE;
-  }
+		return UiTestPackage.eINSTANCE;
+	}
 
 } //UiTestFactoryImpl

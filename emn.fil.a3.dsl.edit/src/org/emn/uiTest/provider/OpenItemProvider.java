@@ -48,6 +48,7 @@ public class OpenItemProvider extends CommandItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addProgramPropertyDescriptor(object);
+			addDriverPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +98,28 @@ public class OpenItemProvider extends CommandItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Driver Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDriverPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Open_driverPath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Open_driverPath_feature", "_UI_Open_type"),
+				 UiTestPackage.Literals.OPEN__DRIVER_PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Open.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +159,7 @@ public class OpenItemProvider extends CommandItemProvider {
 		switch (notification.getFeatureID(Open.class)) {
 			case UiTestPackage.OPEN__NAME:
 			case UiTestPackage.OPEN__PROGRAM:
+			case UiTestPackage.OPEN__DRIVER_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

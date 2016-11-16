@@ -16,155 +16,146 @@ import org.eclipse.emf.ecore.EFactory;
 public interface UiTestFactory extends EFactory
 {
   /**
-   * The singleton instance of the factory.
-   * <!-- begin-user-doc -->
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   UiTestFactory eINSTANCE = org.emn.uiTest.impl.UiTestFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Ui Test</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Ui Test</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ui Test</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Ui Test</em>'.
+	 * @generated
+	 */
   UiTest createUiTest();
 
   /**
-   * Returns a new object of class '<em>Function</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Function</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Function</em>'.
+	 * @generated
+	 */
   Function createFunction();
 
   /**
-   * Returns a new object of class '<em>Function Call</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Function Call</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Call</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Function Call</em>'.
+	 * @generated
+	 */
   FunctionCall createFunctionCall();
 
   /**
-   * Returns a new object of class '<em>Function Name</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Function Name</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Name</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Function Name</em>'.
+	 * @generated
+	 */
   FunctionName createFunctionName();
 
   /**
-   * Returns a new object of class '<em>Command</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Command</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Command</em>'.
+	 * @generated
+	 */
   Command createCommand();
 
   /**
-   * Returns a new object of class '<em>Open</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Open</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Open</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Open</em>'.
+	 * @generated
+	 */
   Open createOpen();
 
   /**
-   * Returns a new object of class '<em>Go On</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Go On</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Go On</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Go On</em>'.
+	 * @generated
+	 */
   GoOn createGoOn();
 
   /**
-   * Returns a new object of class '<em>Store</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Store</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Store</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Store</em>'.
+	 * @generated
+	 */
   Store createStore();
 
   /**
-   * Returns a new object of class '<em>Fill</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Fill</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fill</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Fill</em>'.
+	 * @generated
+	 */
   Fill createFill();
 
   /**
-   * Returns a new object of class '<em>Click</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Click</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Click</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Click</em>'.
+	 * @generated
+	 */
   Click createClick();
 
   /**
-   * Returns a new object of class '<em>Verify</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Verify</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Verify</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Verify</em>'.
+	 * @generated
+	 */
   Verify createVerify();
 
   /**
-   * Returns a new object of class '<em>Select</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Select</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Select</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Select</em>'.
+	 * @generated
+	 */
   Select createSelect();
 
   /**
-   * Returns a new object of class '<em>Selector</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Selector</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selector</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Selector</em>'.
+	 * @generated
+	 */
   Selector createSelector();
 
   /**
-   * Returns a new object of class '<em>Value</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Variable Definition</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value</em>'.
-   * @generated
-   */
-  Value createValue();
-
-  /**
-   * Returns a new object of class '<em>Variable Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Definition</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Variable Definition</em>'.
+	 * @generated
+	 */
   VariableDefinition createVariableDefinition();
 
   /**
-   * Returns the package supported by this factory.
-   * <!-- begin-user-doc -->
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the package supported by this factory.
-   * @generated
-   */
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
   UiTestPackage getUiTestPackage();
 
 } //UiTestFactory

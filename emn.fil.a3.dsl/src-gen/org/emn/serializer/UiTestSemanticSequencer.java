@@ -27,7 +27,6 @@ import org.emn.uiTest.Selector;
 import org.emn.uiTest.Store;
 import org.emn.uiTest.UiTest;
 import org.emn.uiTest.UiTestPackage;
-import org.emn.uiTest.Value;
 import org.emn.uiTest.VariableDefinition;
 import org.emn.uiTest.Verify;
 
@@ -78,9 +77,6 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case UiTestPackage.UI_TEST:
 				sequence_UiTest(context, (UiTest) semanticObject); 
 				return; 
-			case UiTestPackage.VALUE:
-				sequence_Value(context, (Value) semanticObject); 
-				return; 
 			case UiTestPackage.VARIABLE_DEFINITION:
 				sequence_VariableDefinition(context, (VariableDefinition) semanticObject); 
 				return; 
@@ -120,19 +116,10 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Fill returns Fill
 	 *
 	 * Constraint:
-	 *     (selector=Selector value=Value)
+	 *     (selector=Selector (stringValue=STRING | keyValue=[VariableDefinition|ID]))
 	 */
 	protected void sequence_Fill(ISerializationContext context, Fill semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.FILL__SELECTOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.FILL__SELECTOR));
-			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.FILL__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.FILL__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFillAccess().getSelectorSelectorParserRuleCall_1_0(), semanticObject.getSelector());
-		feeder.accept(grammarAccess.getFillAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -207,19 +194,10 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Open returns Open
 	 *
 	 * Constraint:
-	 *     (name='open' program=STRING)
+	 *     (name='open' (program='firefox' | program='chrome') driverPath=STRING)
 	 */
 	protected void sequence_Open(ISerializationContext context, Open semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.OPEN__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.OPEN__NAME));
-			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.OPEN__PROGRAM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.OPEN__PROGRAM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOpenAccess().getNameOpenKeyword_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getOpenAccess().getProgramSTRINGTerminalRuleCall_1_0(), semanticObject.getProgram());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -229,19 +207,10 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Select returns Select
 	 *
 	 * Constraint:
-	 *     (selector=Selector value=Value)
+	 *     (selector=Selector (stringValue=STRING | keyValue=[VariableDefinition|ID]))
 	 */
 	protected void sequence_Select(ISerializationContext context, Select semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.SELECT__SELECTOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.SELECT__SELECTOR));
-			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.SELECT__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.SELECT__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSelectAccess().getSelectorSelectorParserRuleCall_1_0(), semanticObject.getSelector());
-		feeder.accept(grammarAccess.getSelectAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -302,18 +271,6 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Value returns Value
-	 *
-	 * Constraint:
-	 *     (stringValue=STRING | keyValue=[VariableDefinition|ID])
-	 */
-	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     VariableDefinition returns VariableDefinition
 	 *
 	 * Constraint:
@@ -336,7 +293,7 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Verify returns Verify
 	 *
 	 * Constraint:
-	 *     (name='verify' selector=Selector)
+	 *     (name='verify' selector=Selector comparison=STRING)
 	 */
 	protected void sequence_Verify(ISerializationContext context, Verify semanticObject) {
 		if (errorAcceptor != null) {
@@ -344,10 +301,13 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.VERIFY__NAME));
 			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.VERIFY__SELECTOR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.VERIFY__SELECTOR));
+			if (transientValues.isValueTransient(semanticObject, UiTestPackage.Literals.VERIFY__COMPARISON) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UiTestPackage.Literals.VERIFY__COMPARISON));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVerifyAccess().getNameVerifyKeyword_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getVerifyAccess().getSelectorSelectorParserRuleCall_1_0(), semanticObject.getSelector());
+		feeder.accept(grammarAccess.getVerifyAccess().getComparisonSTRINGTerminalRuleCall_2_0(), semanticObject.getComparison());
 		feeder.finish();
 	}
 	

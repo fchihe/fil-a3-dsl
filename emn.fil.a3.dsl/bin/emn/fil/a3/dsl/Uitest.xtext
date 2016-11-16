@@ -24,7 +24,7 @@ Command:
 	((Open | GoOn | Fill | Click | Verify | Store | Select) | FunctionCall) ';'
 ;
 Open:
-	name='open' program=STRING 
+	name='open' program=("firefox"|"chrome") driverPath=STRING
 ;
 GoOn:
 	name='goOn' address=STRING  
@@ -34,7 +34,7 @@ Store:
 ;
 
 Fill:
-	'fill' selector=Selector value=Value
+	'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
 ;
 
 Click:
@@ -42,19 +42,15 @@ Click:
 ;
 
 Verify:
-	name='verify' selector=Selector STRING
+	name='verify' selector=Selector comparison=STRING
 ;
 
 Select:
-    'select' selector=Selector value=Value
+    'select' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
 ;
 
 Selector:
 	'['attributeName=STRING'='attributeValue=STRING ']'
-;
-
-Value:
-	(stringValue=STRING | keyValue=[VariableDefinition])
 ;
 
 VariableDefinition:

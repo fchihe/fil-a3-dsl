@@ -195,6 +195,11 @@ public class UiTestItemProvider
 			(createChildParameter
 				(UiTestPackage.Literals.UI_TEST__COMMANDS,
 				 UiTestFactory.eINSTANCE.createVerify()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UiTestPackage.Literals.UI_TEST__COMMANDS,
+				 UiTestFactory.eINSTANCE.createSelect()));
 	}
 
 	/**

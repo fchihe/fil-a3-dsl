@@ -50,6 +50,7 @@ public class VerifyItemProvider extends CommandItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addComparisonPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +69,28 @@ public class VerifyItemProvider extends CommandItemProvider {
 				 getString("_UI_Verify_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Verify_name_feature", "_UI_Verify_type"),
 				 UiTestPackage.Literals.VERIFY__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Comparison feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addComparisonPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Verify_comparison_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Verify_comparison_feature", "_UI_Verify_type"),
+				 UiTestPackage.Literals.VERIFY__COMPARISON,
 				 true,
 				 false,
 				 false,
@@ -145,6 +168,7 @@ public class VerifyItemProvider extends CommandItemProvider {
 
 		switch (notification.getFeatureID(Verify.class)) {
 			case UiTestPackage.VERIFY__NAME:
+			case UiTestPackage.VERIFY__COMPARISON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UiTestPackage.VERIFY__SELECTOR:

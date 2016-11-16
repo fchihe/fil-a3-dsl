@@ -11,13 +11,14 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.emn.uiTest.Click
 import org.emn.uiTest.Command
 import org.emn.uiTest.Fill
+import org.emn.uiTest.FunctionCall
 import org.emn.uiTest.GoOn
 import org.emn.uiTest.Open
 import org.emn.uiTest.Select
 import org.emn.uiTest.Selector
 import org.emn.uiTest.Store
 import org.emn.uiTest.UiTest
-import org.emn.uiTest.Value
+import org.emn.uiTest.VariableDefinition
 import org.emn.uiTest.Verify
 
 /**
@@ -37,19 +38,25 @@ class UiTestGenerator extends AbstractGenerator {
 	def generateUiTest(UiTest uiTest) '''
 		package browserAutomation;
 		import java.io.File;
-		
 		import org.openqa.selenium.By;
-		import org.openqa.selenium.Keys;
 		import org.openqa.selenium.WebDriver;
 		import org.openqa.selenium.chrome.ChromeDriver;
 		import org.openqa.selenium.firefox.FirefoxDriver;
 		import org.openqa.selenium.support.ui.Select;
 		class Main {
+				public static WebDriver driver;
 				public static void main(String[] args) {
 					«FOR c : uiTest.commands»
 						«c.generateCommand»
 					«ENDFOR»
 				}
+				«FOR f : uiTest.functions»
+				public static void «f.name.name»(«FOR param : f.parameters»String «param.name»«IF f.parameters.indexOf(param) != f.parameters.length-1», «ENDIF»«ENDFOR») {
+					«FOR c: f.statements»
+						«c.generateCommand»
+					«ENDFOR»
+				}
+				«ENDFOR»
 			}
 	'''
 	
@@ -62,11 +69,15 @@ class UiTestGenerator extends AbstractGenerator {
 			Verify: c.generateVerify
 			Store: c.generateStore
 			Select: c.generateSelect
+			FunctionCall: c.generateFunctionCall
 			}»
+	'''
+	def generateFunctionCall(FunctionCall fc) '''
+		«fc.name.name»(«FOR param : fc.parameters»"«param»"«IF fc.parameters.indexOf(param) != fc.parameters.length-1», «ENDIF»«ENDFOR»);
 	'''
 	
 	def generateSelect(Select s) '''
-		new Select(driver.findElement(By.xpath("«s.selector.generateSelector»"))).selectByVisibleText("«s.value.generateValue»");
+		new Select(driver.findElement(By.xpath("«s.selector.generateSelector»"))).selectByVisibleText(«generateValue(s.stringValue, s.keyValue)»);
 	'''
 	
 	def generateClick(Click c) '''
@@ -76,9 +87,9 @@ class UiTestGenerator extends AbstractGenerator {
 	def generateSelector(Selector s) '''«IF s.attributeName.equals("text")»//*[contains(text(), '«s.attributeValue»')]«ELSE»//*[@«s.attributeName»=\"«s.attributeValue»\"]«ENDIF»'''
 	
 	def generateOpen(Open o) '''
-		File file = new File("C:\\Users\\Xavier\\Downloads\\chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath() );
-		WebDriver driver = new ChromeDriver();
+		File file = new File("«o.driverPath»");
+		System.setProperty("webdriver.«IF o.program.equals("chrome")»chrome«ELSE»gecko«ENDIF».driver", file.getAbsolutePath() );
+		driver = new «IF o.program.equals("chrome")»Chrome«ELSE»Firefox«ENDIF»Driver();
 	'''
 	
 	def generateGoOn(GoOn g) '''
@@ -86,15 +97,15 @@ class UiTestGenerator extends AbstractGenerator {
 	'''
 	
 	def generateFill(Fill f) '''
-		driver.findElement(By.xpath("«f.selector.generateSelector»")).sendKeys("«f.value.generateValue»");
+		driver.findElement(By.xpath("«f.selector.generateSelector»")).sendKeys(«generateValue(f.stringValue, f.keyValue)»);
 	'''
 	
-	def generateValue(Value v) '''«IF v.stringValue != null»«v.stringValue»«ELSE»« v.keyValue.name»«ENDIF»'''
+	def generateValue(String stringValue, VariableDefinition variableDefinition) '''«IF stringValue != null»"«stringValue»"«ELSE»«variableDefinition.name»«ENDIF»'''
 	def generateVerify(Verify v) '''
-		verifiy;
+		System.out.println(driver.findElement(By.xpath("«v.selector.generateSelector»")).getText().contains("«v.comparison»") ? "«v.selector.attributeValue» contains «v.comparison»" : "«v.selector.attributeValue» does not contain «v.comparison»");
 	'''
 	
 	def generateStore(Store s) '''
-		store;
+		String «s.key.name» = driver.findElement(By.xpath("«s.selector.generateSelector»")).getText();
 	'''
 }

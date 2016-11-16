@@ -13,17 +13,20 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.emn.uiTest.Click;
 import org.emn.uiTest.Command;
 import org.emn.uiTest.Fill;
+import org.emn.uiTest.Function;
+import org.emn.uiTest.FunctionCall;
+import org.emn.uiTest.FunctionName;
 import org.emn.uiTest.GoOn;
 import org.emn.uiTest.Open;
 import org.emn.uiTest.Select;
 import org.emn.uiTest.Selector;
 import org.emn.uiTest.Store;
 import org.emn.uiTest.UiTest;
-import org.emn.uiTest.Value;
 import org.emn.uiTest.VariableDefinition;
 import org.emn.uiTest.Verify;
 
@@ -49,10 +52,7 @@ public class UiTestGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import java.io.File;");
     _builder.newLine();
-    _builder.newLine();
     _builder.append("import org.openqa.selenium.By;");
-    _builder.newLine();
-    _builder.append("import org.openqa.selenium.Keys;");
     _builder.newLine();
     _builder.append("import org.openqa.selenium.WebDriver;");
     _builder.newLine();
@@ -63,6 +63,9 @@ public class UiTestGenerator extends AbstractGenerator {
     _builder.append("import org.openqa.selenium.support.ui.Select;");
     _builder.newLine();
     _builder.append("class Main {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("public static WebDriver driver;");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("public static void main(String[] args) {");
@@ -79,6 +82,51 @@ public class UiTestGenerator extends AbstractGenerator {
     _builder.append("\t\t");
     _builder.append("}");
     _builder.newLine();
+    {
+      EList<Function> _functions = uiTest.getFunctions();
+      for(final Function f : _functions) {
+        _builder.append("\t\t");
+        _builder.append("public static void ");
+        FunctionName _name = f.getName();
+        String _name_1 = _name.getName();
+        _builder.append(_name_1, "\t\t");
+        _builder.append("(");
+        {
+          EList<VariableDefinition> _parameters = f.getParameters();
+          for(final VariableDefinition param : _parameters) {
+            _builder.append("String ");
+            String _name_2 = param.getName();
+            _builder.append(_name_2, "\t\t");
+            {
+              EList<VariableDefinition> _parameters_1 = f.getParameters();
+              int _indexOf = _parameters_1.indexOf(param);
+              EList<VariableDefinition> _parameters_2 = f.getParameters();
+              int _length = ((Object[])Conversions.unwrapArray(_parameters_2, Object.class)).length;
+              int _minus = (_length - 1);
+              boolean _notEquals = (_indexOf != _minus);
+              if (_notEquals) {
+                _builder.append(", ");
+              }
+            }
+          }
+        }
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<Command> _statements = f.getStatements();
+          for(final Command c_1 : _statements) {
+            _builder.append("\t\t");
+            _builder.append("\t");
+            CharSequence _generateCommand_1 = this.generateCommand(c_1);
+            _builder.append(_generateCommand_1, "\t\t\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
@@ -129,7 +177,43 @@ public class UiTestGenerator extends AbstractGenerator {
         _switchResult = this.generateSelect(((Select)c));
       }
     }
+    if (!_matched) {
+      if (c instanceof FunctionCall) {
+        _matched=true;
+        _switchResult = this.generateFunctionCall(((FunctionCall)c));
+      }
+    }
     _builder.append(_switchResult, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateFunctionCall(final FunctionCall fc) {
+    StringConcatenation _builder = new StringConcatenation();
+    FunctionName _name = fc.getName();
+    String _name_1 = _name.getName();
+    _builder.append(_name_1, "");
+    _builder.append("(");
+    {
+      EList<String> _parameters = fc.getParameters();
+      for(final String param : _parameters) {
+        _builder.append("\"");
+        _builder.append(param, "");
+        _builder.append("\"");
+        {
+          EList<String> _parameters_1 = fc.getParameters();
+          int _indexOf = _parameters_1.indexOf(param);
+          EList<String> _parameters_2 = fc.getParameters();
+          int _length = ((Object[])Conversions.unwrapArray(_parameters_2, Object.class)).length;
+          int _minus = (_length - 1);
+          boolean _notEquals = (_indexOf != _minus);
+          if (_notEquals) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -140,11 +224,12 @@ public class UiTestGenerator extends AbstractGenerator {
     Selector _selector = s.getSelector();
     CharSequence _generateSelector = this.generateSelector(_selector);
     _builder.append(_generateSelector, "");
-    _builder.append("\"))).selectByVisibleText(\"");
-    Value _value = s.getValue();
-    CharSequence _generateValue = this.generateValue(_value);
+    _builder.append("\"))).selectByVisibleText(");
+    String _stringValue = s.getStringValue();
+    VariableDefinition _keyValue = s.getKeyValue();
+    CharSequence _generateValue = this.generateValue(_stringValue, _keyValue);
     _builder.append(_generateValue, "");
-    _builder.append("\");");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -185,12 +270,35 @@ public class UiTestGenerator extends AbstractGenerator {
   
   public CharSequence generateOpen(final Open o) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("File file = new File(\"C:\\\\Users\\\\Xavier\\\\Downloads\\\\chromedriver.exe\");");
-    _builder.newLine();
-    _builder.append("System.setProperty(\"webdriver.chrome.driver\", file.getAbsolutePath() );");
-    _builder.newLine();
-    _builder.append("WebDriver driver = new ChromeDriver();");
-    _builder.newLine();
+    _builder.append("File file = new File(\"");
+    String _driverPath = o.getDriverPath();
+    _builder.append(_driverPath, "");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("System.setProperty(\"webdriver.");
+    {
+      String _program = o.getProgram();
+      boolean _equals = _program.equals("chrome");
+      if (_equals) {
+        _builder.append("chrome");
+      } else {
+        _builder.append("gecko");
+      }
+    }
+    _builder.append(".driver\", file.getAbsolutePath() );");
+    _builder.newLineIfNotEmpty();
+    _builder.append("driver = new ");
+    {
+      String _program_1 = o.getProgram();
+      boolean _equals_1 = _program_1.equals("chrome");
+      if (_equals_1) {
+        _builder.append("Chrome");
+      } else {
+        _builder.append("Firefox");
+      }
+    }
+    _builder.append("Driver();");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -210,26 +318,26 @@ public class UiTestGenerator extends AbstractGenerator {
     Selector _selector = f.getSelector();
     CharSequence _generateSelector = this.generateSelector(_selector);
     _builder.append(_generateSelector, "");
-    _builder.append("\")).sendKeys(\"");
-    Value _value = f.getValue();
-    CharSequence _generateValue = this.generateValue(_value);
+    _builder.append("\")).sendKeys(");
+    String _stringValue = f.getStringValue();
+    VariableDefinition _keyValue = f.getKeyValue();
+    CharSequence _generateValue = this.generateValue(_stringValue, _keyValue);
     _builder.append(_generateValue, "");
-    _builder.append("\");");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public CharSequence generateValue(final Value v) {
+  public CharSequence generateValue(final String stringValue, final VariableDefinition variableDefinition) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      String _stringValue = v.getStringValue();
-      boolean _notEquals = (!Objects.equal(_stringValue, null));
+      boolean _notEquals = (!Objects.equal(stringValue, null));
       if (_notEquals) {
-        String _stringValue_1 = v.getStringValue();
-        _builder.append(_stringValue_1, "");
+        _builder.append("\"");
+        _builder.append(stringValue, "");
+        _builder.append("\"");
       } else {
-        VariableDefinition _keyValue = v.getKeyValue();
-        String _name = _keyValue.getName();
+        String _name = variableDefinition.getName();
         _builder.append(_name, "");
       }
     }
@@ -238,15 +346,44 @@ public class UiTestGenerator extends AbstractGenerator {
   
   public CharSequence generateVerify(final Verify v) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("verifiy;");
-    _builder.newLine();
+    _builder.append("System.out.println(driver.findElement(By.xpath(\"");
+    Selector _selector = v.getSelector();
+    CharSequence _generateSelector = this.generateSelector(_selector);
+    _builder.append(_generateSelector, "");
+    _builder.append("\")).getText().contains(\"");
+    String _comparison = v.getComparison();
+    _builder.append(_comparison, "");
+    _builder.append("\") ? \"");
+    Selector _selector_1 = v.getSelector();
+    String _attributeValue = _selector_1.getAttributeValue();
+    _builder.append(_attributeValue, "");
+    _builder.append(" contains ");
+    String _comparison_1 = v.getComparison();
+    _builder.append(_comparison_1, "");
+    _builder.append("\" : \"");
+    Selector _selector_2 = v.getSelector();
+    String _attributeValue_1 = _selector_2.getAttributeValue();
+    _builder.append(_attributeValue_1, "");
+    _builder.append(" does not contain ");
+    String _comparison_2 = v.getComparison();
+    _builder.append(_comparison_2, "");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence generateStore(final Store s) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("store;");
-    _builder.newLine();
+    _builder.append("String ");
+    VariableDefinition _key = s.getKey();
+    String _name = _key.getName();
+    _builder.append(_name, "");
+    _builder.append(" = driver.findElement(By.xpath(\"");
+    Selector _selector = s.getSelector();
+    CharSequence _generateSelector = this.generateSelector(_selector);
+    _builder.append(_generateSelector, "");
+    _builder.append("\")).getText();");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
 }

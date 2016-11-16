@@ -24,55 +24,55 @@ package org.emn.uiTest;
 public interface Store extends Command
 {
   /**
-   * Returns the value of the '<em><b>Selector</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Selector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Selector</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Selector</em>' containment reference.
-   * @see #setSelector(Selector)
-   * @see org.emn.uiTest.UiTestPackage#getStore_Selector()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Selector</em>' containment reference.
+	 * @see #setSelector(Selector)
+	 * @see org.emn.uiTest.UiTestPackage#getStore_Selector()
+	 * @model containment="true"
+	 * @generated
+	 */
   Selector getSelector();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Store#getSelector <em>Selector</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Store#getSelector <em>Selector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Selector</em>' containment reference.
-   * @see #getSelector()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Selector</em>' containment reference.
+	 * @see #getSelector()
+	 * @generated
+	 */
   void setSelector(Selector value);
 
   /**
-   * Returns the value of the '<em><b>Key</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Key</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Key</em>' containment reference.
-   * @see #setKey(VariableDefinition)
-   * @see org.emn.uiTest.UiTestPackage#getStore_Key()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Key</em>' containment reference.
+	 * @see #setKey(VariableDefinition)
+	 * @see org.emn.uiTest.UiTestPackage#getStore_Key()
+	 * @model containment="true"
+	 * @generated
+	 */
   VariableDefinition getKey();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Store#getKey <em>Key</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Store#getKey <em>Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Key</em>' containment reference.
-   * @see #getKey()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Key</em>' containment reference.
+	 * @see #getKey()
+	 * @generated
+	 */
   void setKey(VariableDefinition value);
 
 } // Store

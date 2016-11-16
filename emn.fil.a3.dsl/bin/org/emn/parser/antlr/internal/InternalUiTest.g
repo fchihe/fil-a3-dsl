@@ -454,9 +454,36 @@ ruleOpen returns [EObject current=null]
 		)
 		(
 			(
-				lv_program_1_0=RULE_STRING
+				(
+					lv_program_1_1='firefox'
+					{
+						newLeafNode(lv_program_1_1, grammarAccess.getOpenAccess().getProgramFirefoxKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getOpenRule());
+						}
+						setWithLastConsumed($current, "program", lv_program_1_1, null);
+					}
+					    |
+					lv_program_1_2='chrome'
+					{
+						newLeafNode(lv_program_1_2, grammarAccess.getOpenAccess().getProgramChromeKeyword_1_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getOpenRule());
+						}
+						setWithLastConsumed($current, "program", lv_program_1_2, null);
+					}
+				)
+			)
+		)
+		(
+			(
+				lv_driverPath_2_0=RULE_STRING
 				{
-					newLeafNode(lv_program_1_0, grammarAccess.getOpenAccess().getProgramSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_driverPath_2_0, grammarAccess.getOpenAccess().getDriverPathSTRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -464,8 +491,8 @@ ruleOpen returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"program",
-						lv_program_1_0,
+						"driverPath",
+						lv_driverPath_2_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -626,21 +653,36 @@ ruleFill returns [EObject current=null]
 		)
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getFillAccess().getValueValueParserRuleCall_2_0());
-				}
-				lv_value_2_0=ruleValue
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFillRule());
+				(
+					lv_stringValue_2_0=RULE_STRING
+					{
+						newLeafNode(lv_stringValue_2_0, grammarAccess.getFillAccess().getStringValueSTRINGTerminalRuleCall_2_0_0());
 					}
-					set(
-						$current,
-						"value",
-						lv_value_2_0,
-						"org.emn.UiTest.Value");
-					afterParserOrEnumRuleCall();
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFillRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"stringValue",
+							lv_stringValue_2_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFillRule());
+						}
+					}
+					otherlv_3=RULE_ID
+					{
+						newLeafNode(otherlv_3, grammarAccess.getFillAccess().getKeyValueVariableDefinitionCrossReference_2_1_0());
+					}
+				)
 			)
 		)
 	)
@@ -747,10 +789,24 @@ ruleVerify returns [EObject current=null]
 				}
 			)
 		)
-		this_STRING_2=RULE_STRING
-		{
-			newLeafNode(this_STRING_2, grammarAccess.getVerifyAccess().getSTRINGTerminalRuleCall_2());
-		}
+		(
+			(
+				lv_comparison_2_0=RULE_STRING
+				{
+					newLeafNode(lv_comparison_2_0, grammarAccess.getVerifyAccess().getComparisonSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVerifyRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"comparison",
+						lv_comparison_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 
@@ -795,21 +851,36 @@ ruleSelect returns [EObject current=null]
 		)
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getSelectAccess().getValueValueParserRuleCall_2_0());
-				}
-				lv_value_2_0=ruleValue
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSelectRule());
+				(
+					lv_stringValue_2_0=RULE_STRING
+					{
+						newLeafNode(lv_stringValue_2_0, grammarAccess.getSelectAccess().getStringValueSTRINGTerminalRuleCall_2_0_0());
 					}
-					set(
-						$current,
-						"value",
-						lv_value_2_0,
-						"org.emn.UiTest.Value");
-					afterParserOrEnumRuleCall();
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSelectRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"stringValue",
+							lv_stringValue_2_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSelectRule());
+						}
+					}
+					otherlv_3=RULE_ID
+					{
+						newLeafNode(otherlv_3, grammarAccess.getSelectAccess().getKeyValueVariableDefinitionCrossReference_2_1_0());
+					}
+				)
 			)
 		)
 	)
@@ -879,57 +950,6 @@ ruleSelector returns [EObject current=null]
 		{
 			newLeafNode(otherlv_4, grammarAccess.getSelectorAccess().getRightSquareBracketKeyword_4());
 		}
-	)
-;
-
-// Entry rule entryRuleValue
-entryRuleValue returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getValueRule()); }
-	iv_ruleValue=ruleValue
-	{ $current=$iv_ruleValue.current; }
-	EOF;
-
-// Rule Value
-ruleValue returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_stringValue_0_0=RULE_STRING
-				{
-					newLeafNode(lv_stringValue_0_0, grammarAccess.getValueAccess().getStringValueSTRINGTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getValueRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"stringValue",
-						lv_stringValue_0_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		    |
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getValueRule());
-					}
-				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getValueAccess().getKeyValueVariableDefinitionCrossReference_1_0());
-				}
-			)
-		)
 	)
 ;
 

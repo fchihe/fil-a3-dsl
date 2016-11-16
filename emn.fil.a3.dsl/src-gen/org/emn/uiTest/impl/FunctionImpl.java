@@ -43,239 +43,230 @@ import org.emn.uiTest.VariableDefinition;
 public class FunctionImpl extends MinimalEObjectImpl.Container implements Function
 {
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected FunctionName name;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameters()
-   * @generated
-   * @ordered
-   */
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<VariableDefinition> parameters;
 
   /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatements()
-   * @generated
-   * @ordered
-   */
+	 * @see #getStatements()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Command> statements;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected FunctionImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return UiTestPackage.Literals.FUNCTION;
-  }
+		return UiTestPackage.Literals.FUNCTION;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public FunctionName getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetName(FunctionName newName, NotificationChain msgs)
   {
-    FunctionName oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.FUNCTION__NAME, oldName, newName);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		FunctionName oldName = name;
+		name = newName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.FUNCTION__NAME, oldName, newName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setName(FunctionName newName)
   {
-    if (newName != name)
-    {
-      NotificationChain msgs = null;
-      if (name != null)
-        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FUNCTION__NAME, null, msgs);
-      if (newName != null)
-        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FUNCTION__NAME, null, msgs);
-      msgs = basicSetName(newName, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FUNCTION__NAME, newName, newName));
-  }
+		if (newName != name) {
+			NotificationChain msgs = null;
+			if (name != null)
+				msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FUNCTION__NAME, null, msgs);
+			if (newName != null)
+				msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FUNCTION__NAME, null, msgs);
+			msgs = basicSetName(newName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FUNCTION__NAME, newName, newName));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<VariableDefinition> getParameters()
   {
-    if (parameters == null)
-    {
-      parameters = new EObjectContainmentEList<VariableDefinition>(VariableDefinition.class, this, UiTestPackage.FUNCTION__PARAMETERS);
-    }
-    return parameters;
-  }
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<VariableDefinition>(VariableDefinition.class, this, UiTestPackage.FUNCTION__PARAMETERS);
+		}
+		return parameters;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public EList<Command> getStatements()
   {
-    if (statements == null)
-    {
-      statements = new EObjectContainmentEList<Command>(Command.class, this, UiTestPackage.FUNCTION__STATEMENTS);
-    }
-    return statements;
-  }
+		if (statements == null) {
+			statements = new EObjectContainmentEList<Command>(Command.class, this, UiTestPackage.FUNCTION__STATEMENTS);
+		}
+		return statements;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FUNCTION__NAME:
-        return basicSetName(null, msgs);
-      case UiTestPackage.FUNCTION__PARAMETERS:
-        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-      case UiTestPackage.FUNCTION__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case UiTestPackage.FUNCTION__NAME:
+				return basicSetName(null, msgs);
+			case UiTestPackage.FUNCTION__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case UiTestPackage.FUNCTION__STATEMENTS:
+				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FUNCTION__NAME:
-        return getName();
-      case UiTestPackage.FUNCTION__PARAMETERS:
-        return getParameters();
-      case UiTestPackage.FUNCTION__STATEMENTS:
-        return getStatements();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case UiTestPackage.FUNCTION__NAME:
+				return getName();
+			case UiTestPackage.FUNCTION__PARAMETERS:
+				return getParameters();
+			case UiTestPackage.FUNCTION__STATEMENTS:
+				return getStatements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FUNCTION__NAME:
-        setName((FunctionName)newValue);
-        return;
-      case UiTestPackage.FUNCTION__PARAMETERS:
-        getParameters().clear();
-        getParameters().addAll((Collection<? extends VariableDefinition>)newValue);
-        return;
-      case UiTestPackage.FUNCTION__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends Command>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case UiTestPackage.FUNCTION__NAME:
+				setName((FunctionName)newValue);
+				return;
+			case UiTestPackage.FUNCTION__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends VariableDefinition>)newValue);
+				return;
+			case UiTestPackage.FUNCTION__STATEMENTS:
+				getStatements().clear();
+				getStatements().addAll((Collection<? extends Command>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FUNCTION__NAME:
-        setName((FunctionName)null);
-        return;
-      case UiTestPackage.FUNCTION__PARAMETERS:
-        getParameters().clear();
-        return;
-      case UiTestPackage.FUNCTION__STATEMENTS:
-        getStatements().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.FUNCTION__NAME:
+				setName((FunctionName)null);
+				return;
+			case UiTestPackage.FUNCTION__PARAMETERS:
+				getParameters().clear();
+				return;
+			case UiTestPackage.FUNCTION__STATEMENTS:
+				getStatements().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FUNCTION__NAME:
-        return name != null;
-      case UiTestPackage.FUNCTION__PARAMETERS:
-        return parameters != null && !parameters.isEmpty();
-      case UiTestPackage.FUNCTION__STATEMENTS:
-        return statements != null && !statements.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.FUNCTION__NAME:
+				return name != null;
+			case UiTestPackage.FUNCTION__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
+			case UiTestPackage.FUNCTION__STATEMENTS:
+				return statements != null && !statements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //FunctionImpl

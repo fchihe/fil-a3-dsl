@@ -28,61 +28,61 @@ import org.eclipse.emf.ecore.EObject;
 public interface Function extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' containment reference.
-   * @see #setName(FunctionName)
-   * @see org.emn.uiTest.UiTestPackage#getFunction_Name()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(FunctionName)
+	 * @see org.emn.uiTest.UiTestPackage#getFunction_Name()
+	 * @model containment="true"
+	 * @generated
+	 */
   FunctionName getName();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Function#getName <em>Name</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Function#getName <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' containment reference.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(FunctionName value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.emn.uiTest.VariableDefinition}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.emn.uiTest.VariableDefinition}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference list.
-   * @see org.emn.uiTest.UiTestPackage#getFunction_Parameters()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.emn.uiTest.UiTestPackage#getFunction_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<VariableDefinition> getParameters();
 
   /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link org.emn.uiTest.Command}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+	 * The list contents are of type {@link org.emn.uiTest.Command}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see org.emn.uiTest.UiTestPackage#getFunction_Statements()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Statements</em>' containment reference list.
+	 * @see org.emn.uiTest.UiTestPackage#getFunction_Statements()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<Command> getStatements();
 
 } // Function
