@@ -14,6 +14,7 @@ import org.emn.uiTest.Fill
 import org.emn.uiTest.FunctionCall
 import org.emn.uiTest.GoOn
 import org.emn.uiTest.Open
+import org.emn.uiTest.Parameter
 import org.emn.uiTest.Select
 import org.emn.uiTest.Selector
 import org.emn.uiTest.Store
@@ -73,9 +74,10 @@ class UiTestGenerator extends AbstractGenerator {
 			}»
 	'''
 	def generateFunctionCall(FunctionCall fc) '''
-		«fc.name.name»(«FOR param : fc.parameters»"«param»"«IF fc.parameters.indexOf(param) != fc.parameters.length-1», «ENDIF»«ENDFOR»);
+		«fc.name.name»(«FOR param : fc.parameters»«param.generateParam»«IF fc.parameters.indexOf(param) != fc.parameters.length-1», «ENDIF»«ENDFOR»);
 	'''
 	
+	def generateParam(Parameter p) '''«IF p.string != null»"«p.string»"«ELSE»«p.variable.name»«ENDIF»'''
 	def generateSelect(Select s) '''
 		new Select(driver.findElement(By.xpath("«s.selector.generateSelector»"))).selectByVisibleText(«generateValue(s.stringValue, s.keyValue)»);
 	'''

@@ -266,19 +266,20 @@ ruleFunctionCall returns [EObject current=null]
 		}
 		(
 			(
-				lv_parameters_2_0=RULE_STRING
 				{
-					newLeafNode(lv_parameters_2_0, grammarAccess.getFunctionCallAccess().getParametersSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getFunctionCallAccess().getParametersParameterParserRuleCall_2_0());
 				}
+				lv_parameters_2_0=ruleParameter
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFunctionCallRule());
+						$current = createModelElementForParent(grammarAccess.getFunctionCallRule());
 					}
-					addWithLastConsumed(
+					add(
 						$current,
 						"parameters",
 						lv_parameters_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.emn.UiTest.Parameter");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
@@ -286,6 +287,57 @@ ruleFunctionCall returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getFunctionCallAccess().getRightParenthesisKeyword_3());
 		}
+	)
+;
+
+// Entry rule entryRuleParameter
+entryRuleParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParameterRule()); }
+	iv_ruleParameter=ruleParameter
+	{ $current=$iv_ruleParameter.current; }
+	EOF;
+
+// Rule Parameter
+ruleParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_string_0_0=RULE_STRING
+				{
+					newLeafNode(lv_string_0_0, grammarAccess.getParameterAccess().getStringSTRINGTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"string",
+						lv_string_0_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParameterRule());
+					}
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getParameterAccess().getVariableVariableDefinitionCrossReference_1_0());
+				}
+			)
+		)
 	)
 ;
 

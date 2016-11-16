@@ -33,282 +33,289 @@ import org.emn.uiTest.Verify;
 public class VerifyImpl extends CommandImpl implements Verify
 {
   /**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
   protected String name = NAME_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getSelector()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getSelector()
+   * @generated
+   * @ordered
+   */
   protected Selector selector;
 
   /**
-	 * The default value of the '{@link #getComparison() <em>Comparison</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getComparison() <em>Comparison</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getComparison()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getComparison()
+   * @generated
+   * @ordered
+   */
   protected static final String COMPARISON_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getComparison() <em>Comparison</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getComparison() <em>Comparison</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getComparison()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getComparison()
+   * @generated
+   * @ordered
+   */
   protected String comparison = COMPARISON_EDEFAULT;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected VerifyImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return UiTestPackage.Literals.VERIFY;
-	}
+    return UiTestPackage.Literals.VERIFY;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public String getName()
   {
-		return name;
-	}
+    return name;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setName(String newName)
   {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__NAME, oldName, name));
-	}
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__NAME, oldName, name));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public Selector getSelector()
   {
-		return selector;
-	}
+    return selector;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public NotificationChain basicSetSelector(Selector newSelector, NotificationChain msgs)
   {
-		Selector oldSelector = selector;
-		selector = newSelector;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__SELECTOR, oldSelector, newSelector);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+    Selector oldSelector = selector;
+    selector = newSelector;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__SELECTOR, oldSelector, newSelector);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setSelector(Selector newSelector)
   {
-		if (newSelector != selector) {
-			NotificationChain msgs = null;
-			if (selector != null)
-				msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.VERIFY__SELECTOR, null, msgs);
-			if (newSelector != null)
-				msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.VERIFY__SELECTOR, null, msgs);
-			msgs = basicSetSelector(newSelector, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__SELECTOR, newSelector, newSelector));
-	}
+    if (newSelector != selector)
+    {
+      NotificationChain msgs = null;
+      if (selector != null)
+        msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.VERIFY__SELECTOR, null, msgs);
+      if (newSelector != null)
+        msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.VERIFY__SELECTOR, null, msgs);
+      msgs = basicSetSelector(newSelector, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__SELECTOR, newSelector, newSelector));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public String getComparison()
   {
-		return comparison;
-	}
+    return comparison;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setComparison(String newComparison)
   {
-		String oldComparison = comparison;
-		comparison = newComparison;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__COMPARISON, oldComparison, comparison));
-	}
+    String oldComparison = comparison;
+    comparison = newComparison;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.VERIFY__COMPARISON, oldComparison, comparison));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case UiTestPackage.VERIFY__SELECTOR:
-				return basicSetSelector(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.VERIFY__SELECTOR:
+        return basicSetSelector(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case UiTestPackage.VERIFY__NAME:
-				return getName();
-			case UiTestPackage.VERIFY__SELECTOR:
-				return getSelector();
-			case UiTestPackage.VERIFY__COMPARISON:
-				return getComparison();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.VERIFY__NAME:
+        return getName();
+      case UiTestPackage.VERIFY__SELECTOR:
+        return getSelector();
+      case UiTestPackage.VERIFY__COMPARISON:
+        return getComparison();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case UiTestPackage.VERIFY__NAME:
-				setName((String)newValue);
-				return;
-			case UiTestPackage.VERIFY__SELECTOR:
-				setSelector((Selector)newValue);
-				return;
-			case UiTestPackage.VERIFY__COMPARISON:
-				setComparison((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.VERIFY__NAME:
+        setName((String)newValue);
+        return;
+      case UiTestPackage.VERIFY__SELECTOR:
+        setSelector((Selector)newValue);
+        return;
+      case UiTestPackage.VERIFY__COMPARISON:
+        setComparison((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case UiTestPackage.VERIFY__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case UiTestPackage.VERIFY__SELECTOR:
-				setSelector((Selector)null);
-				return;
-			case UiTestPackage.VERIFY__COMPARISON:
-				setComparison(COMPARISON_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.VERIFY__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case UiTestPackage.VERIFY__SELECTOR:
+        setSelector((Selector)null);
+        return;
+      case UiTestPackage.VERIFY__COMPARISON:
+        setComparison(COMPARISON_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case UiTestPackage.VERIFY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case UiTestPackage.VERIFY__SELECTOR:
-				return selector != null;
-			case UiTestPackage.VERIFY__COMPARISON:
-				return COMPARISON_EDEFAULT == null ? comparison != null : !COMPARISON_EDEFAULT.equals(comparison);
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.VERIFY__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case UiTestPackage.VERIFY__SELECTOR:
+        return selector != null;
+      case UiTestPackage.VERIFY__COMPARISON:
+        return COMPARISON_EDEFAULT == null ? comparison != null : !COMPARISON_EDEFAULT.equals(comparison);
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", comparison: ");
-		result.append(comparison);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", comparison: ");
+    result.append(comparison);
+    result.append(')');
+    return result.toString();
+  }
 
 } //VerifyImpl

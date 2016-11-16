@@ -36,6 +36,7 @@ public class UiTestParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getFunctionAccess().getStatementsAlternatives_6_0(), "rule__Function__StatementsAlternatives_6_0");
+					put(grammarAccess.getParameterAccess().getAlternatives(), "rule__Parameter__Alternatives");
 					put(grammarAccess.getCommandAccess().getAlternatives_0(), "rule__Command__Alternatives_0");
 					put(grammarAccess.getCommandAccess().getAlternatives_0_0(), "rule__Command__Alternatives_0_0");
 					put(grammarAccess.getOpenAccess().getProgramAlternatives_1_0(), "rule__Open__ProgramAlternatives_1_0");
@@ -60,6 +61,8 @@ public class UiTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getStatementsAssignment_6(), "rule__Function__StatementsAssignment_6");
 					put(grammarAccess.getFunctionCallAccess().getNameAssignment_0(), "rule__FunctionCall__NameAssignment_0");
 					put(grammarAccess.getFunctionCallAccess().getParametersAssignment_2(), "rule__FunctionCall__ParametersAssignment_2");
+					put(grammarAccess.getParameterAccess().getStringAssignment_0(), "rule__Parameter__StringAssignment_0");
+					put(grammarAccess.getParameterAccess().getVariableAssignment_1(), "rule__Parameter__VariableAssignment_1");
 					put(grammarAccess.getFunctionNameAccess().getNameAssignment(), "rule__FunctionName__NameAssignment");
 					put(grammarAccess.getOpenAccess().getNameAssignment_0(), "rule__Open__NameAssignment_0");
 					put(grammarAccess.getOpenAccess().getProgramAssignment_1(), "rule__Open__ProgramAssignment_1");

@@ -65,6 +65,9 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case UiTestPackage.OPEN:
 				sequence_Open(context, (Open) semanticObject); 
 				return; 
+			case UiTestPackage.PARAMETER:
+				sequence_Parameter(context, (org.emn.uiTest.Parameter) semanticObject); 
+				return; 
 			case UiTestPackage.SELECT:
 				sequence_Select(context, (Select) semanticObject); 
 				return; 
@@ -129,7 +132,7 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Command returns FunctionCall
 	 *
 	 * Constraint:
-	 *     (name=[FunctionName|ID] parameters+=STRING*)
+	 *     (name=[FunctionName|ID] parameters+=Parameter*)
 	 */
 	protected void sequence_FunctionCall(ISerializationContext context, FunctionCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -197,6 +200,18 @@ public class UiTestSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (name='open' (program='firefox' | program='chrome') driverPath=STRING)
 	 */
 	protected void sequence_Open(ISerializationContext context, Open semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (string=STRING | variable=[VariableDefinition|ID])
+	 */
+	protected void sequence_Parameter(ISerializationContext context, org.emn.uiTest.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

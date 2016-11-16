@@ -23,6 +23,7 @@ import org.emn.uiTest.FunctionCall;
 import org.emn.uiTest.FunctionName;
 import org.emn.uiTest.GoOn;
 import org.emn.uiTest.Open;
+import org.emn.uiTest.Parameter;
 import org.emn.uiTest.Select;
 import org.emn.uiTest.Selector;
 import org.emn.uiTest.Store;
@@ -195,15 +196,14 @@ public class UiTestGenerator extends AbstractGenerator {
     _builder.append(_name_1, "");
     _builder.append("(");
     {
-      EList<String> _parameters = fc.getParameters();
-      for(final String param : _parameters) {
-        _builder.append("\"");
-        _builder.append(param, "");
-        _builder.append("\"");
+      EList<Parameter> _parameters = fc.getParameters();
+      for(final Parameter param : _parameters) {
+        CharSequence _generateParam = this.generateParam(param);
+        _builder.append(_generateParam, "");
         {
-          EList<String> _parameters_1 = fc.getParameters();
+          EList<Parameter> _parameters_1 = fc.getParameters();
           int _indexOf = _parameters_1.indexOf(param);
-          EList<String> _parameters_2 = fc.getParameters();
+          EList<Parameter> _parameters_2 = fc.getParameters();
           int _length = ((Object[])Conversions.unwrapArray(_parameters_2, Object.class)).length;
           int _minus = (_length - 1);
           boolean _notEquals = (_indexOf != _minus);
@@ -215,6 +215,25 @@ public class UiTestGenerator extends AbstractGenerator {
     }
     _builder.append(");");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateParam(final Parameter p) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _string = p.getString();
+      boolean _notEquals = (!Objects.equal(_string, null));
+      if (_notEquals) {
+        _builder.append("\"");
+        String _string_1 = p.getString();
+        _builder.append(_string_1, "");
+        _builder.append("\"");
+      } else {
+        VariableDefinition _variable = p.getVariable();
+        String _name = _variable.getName();
+        _builder.append(_name, "");
+      }
+    }
     return _builder;
   }
   

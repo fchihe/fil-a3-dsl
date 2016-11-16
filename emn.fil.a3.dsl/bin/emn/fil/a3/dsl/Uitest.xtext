@@ -14,8 +14,13 @@ Function:
 		'}'
 ;
 FunctionCall:
-	name=[FunctionName] '('parameters+=STRING*')' 
+	name=[FunctionName] '('parameters+=Parameter*')' 
 ;
+
+Parameter:
+	string=STRING|variable=[VariableDefinition]
+;
+
 FunctionName:
 	name=ID
 ;
@@ -30,7 +35,7 @@ GoOn:
 	name='goOn' address=STRING  
 ;
 Store:
-	'store' selector=Selector  key=VariableDefinition 
+	'store' selector=Selector  key=VariableDefinition
 ;
 
 Fill:

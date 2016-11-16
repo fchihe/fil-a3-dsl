@@ -34,289 +34,298 @@ import org.emn.uiTest.VariableDefinition;
 public class SelectImpl extends CommandImpl implements Select
 {
   /**
-	 * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getSelector()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getSelector()
+   * @generated
+   * @ordered
+   */
   protected Selector selector;
 
   /**
-	 * The default value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getStringValue()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getStringValue()
+   * @generated
+   * @ordered
+   */
   protected static final String STRING_VALUE_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getStringValue()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getStringValue()
+   * @generated
+   * @ordered
+   */
   protected String stringValue = STRING_VALUE_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getKeyValue() <em>Key Value</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getKeyValue() <em>Key Value</em>}' reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getKeyValue()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getKeyValue()
+   * @generated
+   * @ordered
+   */
   protected VariableDefinition keyValue;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected SelectImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return UiTestPackage.Literals.SELECT;
-	}
+    return UiTestPackage.Literals.SELECT;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public Selector getSelector()
   {
-		return selector;
-	}
+    return selector;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public NotificationChain basicSetSelector(Selector newSelector, NotificationChain msgs)
   {
-		Selector oldSelector = selector;
-		selector = newSelector;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__SELECTOR, oldSelector, newSelector);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+    Selector oldSelector = selector;
+    selector = newSelector;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__SELECTOR, oldSelector, newSelector);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setSelector(Selector newSelector)
   {
-		if (newSelector != selector) {
-			NotificationChain msgs = null;
-			if (selector != null)
-				msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__SELECTOR, null, msgs);
-			if (newSelector != null)
-				msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__SELECTOR, null, msgs);
-			msgs = basicSetSelector(newSelector, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__SELECTOR, newSelector, newSelector));
-	}
+    if (newSelector != selector)
+    {
+      NotificationChain msgs = null;
+      if (selector != null)
+        msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__SELECTOR, null, msgs);
+      if (newSelector != null)
+        msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECT__SELECTOR, null, msgs);
+      msgs = basicSetSelector(newSelector, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__SELECTOR, newSelector, newSelector));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public String getStringValue()
   {
-		return stringValue;
-	}
+    return stringValue;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setStringValue(String newStringValue)
   {
-		String oldStringValue = stringValue;
-		stringValue = newStringValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__STRING_VALUE, oldStringValue, stringValue));
-	}
+    String oldStringValue = stringValue;
+    stringValue = newStringValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__STRING_VALUE, oldStringValue, stringValue));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public VariableDefinition getKeyValue()
   {
-		if (keyValue != null && keyValue.eIsProxy()) {
-			InternalEObject oldKeyValue = (InternalEObject)keyValue;
-			keyValue = (VariableDefinition)eResolveProxy(oldKeyValue);
-			if (keyValue != oldKeyValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiTestPackage.SELECT__KEY_VALUE, oldKeyValue, keyValue));
-			}
-		}
-		return keyValue;
-	}
+    if (keyValue != null && keyValue.eIsProxy())
+    {
+      InternalEObject oldKeyValue = (InternalEObject)keyValue;
+      keyValue = (VariableDefinition)eResolveProxy(oldKeyValue);
+      if (keyValue != oldKeyValue)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiTestPackage.SELECT__KEY_VALUE, oldKeyValue, keyValue));
+      }
+    }
+    return keyValue;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public VariableDefinition basicGetKeyValue()
   {
-		return keyValue;
-	}
+    return keyValue;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public void setKeyValue(VariableDefinition newKeyValue)
   {
-		VariableDefinition oldKeyValue = keyValue;
-		keyValue = newKeyValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__KEY_VALUE, oldKeyValue, keyValue));
-	}
+    VariableDefinition oldKeyValue = keyValue;
+    keyValue = newKeyValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECT__KEY_VALUE, oldKeyValue, keyValue));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case UiTestPackage.SELECT__SELECTOR:
-				return basicSetSelector(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.SELECT__SELECTOR:
+        return basicSetSelector(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case UiTestPackage.SELECT__SELECTOR:
-				return getSelector();
-			case UiTestPackage.SELECT__STRING_VALUE:
-				return getStringValue();
-			case UiTestPackage.SELECT__KEY_VALUE:
-				if (resolve) return getKeyValue();
-				return basicGetKeyValue();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.SELECT__SELECTOR:
+        return getSelector();
+      case UiTestPackage.SELECT__STRING_VALUE:
+        return getStringValue();
+      case UiTestPackage.SELECT__KEY_VALUE:
+        if (resolve) return getKeyValue();
+        return basicGetKeyValue();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case UiTestPackage.SELECT__SELECTOR:
-				setSelector((Selector)newValue);
-				return;
-			case UiTestPackage.SELECT__STRING_VALUE:
-				setStringValue((String)newValue);
-				return;
-			case UiTestPackage.SELECT__KEY_VALUE:
-				setKeyValue((VariableDefinition)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.SELECT__SELECTOR:
+        setSelector((Selector)newValue);
+        return;
+      case UiTestPackage.SELECT__STRING_VALUE:
+        setStringValue((String)newValue);
+        return;
+      case UiTestPackage.SELECT__KEY_VALUE:
+        setKeyValue((VariableDefinition)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case UiTestPackage.SELECT__SELECTOR:
-				setSelector((Selector)null);
-				return;
-			case UiTestPackage.SELECT__STRING_VALUE:
-				setStringValue(STRING_VALUE_EDEFAULT);
-				return;
-			case UiTestPackage.SELECT__KEY_VALUE:
-				setKeyValue((VariableDefinition)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.SELECT__SELECTOR:
+        setSelector((Selector)null);
+        return;
+      case UiTestPackage.SELECT__STRING_VALUE:
+        setStringValue(STRING_VALUE_EDEFAULT);
+        return;
+      case UiTestPackage.SELECT__KEY_VALUE:
+        setKeyValue((VariableDefinition)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case UiTestPackage.SELECT__SELECTOR:
-				return selector != null;
-			case UiTestPackage.SELECT__STRING_VALUE:
-				return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
-			case UiTestPackage.SELECT__KEY_VALUE:
-				return keyValue != null;
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case UiTestPackage.SELECT__SELECTOR:
+        return selector != null;
+      case UiTestPackage.SELECT__STRING_VALUE:
+        return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
+      case UiTestPackage.SELECT__KEY_VALUE:
+        return keyValue != null;
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (stringValue: ");
-		result.append(stringValue);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (stringValue: ");
+    result.append(stringValue);
+    result.append(')');
+    return result.toString();
+  }
 
 } //SelectImpl

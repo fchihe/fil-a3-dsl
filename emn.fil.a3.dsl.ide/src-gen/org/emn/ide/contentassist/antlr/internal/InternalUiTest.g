@@ -124,6 +124,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleParameter
+entryRuleParameter
+:
+{ before(grammarAccess.getParameterRule()); }
+	 ruleParameter
+{ after(grammarAccess.getParameterRule()); } 
+	 EOF 
+;
+
+// Rule Parameter
+ruleParameter 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getParameterAccess().getAlternatives()); }
+		(rule__Parameter__Alternatives)
+		{ after(grammarAccess.getParameterAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleFunctionName
 entryRuleFunctionName
 :
@@ -439,6 +464,27 @@ rule__Function__StatementsAlternatives_6_0
 		{ before(grammarAccess.getFunctionAccess().getStatementsFunctionCallParserRuleCall_6_0_1()); }
 		ruleFunctionCall
 		{ after(grammarAccess.getFunctionAccess().getStatementsFunctionCallParserRuleCall_6_0_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Parameter__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getParameterAccess().getStringAssignment_0()); }
+		(rule__Parameter__StringAssignment_0)
+		{ after(grammarAccess.getParameterAccess().getStringAssignment_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getParameterAccess().getVariableAssignment_1()); }
+		(rule__Parameter__VariableAssignment_1)
+		{ after(grammarAccess.getParameterAccess().getVariableAssignment_1()); }
 	)
 ;
 finally {
@@ -1767,9 +1813,43 @@ rule__FunctionCall__ParametersAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getFunctionCallAccess().getParametersSTRINGTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getFunctionCallAccess().getParametersParameterParserRuleCall_2_0()); }
+		ruleParameter
+		{ after(grammarAccess.getFunctionCallAccess().getParametersParameterParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Parameter__StringAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getParameterAccess().getStringSTRINGTerminalRuleCall_0_0()); }
 		RULE_STRING
-		{ after(grammarAccess.getFunctionCallAccess().getParametersSTRINGTerminalRuleCall_2_0()); }
+		{ after(grammarAccess.getParameterAccess().getStringSTRINGTerminalRuleCall_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Parameter__VariableAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getParameterAccess().getVariableVariableDefinitionCrossReference_1_0()); }
+		(
+			{ before(grammarAccess.getParameterAccess().getVariableVariableDefinitionIDTerminalRuleCall_1_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getParameterAccess().getVariableVariableDefinitionIDTerminalRuleCall_1_0_1()); }
+		)
+		{ after(grammarAccess.getParameterAccess().getVariableVariableDefinitionCrossReference_1_0()); }
 	)
 ;
 finally {

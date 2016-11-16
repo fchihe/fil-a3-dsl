@@ -142,6 +142,29 @@ public class UiTestItemProviderAdapterFactory extends UiTestAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.emn.uiTest.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.emn.uiTest.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.emn.uiTest.FunctionName} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -496,6 +519,7 @@ public class UiTestItemProviderAdapterFactory extends UiTestAdapterFactory imple
 		if (uiTestItemProvider != null) uiTestItemProvider.dispose();
 		if (functionItemProvider != null) functionItemProvider.dispose();
 		if (functionCallItemProvider != null) functionCallItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (functionNameItemProvider != null) functionNameItemProvider.dispose();
 		if (commandItemProvider != null) commandItemProvider.dispose();
 		if (openItemProvider != null) openItemProvider.dispose();

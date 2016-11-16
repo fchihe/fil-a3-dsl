@@ -121,14 +121,14 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameFunctionNameIDTerminalRuleCall_0_0_1 = (RuleCall)cNameFunctionNameCrossReference_0_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cParametersAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParametersSTRINGTerminalRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
+		private final RuleCall cParametersParameterParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//FunctionCall:
-		//	name=[FunctionName] '(' parameters+=STRING* ')';
+		//	name=[FunctionName] '(' parameters+=Parameter* ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=[FunctionName] '(' parameters+=STRING* ')'
+		//name=[FunctionName] '(' parameters+=Parameter* ')'
 		public Group getGroup() { return cGroup; }
 		
 		//name=[FunctionName]
@@ -143,14 +143,45 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//parameters+=STRING*
+		//parameters+=Parameter*
 		public Assignment getParametersAssignment_2() { return cParametersAssignment_2; }
 		
-		//STRING
-		public RuleCall getParametersSTRINGTerminalRuleCall_2_0() { return cParametersSTRINGTerminalRuleCall_2_0; }
+		//Parameter
+		public RuleCall getParametersParameterParserRuleCall_2_0() { return cParametersParameterParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
+	public class ParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Parameter");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cStringAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cStringSTRINGTerminalRuleCall_0_0 = (RuleCall)cStringAssignment_0.eContents().get(0);
+		private final Assignment cVariableAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final CrossReference cVariableVariableDefinitionCrossReference_1_0 = (CrossReference)cVariableAssignment_1.eContents().get(0);
+		private final RuleCall cVariableVariableDefinitionIDTerminalRuleCall_1_0_1 = (RuleCall)cVariableVariableDefinitionCrossReference_1_0.eContents().get(1);
+		
+		//Parameter:
+		//	string=STRING | variable=[VariableDefinition];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//string=STRING | variable=[VariableDefinition]
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//string=STRING
+		public Assignment getStringAssignment_0() { return cStringAssignment_0; }
+		
+		//STRING
+		public RuleCall getStringSTRINGTerminalRuleCall_0_0() { return cStringSTRINGTerminalRuleCall_0_0; }
+		
+		//variable=[VariableDefinition]
+		public Assignment getVariableAssignment_1() { return cVariableAssignment_1; }
+		
+		//[VariableDefinition]
+		public CrossReference getVariableVariableDefinitionCrossReference_1_0() { return cVariableVariableDefinitionCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getVariableVariableDefinitionIDTerminalRuleCall_1_0_1() { return cVariableVariableDefinitionIDTerminalRuleCall_1_0_1; }
 	}
 	public class FunctionNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.FunctionName");
@@ -549,6 +580,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final UiTestElements pUiTest;
 	private final FunctionElements pFunction;
 	private final FunctionCallElements pFunctionCall;
+	private final ParameterElements pParameter;
 	private final FunctionNameElements pFunctionName;
 	private final CommandElements pCommand;
 	private final OpenElements pOpen;
@@ -574,6 +606,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUiTest = new UiTestElements();
 		this.pFunction = new FunctionElements();
 		this.pFunctionCall = new FunctionCallElements();
+		this.pParameter = new ParameterElements();
 		this.pFunctionName = new FunctionNameElements();
 		this.pCommand = new CommandElements();
 		this.pOpen = new OpenElements();
@@ -636,13 +669,23 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FunctionCall:
-	//	name=[FunctionName] '(' parameters+=STRING* ')';
+	//	name=[FunctionName] '(' parameters+=Parameter* ')';
 	public FunctionCallElements getFunctionCallAccess() {
 		return pFunctionCall;
 	}
 	
 	public ParserRule getFunctionCallRule() {
 		return getFunctionCallAccess().getRule();
+	}
+	
+	//Parameter:
+	//	string=STRING | variable=[VariableDefinition];
+	public ParameterElements getParameterAccess() {
+		return pParameter;
+	}
+	
+	public ParserRule getParameterRule() {
+		return getParameterAccess().getRule();
 	}
 	
 	//FunctionName:

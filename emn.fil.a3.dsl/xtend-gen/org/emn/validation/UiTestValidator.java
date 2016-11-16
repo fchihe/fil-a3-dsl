@@ -3,7 +3,18 @@
  */
 package org.emn.validation;
 
-import org.emn.validation.AbstractUiTestValidator;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.eclipse.xtext.validation.Check;
+import org.emn.uiTest.Command;
+import org.emn.uiTest.Function;
+import org.emn.uiTest.FunctionCall;
+import org.emn.uiTest.Parameter;
+import org.emn.uiTest.Store;
+import org.emn.uiTest.UiTest;
+import org.emn.uiTest.UiTestPackage;
+import org.emn.uiTest.VariableDefinition;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +23,74 @@ import org.emn.validation.AbstractUiTestValidator;
  */
 @SuppressWarnings("all")
 public class UiTestValidator extends AbstractUiTestValidator {
+	HashMap<String, Integer> functionParams;
+	@Check
+	public void checkFunctions(UiTest uitest){
+		functionParams = new HashMap<String, Integer>();
+		ArrayList<String> innerCommandVariables;
+		for(Function function: uitest.getFunctions()) {
+			innerCommandVariables = new ArrayList<String>();
+			for(VariableDefinition param: function.getParameters()) {
+				innerCommandVariables.add(param.getName());
+			}
+			String functionName = function.getName().getName();
+			// save number of parameters of function
+			functionParams.put(functionName, function.getParameters().size());
+			for (Command command: function.getStatements()) {
+				if (command instanceof Store) {
+					Store myStore = (Store) command;
+					String storeVar = myStore.getKey().getName();
+					this.checkStoreVarIsUnique(innerCommandVariables, myStore, storeVar);
+					innerCommandVariables.add(storeVar);
+				}  else if(command instanceof FunctionCall) {
+					FunctionCall myFunctionCall = (FunctionCall) command;
+					this.checkFunctionCallParametersNumber(myFunctionCall);
+					for(Parameter param:myFunctionCall.getParameters()) {
+						String paramName = param.getVariable() != null ? param.getVariable().getName() : param.getString();
+						this.checkFunctionCallParamVarIsDefined(param, innerCommandVariables, paramName, myFunctionCall);
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	public void checkCommands(UiTest uitest) {
+		ArrayList<String> commandVariables = new ArrayList<String>();
+		for(Command command : uitest.getCommands()) {
+			if(command instanceof Store) { // check store variable is unique
+				Store myStore = (Store) command;
+				String storeVar = myStore.getKey().getName();
+				this.checkStoreVarIsUnique(commandVariables, myStore, storeVar);
+				commandVariables.add(storeVar);
+			} else if(command instanceof FunctionCall) {
+				FunctionCall myFunctionCall = (FunctionCall) command;
+				this.checkFunctionCallParametersNumber(myFunctionCall);
+				for(Parameter param:myFunctionCall.getParameters()) {
+					String paramName = param.getVariable() != null ? param.getVariable().getName() : param.getString();
+					this.checkFunctionCallParamVarIsDefined(param, commandVariables, paramName, myFunctionCall);
+				}
+			}
+		}
+	}
+	
+	private void checkFunctionCallParametersNumber(FunctionCall myFunctionCall) {
+		String functionName = myFunctionCall.getName().getName();
+		int currentParamNumber = myFunctionCall.getParameters().size();
+		int expectedParamNumber = functionParams.get(functionName);
+		if(expectedParamNumber != currentParamNumber){
+			error("Function "+functionName+" expected "+expectedParamNumber+" parameter(s), found "+currentParamNumber, myFunctionCall, UiTestPackage.Literals.FUNCTION_CALL__PARAMETERS);
+		}
+	}
+	private void checkStoreVarIsUnique(ArrayList<String> commandVariables, Store myStore, String storeVar){
+		if(commandVariables.contains(storeVar)) {
+			error("The variable "+storeVar+" is already used, please name it differently", myStore, UiTestPackage.Literals.STORE__KEY);
+		}
+	}
+	
+	private void checkFunctionCallParamVarIsDefined(Parameter param, ArrayList<String> commandVariables, String paramName, FunctionCall myFunctionCall) {
+		if(param.getVariable() != null && !commandVariables.contains(paramName)) {
+			error("Parameter "+paramName+" can't be used here, it was not declared before", myFunctionCall, UiTestPackage.Literals.FUNCTION_CALL__PARAMETERS);
+		}
+	}
 }
