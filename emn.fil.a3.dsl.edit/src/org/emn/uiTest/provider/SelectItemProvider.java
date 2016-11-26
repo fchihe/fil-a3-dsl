@@ -49,52 +49,29 @@ public class SelectItemProvider extends CommandItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addStringValuePropertyDescriptor(object);
-			addKeyValuePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the String Value feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addStringValuePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Select_stringValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Select_stringValue_feature", "_UI_Select_type"),
-				 UiTestPackage.Literals.SELECT__STRING_VALUE,
+				 getString("_UI_Select_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Select_name_feature", "_UI_Select_type"),
+				 UiTestPackage.Literals.SELECT__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Key Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addKeyValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Select_keyValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Select_keyValue_feature", "_UI_Select_type"),
-				 UiTestPackage.Literals.SELECT__KEY_VALUE,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -112,6 +89,7 @@ public class SelectItemProvider extends CommandItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UiTestPackage.Literals.SELECT__SELECTOR);
+			childrenFeatures.add(UiTestPackage.Literals.SELECT__VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -148,7 +126,7 @@ public class SelectItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Select)object).getStringValue();
+		String label = ((Select)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Select_type") :
 			getString("_UI_Select_type") + " " + label;
@@ -167,10 +145,11 @@ public class SelectItemProvider extends CommandItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Select.class)) {
-			case UiTestPackage.SELECT__STRING_VALUE:
+			case UiTestPackage.SELECT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UiTestPackage.SELECT__SELECTOR:
+			case UiTestPackage.SELECT__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -192,6 +171,11 @@ public class SelectItemProvider extends CommandItemProvider {
 			(createChildParameter
 				(UiTestPackage.Literals.SELECT__SELECTOR,
 				 UiTestFactory.eINSTANCE.createSelector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UiTestPackage.Literals.SELECT__VALUE,
+				 UiTestFactory.eINSTANCE.createValue()));
 	}
 
 }

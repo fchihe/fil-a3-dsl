@@ -4,14 +4,17 @@
 package org.emn.uiTest.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.emn.uiTest.Selector;
 import org.emn.uiTest.UiTestPackage;
+import org.emn.uiTest.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +25,7 @@ import org.emn.uiTest.UiTestPackage;
  * </p>
  * <ul>
  *   <li>{@link org.emn.uiTest.impl.SelectorImpl#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link org.emn.uiTest.impl.SelectorImpl#getAttributeValue <em>Attribute Value</em>}</li>
+ *   <li>{@link org.emn.uiTest.impl.SelectorImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,205 +33,227 @@ import org.emn.uiTest.UiTestPackage;
 public class SelectorImpl extends MinimalEObjectImpl.Container implements Selector
 {
   /**
-   * The default value of the '{@link #getAttributeName() <em>Attribute Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getAttributeName() <em>Attribute Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributeName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getAttributeName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String ATTRIBUTE_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributeName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getAttributeName()
+	 * @generated
+	 * @ordered
+	 */
   protected String attributeName = ATTRIBUTE_NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getAttributeValue() <em>Attribute Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributeValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String ATTRIBUTE_VALUE_EDEFAULT = null;
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+  protected Value value;
 
   /**
-   * The cached value of the '{@link #getAttributeValue() <em>Attribute Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributeValue()
-   * @generated
-   * @ordered
-   */
-  protected String attributeValue = ATTRIBUTE_VALUE_EDEFAULT;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SelectorImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return UiTestPackage.Literals.SELECTOR;
-  }
+		return UiTestPackage.Literals.SELECTOR;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getAttributeName()
   {
-    return attributeName;
-  }
+		return attributeName;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setAttributeName(String newAttributeName)
   {
-    String oldAttributeName = attributeName;
-    attributeName = newAttributeName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECTOR__ATTRIBUTE_NAME, oldAttributeName, attributeName));
-  }
+		String oldAttributeName = attributeName;
+		attributeName = newAttributeName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECTOR__ATTRIBUTE_NAME, oldAttributeName, attributeName));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getAttributeValue()
+	 * @generated
+	 */
+  public Value getValue()
   {
-    return attributeValue;
-  }
+		return value;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAttributeValue(String newAttributeValue)
+	 * @generated
+	 */
+  public NotificationChain basicSetValue(Value newValue, NotificationChain msgs)
   {
-    String oldAttributeValue = attributeValue;
-    attributeValue = newAttributeValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECTOR__ATTRIBUTE_VALUE, oldAttributeValue, attributeValue));
-  }
+		Value oldValue = value;
+		value = newValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECTOR__VALUE, oldValue, newValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
+  public void setValue(Value newValue)
+  {
+		if (newValue != value) {
+			NotificationChain msgs = null;
+			if (value != null)
+				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECTOR__VALUE, null, msgs);
+			if (newValue != null)
+				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.SELECTOR__VALUE, null, msgs);
+			msgs = basicSetValue(newValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.SELECTOR__VALUE, newValue, newValue));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+		switch (featureID) {
+			case UiTestPackage.SELECTOR__VALUE:
+				return basicSetValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
-        return getAttributeName();
-      case UiTestPackage.SELECTOR__ATTRIBUTE_VALUE:
-        return getAttributeValue();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
+				return getAttributeName();
+			case UiTestPackage.SELECTOR__VALUE:
+				return getValue();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
-        setAttributeName((String)newValue);
-        return;
-      case UiTestPackage.SELECTOR__ATTRIBUTE_VALUE:
-        setAttributeValue((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
+				setAttributeName((String)newValue);
+				return;
+			case UiTestPackage.SELECTOR__VALUE:
+				setValue((Value)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
-        setAttributeName(ATTRIBUTE_NAME_EDEFAULT);
-        return;
-      case UiTestPackage.SELECTOR__ATTRIBUTE_VALUE:
-        setAttributeValue(ATTRIBUTE_VALUE_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
+				setAttributeName(ATTRIBUTE_NAME_EDEFAULT);
+				return;
+			case UiTestPackage.SELECTOR__VALUE:
+				setValue((Value)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
-        return ATTRIBUTE_NAME_EDEFAULT == null ? attributeName != null : !ATTRIBUTE_NAME_EDEFAULT.equals(attributeName);
-      case UiTestPackage.SELECTOR__ATTRIBUTE_VALUE:
-        return ATTRIBUTE_VALUE_EDEFAULT == null ? attributeValue != null : !ATTRIBUTE_VALUE_EDEFAULT.equals(attributeValue);
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.SELECTOR__ATTRIBUTE_NAME:
+				return ATTRIBUTE_NAME_EDEFAULT == null ? attributeName != null : !ATTRIBUTE_NAME_EDEFAULT.equals(attributeName);
+			case UiTestPackage.SELECTOR__VALUE:
+				return value != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (attributeName: ");
-    result.append(attributeName);
-    result.append(", attributeValue: ");
-    result.append(attributeValue);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (attributeName: ");
+		result.append(attributeName);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SelectorImpl

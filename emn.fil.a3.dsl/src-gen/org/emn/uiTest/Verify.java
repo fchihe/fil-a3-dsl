@@ -15,7 +15,7 @@ package org.emn.uiTest;
  * <ul>
  *   <li>{@link org.emn.uiTest.Verify#getName <em>Name</em>}</li>
  *   <li>{@link org.emn.uiTest.Verify#getSelector <em>Selector</em>}</li>
- *   <li>{@link org.emn.uiTest.Verify#getComparison <em>Comparison</em>}</li>
+ *   <li>{@link org.emn.uiTest.Verify#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see org.emn.uiTest.UiTestPackage#getVerify()
@@ -25,81 +25,81 @@ package org.emn.uiTest;
 public interface Verify extends Command
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.emn.uiTest.UiTestPackage#getVerify_Name()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.emn.uiTest.UiTestPackage#getVerify_Name()
+	 * @model
+	 * @generated
+	 */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Verify#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Verify#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Selector</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Selector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Selector</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Selector</em>' containment reference.
-   * @see #setSelector(Selector)
-   * @see org.emn.uiTest.UiTestPackage#getVerify_Selector()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Selector</em>' containment reference.
+	 * @see #setSelector(Selector)
+	 * @see org.emn.uiTest.UiTestPackage#getVerify_Selector()
+	 * @model containment="true"
+	 * @generated
+	 */
   Selector getSelector();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Verify#getSelector <em>Selector</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Verify#getSelector <em>Selector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Selector</em>' containment reference.
-   * @see #getSelector()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Selector</em>' containment reference.
+	 * @see #getSelector()
+	 * @generated
+	 */
   void setSelector(Selector value);
 
   /**
-   * Returns the value of the '<em><b>Comparison</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Comparison</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Comparison</em>' attribute.
-   * @see #setComparison(String)
-   * @see org.emn.uiTest.UiTestPackage#getVerify_Comparison()
-   * @model
-   * @generated
-   */
-  String getComparison();
+	 * @return the value of the '<em>Value</em>' containment reference.
+	 * @see #setValue(Value)
+	 * @see org.emn.uiTest.UiTestPackage#getVerify_Value()
+	 * @model containment="true"
+	 * @generated
+	 */
+  Value getValue();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Verify#getComparison <em>Comparison</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Verify#getValue <em>Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Comparison</em>' attribute.
-   * @see #getComparison()
-   * @generated
-   */
-  void setComparison(String value);
+	 * @param value the new value of the '<em>Value</em>' containment reference.
+	 * @see #getValue()
+	 * @generated
+	 */
+  void setValue(Value value);
 
 } // Verify

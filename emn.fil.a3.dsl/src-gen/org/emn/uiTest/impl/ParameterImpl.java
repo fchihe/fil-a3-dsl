@@ -32,214 +32,208 @@ import org.emn.uiTest.VariableDefinition;
 public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter
 {
   /**
-   * The default value of the '{@link #getString() <em>String</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getString() <em>String</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getString()
-   * @generated
-   * @ordered
-   */
+	 * @see #getString()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String STRING_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getString() <em>String</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getString() <em>String</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getString()
-   * @generated
-   * @ordered
-   */
+	 * @see #getString()
+	 * @generated
+	 * @ordered
+	 */
   protected String string = STRING_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariable()
-   * @generated
-   * @ordered
-   */
+	 * @see #getVariable()
+	 * @generated
+	 * @ordered
+	 */
   protected VariableDefinition variable;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ParameterImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return UiTestPackage.Literals.PARAMETER;
-  }
+		return UiTestPackage.Literals.PARAMETER;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String getString()
   {
-    return string;
-  }
+		return string;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setString(String newString)
   {
-    String oldString = string;
-    string = newString;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.PARAMETER__STRING, oldString, string));
-  }
+		String oldString = string;
+		string = newString;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.PARAMETER__STRING, oldString, string));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public VariableDefinition getVariable()
   {
-    if (variable != null && variable.eIsProxy())
-    {
-      InternalEObject oldVariable = (InternalEObject)variable;
-      variable = (VariableDefinition)eResolveProxy(oldVariable);
-      if (variable != oldVariable)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiTestPackage.PARAMETER__VARIABLE, oldVariable, variable));
-      }
-    }
-    return variable;
-  }
+		if (variable != null && variable.eIsProxy()) {
+			InternalEObject oldVariable = (InternalEObject)variable;
+			variable = (VariableDefinition)eResolveProxy(oldVariable);
+			if (variable != oldVariable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiTestPackage.PARAMETER__VARIABLE, oldVariable, variable));
+			}
+		}
+		return variable;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public VariableDefinition basicGetVariable()
   {
-    return variable;
-  }
+		return variable;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setVariable(VariableDefinition newVariable)
   {
-    VariableDefinition oldVariable = variable;
-    variable = newVariable;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.PARAMETER__VARIABLE, oldVariable, variable));
-  }
+		VariableDefinition oldVariable = variable;
+		variable = newVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.PARAMETER__VARIABLE, oldVariable, variable));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.PARAMETER__STRING:
-        return getString();
-      case UiTestPackage.PARAMETER__VARIABLE:
-        if (resolve) return getVariable();
-        return basicGetVariable();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case UiTestPackage.PARAMETER__STRING:
+				return getString();
+			case UiTestPackage.PARAMETER__VARIABLE:
+				if (resolve) return getVariable();
+				return basicGetVariable();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.PARAMETER__STRING:
-        setString((String)newValue);
-        return;
-      case UiTestPackage.PARAMETER__VARIABLE:
-        setVariable((VariableDefinition)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case UiTestPackage.PARAMETER__STRING:
+				setString((String)newValue);
+				return;
+			case UiTestPackage.PARAMETER__VARIABLE:
+				setVariable((VariableDefinition)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.PARAMETER__STRING:
-        setString(STRING_EDEFAULT);
-        return;
-      case UiTestPackage.PARAMETER__VARIABLE:
-        setVariable((VariableDefinition)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.PARAMETER__STRING:
+				setString(STRING_EDEFAULT);
+				return;
+			case UiTestPackage.PARAMETER__VARIABLE:
+				setVariable((VariableDefinition)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.PARAMETER__STRING:
-        return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
-      case UiTestPackage.PARAMETER__VARIABLE:
-        return variable != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.PARAMETER__STRING:
+				return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
+			case UiTestPackage.PARAMETER__VARIABLE:
+				return variable != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (string: ");
-    result.append(string);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (string: ");
+		result.append(string);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ParameterImpl

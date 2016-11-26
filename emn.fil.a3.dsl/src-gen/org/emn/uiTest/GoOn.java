@@ -24,55 +24,55 @@ package org.emn.uiTest;
 public interface GoOn extends Command
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.emn.uiTest.UiTestPackage#getGoOn_Name()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.emn.uiTest.UiTestPackage#getGoOn_Name()
+	 * @model
+	 * @generated
+	 */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.GoOn#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.GoOn#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Address</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Address</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Address</em>' attribute.
-   * @see #setAddress(String)
-   * @see org.emn.uiTest.UiTestPackage#getGoOn_Address()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Address</em>' attribute.
+	 * @see #setAddress(String)
+	 * @see org.emn.uiTest.UiTestPackage#getGoOn_Address()
+	 * @model
+	 * @generated
+	 */
   String getAddress();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.GoOn#getAddress <em>Address</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.GoOn#getAddress <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Address</em>' attribute.
-   * @see #getAddress()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Address</em>' attribute.
+	 * @see #getAddress()
+	 * @generated
+	 */
   void setAddress(String value);
 
 } // GoOn

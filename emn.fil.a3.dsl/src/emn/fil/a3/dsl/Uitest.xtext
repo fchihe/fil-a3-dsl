@@ -35,11 +35,11 @@ GoOn:
 	name='goOn' address=STRING  
 ;
 Store:
-	'store' selector=Selector  key=VariableDefinition
+	name='store' selector=Selector  key=VariableDefinition
 ;
 
 Fill:
-	'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
+	name='fill' selector=Selector value=Value
 ;
 
 Click:
@@ -47,21 +47,21 @@ Click:
 ;
 
 Verify:
-	name='verify' selector=Selector comparison=STRING
+	name='verify' selector=Selector value=Value
 ;
 
 Select:
-    'select' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
+    name='select' selector=Selector value=Value
 ;
 
 Selector:
-	'['attributeName=STRING'='attributeValue=STRING ']'
+	'['attributeName=STRING'='value=Value ']'
 ;
 
 VariableDefinition:
-	name=KEY
+	name=ID
 ;
 
- KEY:
-	ID
+Value:
+	stringValue=STRING|varName=[VariableDefinition]
 ;

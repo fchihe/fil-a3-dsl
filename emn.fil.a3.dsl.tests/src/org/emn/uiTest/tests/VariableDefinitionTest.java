@@ -61,6 +61,7 @@ public class VariableDefinitionTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected VariableDefinition getFixture() {
 		return fixture;
 	}

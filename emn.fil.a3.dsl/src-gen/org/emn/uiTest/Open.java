@@ -25,81 +25,81 @@ package org.emn.uiTest;
 public interface Open extends Command
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.emn.uiTest.UiTestPackage#getOpen_Name()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.emn.uiTest.UiTestPackage#getOpen_Name()
+	 * @model
+	 * @generated
+	 */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Open#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Open#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Program</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Program</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Program</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Program</em>' attribute.
-   * @see #setProgram(String)
-   * @see org.emn.uiTest.UiTestPackage#getOpen_Program()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Program</em>' attribute.
+	 * @see #setProgram(String)
+	 * @see org.emn.uiTest.UiTestPackage#getOpen_Program()
+	 * @model
+	 * @generated
+	 */
   String getProgram();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Open#getProgram <em>Program</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Open#getProgram <em>Program</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Program</em>' attribute.
-   * @see #getProgram()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Program</em>' attribute.
+	 * @see #getProgram()
+	 * @generated
+	 */
   void setProgram(String value);
 
   /**
-   * Returns the value of the '<em><b>Driver Path</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Driver Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Driver Path</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Driver Path</em>' attribute.
-   * @see #setDriverPath(String)
-   * @see org.emn.uiTest.UiTestPackage#getOpen_DriverPath()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Driver Path</em>' attribute.
+	 * @see #setDriverPath(String)
+	 * @see org.emn.uiTest.UiTestPackage#getOpen_DriverPath()
+	 * @model
+	 * @generated
+	 */
   String getDriverPath();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Open#getDriverPath <em>Driver Path</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Open#getDriverPath <em>Driver Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Driver Path</em>' attribute.
-   * @see #getDriverPath()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Driver Path</em>' attribute.
+	 * @see #getDriverPath()
+	 * @generated
+	 */
   void setDriverPath(String value);
 
 } // Open

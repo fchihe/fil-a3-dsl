@@ -28,6 +28,7 @@ import org.emn.uiTest.Select;
 import org.emn.uiTest.Selector;
 import org.emn.uiTest.Store;
 import org.emn.uiTest.UiTest;
+import org.emn.uiTest.Value;
 import org.emn.uiTest.VariableDefinition;
 import org.emn.uiTest.Verify;
 
@@ -244,9 +245,8 @@ public class UiTestGenerator extends AbstractGenerator {
     CharSequence _generateSelector = this.generateSelector(_selector);
     _builder.append(_generateSelector, "");
     _builder.append("\"))).selectByVisibleText(");
-    String _stringValue = s.getStringValue();
-    VariableDefinition _keyValue = s.getKeyValue();
-    CharSequence _generateValue = this.generateValue(_stringValue, _keyValue);
+    Value _value = s.getValue();
+    CharSequence _generateValue = this.generateValue(_value, Boolean.valueOf(false));
     _builder.append(_generateValue, "");
     _builder.append(");");
     _builder.newLineIfNotEmpty();
@@ -270,18 +270,20 @@ public class UiTestGenerator extends AbstractGenerator {
       String _attributeName = s.getAttributeName();
       boolean _equals = _attributeName.equals("text");
       if (_equals) {
-        _builder.append("//*[contains(text(), \'");
-        String _attributeValue = s.getAttributeValue();
-        _builder.append(_attributeValue, "");
-        _builder.append("\')]");
+        _builder.append("//*[contains(text(), ");
+        Value _value = s.getValue();
+        CharSequence _generateValue = this.generateValue(_value, Boolean.valueOf(true));
+        _builder.append(_generateValue, "");
+        _builder.append(")]");
       } else {
         _builder.append("//*[@");
         String _attributeName_1 = s.getAttributeName();
         _builder.append(_attributeName_1, "");
-        _builder.append("=\\\"");
-        String _attributeValue_1 = s.getAttributeValue();
-        _builder.append(_attributeValue_1, "");
-        _builder.append("\\\"]");
+        _builder.append("=");
+        Value _value_1 = s.getValue();
+        CharSequence _generateValue_1 = this.generateValue(_value_1, Boolean.valueOf(true));
+        _builder.append(_generateValue_1, "");
+        _builder.append("]");
       }
     }
     return _builder;
@@ -338,28 +340,11 @@ public class UiTestGenerator extends AbstractGenerator {
     CharSequence _generateSelector = this.generateSelector(_selector);
     _builder.append(_generateSelector, "");
     _builder.append("\")).sendKeys(");
-    String _stringValue = f.getStringValue();
-    VariableDefinition _keyValue = f.getKeyValue();
-    CharSequence _generateValue = this.generateValue(_stringValue, _keyValue);
+    Value _value = f.getValue();
+    CharSequence _generateValue = this.generateValue(_value, Boolean.valueOf(false));
     _builder.append(_generateValue, "");
     _builder.append(");");
     _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public CharSequence generateValue(final String stringValue, final VariableDefinition variableDefinition) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      boolean _notEquals = (!Objects.equal(stringValue, null));
-      if (_notEquals) {
-        _builder.append("\"");
-        _builder.append(stringValue, "");
-        _builder.append("\"");
-      } else {
-        String _name = variableDefinition.getName();
-        _builder.append(_name, "");
-      }
-    }
     return _builder;
   }
   
@@ -369,23 +354,28 @@ public class UiTestGenerator extends AbstractGenerator {
     Selector _selector = v.getSelector();
     CharSequence _generateSelector = this.generateSelector(_selector);
     _builder.append(_generateSelector, "");
-    _builder.append("\")).getText().contains(\"");
-    String _comparison = v.getComparison();
-    _builder.append(_comparison, "");
-    _builder.append("\") ? \"");
+    _builder.append("\")).getText().contains(");
+    Value _value = v.getValue();
+    CharSequence _generateValue = this.generateValue(_value, Boolean.valueOf(false));
+    _builder.append(_generateValue, "");
+    _builder.append(") ? \"");
     Selector _selector_1 = v.getSelector();
-    String _attributeValue = _selector_1.getAttributeValue();
-    _builder.append(_attributeValue, "");
+    Value _value_1 = _selector_1.getValue();
+    CharSequence _generateValue_1 = this.generateValue(_value_1, Boolean.valueOf(true));
+    _builder.append(_generateValue_1, "");
     _builder.append(" contains ");
-    String _comparison_1 = v.getComparison();
-    _builder.append(_comparison_1, "");
+    Value _value_2 = v.getValue();
+    CharSequence _generateValue_2 = this.generateValue(_value_2, Boolean.valueOf(true));
+    _builder.append(_generateValue_2, "");
     _builder.append("\" : \"");
     Selector _selector_2 = v.getSelector();
-    String _attributeValue_1 = _selector_2.getAttributeValue();
-    _builder.append(_attributeValue_1, "");
+    Value _value_3 = _selector_2.getValue();
+    CharSequence _generateValue_3 = this.generateValue(_value_3, Boolean.valueOf(true));
+    _builder.append(_generateValue_3, "");
     _builder.append(" does not contain ");
-    String _comparison_2 = v.getComparison();
-    _builder.append(_comparison_2, "");
+    Value _value_4 = v.getValue();
+    CharSequence _generateValue_4 = this.generateValue(_value_4, Boolean.valueOf(true));
+    _builder.append(_generateValue_4, "");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -403,6 +393,39 @@ public class UiTestGenerator extends AbstractGenerator {
     _builder.append(_generateSelector, "");
     _builder.append("\")).getText();");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateValue(final Value v, final Boolean escape) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _stringValue = v.getStringValue();
+      boolean _notEquals = (!Objects.equal(_stringValue, null));
+      if (_notEquals) {
+        {
+          boolean _booleanValue = escape.booleanValue();
+          if (_booleanValue) {
+            _builder.append("\\");
+          }
+        }
+        _builder.append("\"");
+        String _stringValue_1 = v.getStringValue();
+        _builder.append(_stringValue_1, "");
+        {
+          boolean _booleanValue_1 = escape.booleanValue();
+          if (_booleanValue_1) {
+            _builder.append("\\");
+          }
+        }
+        _builder.append("\"");
+      } else {
+        _builder.append("\"+");
+        VariableDefinition _varName = v.getVarName();
+        String _name = _varName.getName();
+        _builder.append(_name, "");
+        _builder.append("+\"");
+      }
+    }
     return _builder;
   }
 }

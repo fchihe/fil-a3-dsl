@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.emn.uiTest.Selector#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link org.emn.uiTest.Selector#getAttributeValue <em>Attribute Value</em>}</li>
+ *   <li>{@link org.emn.uiTest.Selector#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see org.emn.uiTest.UiTestPackage#getSelector()
@@ -25,55 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface Selector extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Attribute Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Attribute Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Attribute Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute Name</em>' attribute.
-   * @see #setAttributeName(String)
-   * @see org.emn.uiTest.UiTestPackage#getSelector_AttributeName()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Attribute Name</em>' attribute.
+	 * @see #setAttributeName(String)
+	 * @see org.emn.uiTest.UiTestPackage#getSelector_AttributeName()
+	 * @model
+	 * @generated
+	 */
   String getAttributeName();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Selector#getAttributeName <em>Attribute Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Selector#getAttributeName <em>Attribute Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute Name</em>' attribute.
-   * @see #getAttributeName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Attribute Name</em>' attribute.
+	 * @see #getAttributeName()
+	 * @generated
+	 */
   void setAttributeName(String value);
 
   /**
-   * Returns the value of the '<em><b>Attribute Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Attribute Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute Value</em>' attribute.
-   * @see #setAttributeValue(String)
-   * @see org.emn.uiTest.UiTestPackage#getSelector_AttributeValue()
-   * @model
-   * @generated
-   */
-  String getAttributeValue();
+	 * @return the value of the '<em>Value</em>' containment reference.
+	 * @see #setValue(Value)
+	 * @see org.emn.uiTest.UiTestPackage#getSelector_Value()
+	 * @model containment="true"
+	 * @generated
+	 */
+  Value getValue();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.Selector#getAttributeValue <em>Attribute Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.Selector#getValue <em>Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute Value</em>' attribute.
-   * @see #getAttributeValue()
-   * @generated
-   */
-  void setAttributeValue(String value);
+	 * @param value the new value of the '<em>Value</em>' containment reference.
+	 * @see #getValue()
+	 * @generated
+	 */
+  void setValue(Value value);
 
 } // Selector

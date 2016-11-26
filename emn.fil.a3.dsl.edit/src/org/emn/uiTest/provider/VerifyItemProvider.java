@@ -50,7 +50,6 @@ public class VerifyItemProvider extends CommandItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addComparisonPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,28 +77,6 @@ public class VerifyItemProvider extends CommandItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Comparison feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addComparisonPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Verify_comparison_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Verify_comparison_feature", "_UI_Verify_type"),
-				 UiTestPackage.Literals.VERIFY__COMPARISON,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -112,6 +89,7 @@ public class VerifyItemProvider extends CommandItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UiTestPackage.Literals.VERIFY__SELECTOR);
+			childrenFeatures.add(UiTestPackage.Literals.VERIFY__VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -168,10 +146,10 @@ public class VerifyItemProvider extends CommandItemProvider {
 
 		switch (notification.getFeatureID(Verify.class)) {
 			case UiTestPackage.VERIFY__NAME:
-			case UiTestPackage.VERIFY__COMPARISON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UiTestPackage.VERIFY__SELECTOR:
+			case UiTestPackage.VERIFY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -193,6 +171,11 @@ public class VerifyItemProvider extends CommandItemProvider {
 			(createChildParameter
 				(UiTestPackage.Literals.VERIFY__SELECTOR,
 				 UiTestFactory.eINSTANCE.createSelector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UiTestPackage.Literals.VERIFY__VALUE,
+				 UiTestFactory.eINSTANCE.createValue()));
 	}
 
 }

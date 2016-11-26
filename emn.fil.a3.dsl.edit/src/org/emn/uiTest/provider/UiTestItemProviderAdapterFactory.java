@@ -418,6 +418,29 @@ public class UiTestItemProviderAdapterFactory extends UiTestAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.emn.uiTest.Value} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueItemProvider valueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.emn.uiTest.Value}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueAdapter() {
+		if (valueItemProvider == null) {
+			valueItemProvider = new ValueItemProvider(this);
+		}
+
+		return valueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -531,6 +554,7 @@ public class UiTestItemProviderAdapterFactory extends UiTestAdapterFactory imple
 		if (selectItemProvider != null) selectItemProvider.dispose();
 		if (selectorItemProvider != null) selectorItemProvider.dispose();
 		if (variableDefinitionItemProvider != null) variableDefinitionItemProvider.dispose();
+		if (valueItemProvider != null) valueItemProvider.dispose();
 	}
 
 }

@@ -23,8 +23,7 @@ import org.emn.uiTest.VariableDefinition
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all") class UiTestValidator extends AbstractUiTestValidator {
-	package HashMap<String, Integer> functionParams
-
+	/*package HashMap<String, Integer> functionParams
 	@Check def void checkFunctions(UiTest uitest) {
 		functionParams = new HashMap<String, Integer>()
 		var ArrayList<String> innerCommandVariables
@@ -140,5 +139,6 @@ import org.emn.uiTest.VariableDefinition
 			}
 			error('''Variable «varName» can't be used here, it was not declared before''', command, literal)
 		}
-	}
+	}*/
+	
 }

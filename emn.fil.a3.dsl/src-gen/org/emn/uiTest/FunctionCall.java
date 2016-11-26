@@ -25,45 +25,45 @@ import org.eclipse.emf.common.util.EList;
 public interface FunctionCall extends Command
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' reference.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(FunctionName)
-   * @see org.emn.uiTest.UiTestPackage#getFunctionCall_Name()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' reference.
+	 * @see #setName(FunctionName)
+	 * @see org.emn.uiTest.UiTestPackage#getFunctionCall_Name()
+	 * @model
+	 * @generated
+	 */
   FunctionName getName();
 
   /**
-   * Sets the value of the '{@link org.emn.uiTest.FunctionCall#getName <em>Name</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link org.emn.uiTest.FunctionCall#getName <em>Name</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' reference.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(FunctionName value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.emn.uiTest.Parameter}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.emn.uiTest.Parameter}.
+	 * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference list.
-   * @see org.emn.uiTest.UiTestPackage#getFunctionCall_Parameters()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.emn.uiTest.UiTestPackage#getFunctionCall_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<Parameter> getParameters();
 
 } // FunctionCall

@@ -49,52 +49,29 @@ public class FillItemProvider extends CommandItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addStringValuePropertyDescriptor(object);
-			addKeyValuePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the String Value feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addStringValuePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Fill_stringValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Fill_stringValue_feature", "_UI_Fill_type"),
-				 UiTestPackage.Literals.FILL__STRING_VALUE,
+				 getString("_UI_Fill_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Fill_name_feature", "_UI_Fill_type"),
+				 UiTestPackage.Literals.FILL__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Key Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addKeyValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Fill_keyValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Fill_keyValue_feature", "_UI_Fill_type"),
-				 UiTestPackage.Literals.FILL__KEY_VALUE,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -112,6 +89,7 @@ public class FillItemProvider extends CommandItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UiTestPackage.Literals.FILL__SELECTOR);
+			childrenFeatures.add(UiTestPackage.Literals.FILL__VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -148,7 +126,7 @@ public class FillItemProvider extends CommandItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Fill)object).getStringValue();
+		String label = ((Fill)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Fill_type") :
 			getString("_UI_Fill_type") + " " + label;
@@ -167,10 +145,11 @@ public class FillItemProvider extends CommandItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Fill.class)) {
-			case UiTestPackage.FILL__STRING_VALUE:
+			case UiTestPackage.FILL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UiTestPackage.FILL__SELECTOR:
+			case UiTestPackage.FILL__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -192,6 +171,11 @@ public class FillItemProvider extends CommandItemProvider {
 			(createChildParameter
 				(UiTestPackage.Literals.FILL__SELECTOR,
 				 UiTestFactory.eINSTANCE.createSelector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UiTestPackage.Literals.FILL__VALUE,
+				 UiTestFactory.eINSTANCE.createValue()));
 	}
 
 }

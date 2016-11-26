@@ -326,21 +326,25 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	public class StoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Store");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStoreKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameStoreKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Assignment cSelectorAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSelectorSelectorParserRuleCall_1_0 = (RuleCall)cSelectorAssignment_1.eContents().get(0);
 		private final Assignment cKeyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cKeyVariableDefinitionParserRuleCall_2_0 = (RuleCall)cKeyAssignment_2.eContents().get(0);
 		
 		//Store:
-		//	'store' selector=Selector key=VariableDefinition;
+		//	name='store' selector=Selector key=VariableDefinition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'store' selector=Selector key=VariableDefinition
+		//name='store' selector=Selector key=VariableDefinition
 		public Group getGroup() { return cGroup; }
 		
+		//name='store'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
 		//'store'
-		public Keyword getStoreKeyword_0() { return cStoreKeyword_0; }
+		public Keyword getNameStoreKeyword_0_0() { return cNameStoreKeyword_0_0; }
 		
 		//selector=Selector
 		public Assignment getSelectorAssignment_1() { return cSelectorAssignment_1; }
@@ -357,25 +361,25 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	public class FillElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Fill");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFillKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameFillKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Assignment cSelectorAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSelectorSelectorParserRuleCall_1_0 = (RuleCall)cSelectorAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cStringValueAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cStringValueSTRINGTerminalRuleCall_2_0_0 = (RuleCall)cStringValueAssignment_2_0.eContents().get(0);
-		private final Assignment cKeyValueAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final CrossReference cKeyValueVariableDefinitionCrossReference_2_1_0 = (CrossReference)cKeyValueAssignment_2_1.eContents().get(0);
-		private final RuleCall cKeyValueVariableDefinitionIDTerminalRuleCall_2_1_0_1 = (RuleCall)cKeyValueVariableDefinitionCrossReference_2_1_0.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Fill:
-		//	'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition]);
+		//	name='fill' selector=Selector value=Value;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
+		//name='fill' selector=Selector value=Value
 		public Group getGroup() { return cGroup; }
 		
+		//name='fill'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
 		//'fill'
-		public Keyword getFillKeyword_0() { return cFillKeyword_0; }
+		public Keyword getNameFillKeyword_0_0() { return cNameFillKeyword_0_0; }
 		
 		//selector=Selector
 		public Assignment getSelectorAssignment_1() { return cSelectorAssignment_1; }
@@ -383,23 +387,11 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		//Selector
 		public RuleCall getSelectorSelectorParserRuleCall_1_0() { return cSelectorSelectorParserRuleCall_1_0; }
 		
-		//(stringValue=STRING | keyValue=[VariableDefinition])
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		//value=Value
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//stringValue=STRING
-		public Assignment getStringValueAssignment_2_0() { return cStringValueAssignment_2_0; }
-		
-		//STRING
-		public RuleCall getStringValueSTRINGTerminalRuleCall_2_0_0() { return cStringValueSTRINGTerminalRuleCall_2_0_0; }
-		
-		//keyValue=[VariableDefinition]
-		public Assignment getKeyValueAssignment_2_1() { return cKeyValueAssignment_2_1; }
-		
-		//[VariableDefinition]
-		public CrossReference getKeyValueVariableDefinitionCrossReference_2_1_0() { return cKeyValueVariableDefinitionCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getKeyValueVariableDefinitionIDTerminalRuleCall_2_1_0_1() { return cKeyValueVariableDefinitionIDTerminalRuleCall_2_1_0_1; }
+		//Value
+		public RuleCall getValueValueParserRuleCall_2_0() { return cValueValueParserRuleCall_2_0; }
 	}
 	public class ClickElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Click");
@@ -435,14 +427,14 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameVerifyKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Assignment cSelectorAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSelectorSelectorParserRuleCall_1_0 = (RuleCall)cSelectorAssignment_1.eContents().get(0);
-		private final Assignment cComparisonAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cComparisonSTRINGTerminalRuleCall_2_0 = (RuleCall)cComparisonAssignment_2.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Verify:
-		//	name='verify' selector=Selector comparison=STRING;
+		//	name='verify' selector=Selector value=Value;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name='verify' selector=Selector comparison=STRING
+		//name='verify' selector=Selector value=Value
 		public Group getGroup() { return cGroup; }
 		
 		//name='verify'
@@ -457,34 +449,34 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		//Selector
 		public RuleCall getSelectorSelectorParserRuleCall_1_0() { return cSelectorSelectorParserRuleCall_1_0; }
 		
-		//comparison=STRING
-		public Assignment getComparisonAssignment_2() { return cComparisonAssignment_2; }
+		//value=Value
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//STRING
-		public RuleCall getComparisonSTRINGTerminalRuleCall_2_0() { return cComparisonSTRINGTerminalRuleCall_2_0; }
+		//Value
+		public RuleCall getValueValueParserRuleCall_2_0() { return cValueValueParserRuleCall_2_0; }
 	}
 	public class SelectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Select");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSelectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameSelectKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
 		private final Assignment cSelectorAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSelectorSelectorParserRuleCall_1_0 = (RuleCall)cSelectorAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cStringValueAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cStringValueSTRINGTerminalRuleCall_2_0_0 = (RuleCall)cStringValueAssignment_2_0.eContents().get(0);
-		private final Assignment cKeyValueAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final CrossReference cKeyValueVariableDefinitionCrossReference_2_1_0 = (CrossReference)cKeyValueAssignment_2_1.eContents().get(0);
-		private final RuleCall cKeyValueVariableDefinitionIDTerminalRuleCall_2_1_0_1 = (RuleCall)cKeyValueVariableDefinitionCrossReference_2_1_0.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Select:
-		//	'select' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition]);
+		//	name='select' selector=Selector value=Value;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'select' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition])
+		//name='select' selector=Selector value=Value
 		public Group getGroup() { return cGroup; }
 		
+		//name='select'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
 		//'select'
-		public Keyword getSelectKeyword_0() { return cSelectKeyword_0; }
+		public Keyword getNameSelectKeyword_0_0() { return cNameSelectKeyword_0_0; }
 		
 		//selector=Selector
 		public Assignment getSelectorAssignment_1() { return cSelectorAssignment_1; }
@@ -492,23 +484,11 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		//Selector
 		public RuleCall getSelectorSelectorParserRuleCall_1_0() { return cSelectorSelectorParserRuleCall_1_0; }
 		
-		//(stringValue=STRING | keyValue=[VariableDefinition])
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		//value=Value
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
-		//stringValue=STRING
-		public Assignment getStringValueAssignment_2_0() { return cStringValueAssignment_2_0; }
-		
-		//STRING
-		public RuleCall getStringValueSTRINGTerminalRuleCall_2_0_0() { return cStringValueSTRINGTerminalRuleCall_2_0_0; }
-		
-		//keyValue=[VariableDefinition]
-		public Assignment getKeyValueAssignment_2_1() { return cKeyValueAssignment_2_1; }
-		
-		//[VariableDefinition]
-		public CrossReference getKeyValueVariableDefinitionCrossReference_2_1_0() { return cKeyValueVariableDefinitionCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getKeyValueVariableDefinitionIDTerminalRuleCall_2_1_0_1() { return cKeyValueVariableDefinitionIDTerminalRuleCall_2_1_0_1; }
+		//Value
+		public RuleCall getValueValueParserRuleCall_2_0() { return cValueValueParserRuleCall_2_0; }
 	}
 	public class SelectorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Selector");
@@ -517,15 +497,15 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAttributeNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAttributeNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cAttributeNameAssignment_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cAttributeValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAttributeValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cAttributeValueAssignment_3.eContents().get(0);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueValueParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Selector:
-		//	'[' attributeName=STRING '=' attributeValue=STRING ']';
+		//	'[' attributeName=STRING '=' value=Value ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'[' attributeName=STRING '=' attributeValue=STRING ']'
+		//'[' attributeName=STRING '=' value=Value ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'['
@@ -540,11 +520,11 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
-		//attributeValue=STRING
-		public Assignment getAttributeValueAssignment_3() { return cAttributeValueAssignment_3; }
+		//value=Value
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
 		
-		//STRING
-		public RuleCall getAttributeValueSTRINGTerminalRuleCall_3_0() { return cAttributeValueSTRINGTerminalRuleCall_3_0; }
+		//Value
+		public RuleCall getValueValueParserRuleCall_3_0() { return cValueValueParserRuleCall_3_0; }
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
@@ -552,28 +532,48 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	public class VariableDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.VariableDefinition");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameKEYParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//VariableDefinition:
-		//	name=KEY;
+		//	name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=KEY
+		//name=ID
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
-		//KEY
-		public RuleCall getNameKEYParserRuleCall_0() { return cNameKEYParserRuleCall_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
-	public class KEYElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.KEY");
-		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+	public class ValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.emn.UiTest.Value");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cStringValueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cStringValueSTRINGTerminalRuleCall_0_0 = (RuleCall)cStringValueAssignment_0.eContents().get(0);
+		private final Assignment cVarNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final CrossReference cVarNameVariableDefinitionCrossReference_1_0 = (CrossReference)cVarNameAssignment_1.eContents().get(0);
+		private final RuleCall cVarNameVariableDefinitionIDTerminalRuleCall_1_0_1 = (RuleCall)cVarNameVariableDefinitionCrossReference_1_0.eContents().get(1);
 		
-		//KEY:
-		//	ID;
+		//Value:
+		//	stringValue=STRING | varName=[VariableDefinition];
 		@Override public ParserRule getRule() { return rule; }
 		
+		//stringValue=STRING | varName=[VariableDefinition]
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//stringValue=STRING
+		public Assignment getStringValueAssignment_0() { return cStringValueAssignment_0; }
+		
+		//STRING
+		public RuleCall getStringValueSTRINGTerminalRuleCall_0_0() { return cStringValueSTRINGTerminalRuleCall_0_0; }
+		
+		//varName=[VariableDefinition]
+		public Assignment getVarNameAssignment_1() { return cVarNameAssignment_1; }
+		
+		//[VariableDefinition]
+		public CrossReference getVarNameVariableDefinitionCrossReference_1_0() { return cVarNameVariableDefinitionCrossReference_1_0; }
+		
 		//ID
-		public RuleCall getIDTerminalRuleCall() { return cIDTerminalRuleCall; }
+		public RuleCall getVarNameVariableDefinitionIDTerminalRuleCall_1_0_1() { return cVarNameVariableDefinitionIDTerminalRuleCall_1_0_1; }
 	}
 	
 	
@@ -592,7 +592,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final SelectElements pSelect;
 	private final SelectorElements pSelector;
 	private final VariableDefinitionElements pVariableDefinition;
-	private final KEYElements pKEY;
+	private final ValueElements pValue;
 	
 	private final Grammar grammar;
 	
@@ -618,7 +618,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSelect = new SelectElements();
 		this.pSelector = new SelectorElements();
 		this.pVariableDefinition = new VariableDefinitionElements();
-		this.pKEY = new KEYElements();
+		this.pValue = new ValueElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -729,7 +729,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Store:
-	//	'store' selector=Selector key=VariableDefinition;
+	//	name='store' selector=Selector key=VariableDefinition;
 	public StoreElements getStoreAccess() {
 		return pStore;
 	}
@@ -739,7 +739,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Fill:
-	//	'fill' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition]);
+	//	name='fill' selector=Selector value=Value;
 	public FillElements getFillAccess() {
 		return pFill;
 	}
@@ -759,7 +759,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Verify:
-	//	name='verify' selector=Selector comparison=STRING;
+	//	name='verify' selector=Selector value=Value;
 	public VerifyElements getVerifyAccess() {
 		return pVerify;
 	}
@@ -769,7 +769,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Select:
-	//	'select' selector=Selector (stringValue=STRING | keyValue=[VariableDefinition]);
+	//	name='select' selector=Selector value=Value;
 	public SelectElements getSelectAccess() {
 		return pSelect;
 	}
@@ -779,7 +779,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Selector:
-	//	'[' attributeName=STRING '=' attributeValue=STRING ']';
+	//	'[' attributeName=STRING '=' value=Value ']';
 	public SelectorElements getSelectorAccess() {
 		return pSelector;
 	}
@@ -789,7 +789,7 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//VariableDefinition:
-	//	name=KEY;
+	//	name=ID;
 	public VariableDefinitionElements getVariableDefinitionAccess() {
 		return pVariableDefinition;
 	}
@@ -798,14 +798,14 @@ public class UiTestGrammarAccess extends AbstractGrammarElementFinder {
 		return getVariableDefinitionAccess().getRule();
 	}
 	
-	//KEY:
-	//	ID;
-	public KEYElements getKEYAccess() {
-		return pKEY;
+	//Value:
+	//	stringValue=STRING | varName=[VariableDefinition];
+	public ValueElements getValueAccess() {
+		return pValue;
 	}
 	
-	public ParserRule getKEYRule() {
-		return getKEYAccess().getRule();
+	public ParserRule getValueRule() {
+		return getValueAccess().getRule();
 	}
 	
 	//terminal ID:

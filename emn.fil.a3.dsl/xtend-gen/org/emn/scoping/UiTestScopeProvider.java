@@ -3,7 +3,18 @@
  */
 package org.emn.scoping;
 
+import com.google.common.base.Objects;
+import java.util.List;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.emn.scoping.AbstractUiTestScopeProvider;
+import org.emn.uiTest.UiTestPackage;
+import org.emn.uiTest.Value;
+import org.emn.uiTest.VariableDefinition;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +24,16 @@ import org.emn.scoping.AbstractUiTestScopeProvider;
  */
 @SuppressWarnings("all")
 public class UiTestScopeProvider extends AbstractUiTestScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    if (((context instanceof Value) && Objects.equal(reference, UiTestPackage.Literals.VALUE__VAR_NAME))) {
+      final EObject rootElement = EcoreUtil2.getRootContainer(context);
+      final List<VariableDefinition> candidates = EcoreUtil2.<VariableDefinition>getAllContentsOfType(rootElement, VariableDefinition.class);
+      InputOutput.<List<VariableDefinition>>println(candidates);
+      List<VariableDefinition> _allContentsOfType = EcoreUtil2.<VariableDefinition>getAllContentsOfType(rootElement, VariableDefinition.class);
+      InputOutput.<List<VariableDefinition>>println(_allContentsOfType);
+      return Scopes.scopeFor(candidates);
+    }
+    return super.getScope(context, reference);
+  }
 }

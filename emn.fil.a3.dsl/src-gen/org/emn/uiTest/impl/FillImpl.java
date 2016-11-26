@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.emn.uiTest.Fill;
 import org.emn.uiTest.Selector;
 import org.emn.uiTest.UiTestPackage;
-import org.emn.uiTest.VariableDefinition;
+import org.emn.uiTest.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,9 +24,9 @@ import org.emn.uiTest.VariableDefinition;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.emn.uiTest.impl.FillImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.emn.uiTest.impl.FillImpl#getSelector <em>Selector</em>}</li>
- *   <li>{@link org.emn.uiTest.impl.FillImpl#getStringValue <em>String Value</em>}</li>
- *   <li>{@link org.emn.uiTest.impl.FillImpl#getKeyValue <em>Key Value</em>}</li>
+ *   <li>{@link org.emn.uiTest.impl.FillImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,298 +34,295 @@ import org.emn.uiTest.VariableDefinition;
 public class FillImpl extends CommandImpl implements Fill
 {
   /**
-   * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSelector()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+	 * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @see #getSelector()
+	 * @generated
+	 * @ordered
+	 */
   protected Selector selector;
 
   /**
-   * The default value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStringValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String STRING_VALUE_EDEFAULT = null;
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+  protected Value value;
 
   /**
-   * The cached value of the '{@link #getStringValue() <em>String Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStringValue()
-   * @generated
-   * @ordered
-   */
-  protected String stringValue = STRING_VALUE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getKeyValue() <em>Key Value</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKeyValue()
-   * @generated
-   * @ordered
-   */
-  protected VariableDefinition keyValue;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected FillImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return UiTestPackage.Literals.FILL;
-  }
+		return UiTestPackage.Literals.FILL;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
+  public String getName()
+  {
+		return name;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
+  public void setName(String newName)
+  {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__NAME, oldName, name));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
   public Selector getSelector()
   {
-    return selector;
-  }
+		return selector;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetSelector(Selector newSelector, NotificationChain msgs)
   {
-    Selector oldSelector = selector;
-    selector = newSelector;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__SELECTOR, oldSelector, newSelector);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Selector oldSelector = selector;
+		selector = newSelector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__SELECTOR, oldSelector, newSelector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setSelector(Selector newSelector)
   {
-    if (newSelector != selector)
-    {
-      NotificationChain msgs = null;
-      if (selector != null)
-        msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FILL__SELECTOR, null, msgs);
-      if (newSelector != null)
-        msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FILL__SELECTOR, null, msgs);
-      msgs = basicSetSelector(newSelector, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__SELECTOR, newSelector, newSelector));
-  }
+		if (newSelector != selector) {
+			NotificationChain msgs = null;
+			if (selector != null)
+				msgs = ((InternalEObject)selector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FILL__SELECTOR, null, msgs);
+			if (newSelector != null)
+				msgs = ((InternalEObject)newSelector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FILL__SELECTOR, null, msgs);
+			msgs = basicSetSelector(newSelector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__SELECTOR, newSelector, newSelector));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getStringValue()
+	 * @generated
+	 */
+  public Value getValue()
   {
-    return stringValue;
-  }
+		return value;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStringValue(String newStringValue)
+	 * @generated
+	 */
+  public NotificationChain basicSetValue(Value newValue, NotificationChain msgs)
   {
-    String oldStringValue = stringValue;
-    stringValue = newStringValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__STRING_VALUE, oldStringValue, stringValue));
-  }
+		Value oldValue = value;
+		value = newValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__VALUE, oldValue, newValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariableDefinition getKeyValue()
+	 * @generated
+	 */
+  public void setValue(Value newValue)
   {
-    if (keyValue != null && keyValue.eIsProxy())
-    {
-      InternalEObject oldKeyValue = (InternalEObject)keyValue;
-      keyValue = (VariableDefinition)eResolveProxy(oldKeyValue);
-      if (keyValue != oldKeyValue)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UiTestPackage.FILL__KEY_VALUE, oldKeyValue, keyValue));
-      }
-    }
-    return keyValue;
-  }
+		if (newValue != value) {
+			NotificationChain msgs = null;
+			if (value != null)
+				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FILL__VALUE, null, msgs);
+			if (newValue != null)
+				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UiTestPackage.FILL__VALUE, null, msgs);
+			msgs = basicSetValue(newValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__VALUE, newValue, newValue));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariableDefinition basicGetKeyValue()
-  {
-    return keyValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setKeyValue(VariableDefinition newKeyValue)
-  {
-    VariableDefinition oldKeyValue = keyValue;
-    keyValue = newKeyValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UiTestPackage.FILL__KEY_VALUE, oldKeyValue, keyValue));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FILL__SELECTOR:
-        return basicSetSelector(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case UiTestPackage.FILL__SELECTOR:
+				return basicSetSelector(null, msgs);
+			case UiTestPackage.FILL__VALUE:
+				return basicSetValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FILL__SELECTOR:
-        return getSelector();
-      case UiTestPackage.FILL__STRING_VALUE:
-        return getStringValue();
-      case UiTestPackage.FILL__KEY_VALUE:
-        if (resolve) return getKeyValue();
-        return basicGetKeyValue();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case UiTestPackage.FILL__NAME:
+				return getName();
+			case UiTestPackage.FILL__SELECTOR:
+				return getSelector();
+			case UiTestPackage.FILL__VALUE:
+				return getValue();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FILL__SELECTOR:
-        setSelector((Selector)newValue);
-        return;
-      case UiTestPackage.FILL__STRING_VALUE:
-        setStringValue((String)newValue);
-        return;
-      case UiTestPackage.FILL__KEY_VALUE:
-        setKeyValue((VariableDefinition)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case UiTestPackage.FILL__NAME:
+				setName((String)newValue);
+				return;
+			case UiTestPackage.FILL__SELECTOR:
+				setSelector((Selector)newValue);
+				return;
+			case UiTestPackage.FILL__VALUE:
+				setValue((Value)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FILL__SELECTOR:
-        setSelector((Selector)null);
-        return;
-      case UiTestPackage.FILL__STRING_VALUE:
-        setStringValue(STRING_VALUE_EDEFAULT);
-        return;
-      case UiTestPackage.FILL__KEY_VALUE:
-        setKeyValue((VariableDefinition)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.FILL__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case UiTestPackage.FILL__SELECTOR:
+				setSelector((Selector)null);
+				return;
+			case UiTestPackage.FILL__VALUE:
+				setValue((Value)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case UiTestPackage.FILL__SELECTOR:
-        return selector != null;
-      case UiTestPackage.FILL__STRING_VALUE:
-        return STRING_VALUE_EDEFAULT == null ? stringValue != null : !STRING_VALUE_EDEFAULT.equals(stringValue);
-      case UiTestPackage.FILL__KEY_VALUE:
-        return keyValue != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case UiTestPackage.FILL__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case UiTestPackage.FILL__SELECTOR:
+				return selector != null;
+			case UiTestPackage.FILL__VALUE:
+				return value != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (stringValue: ");
-    result.append(stringValue);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //FillImpl
